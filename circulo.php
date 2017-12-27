@@ -1,4 +1,5 @@
 <?php
+  session_start();
   include_once "header.php";
 ?>
     <h2> Círculo </h2>

@@ -1,5 +1,6 @@
 <?php
-  include_once "header.php";
+session_start();
+include_once "header.php";
 ?>
 
 <p class="obs">Preencha as informações a seguir para entrar em contato com a gente.</p>

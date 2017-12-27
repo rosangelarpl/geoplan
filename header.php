@@ -42,6 +42,11 @@
           <li>
             <a class="page-scroll" href="contato.php">Contato</a>
           </li>
+          <?php if (!empty($_SESSION["usuario"])) { ?>
+          <li>
+            <a class="page-scroll" href="logout.php">SAIR</a>
+          </li>
+        <?php } ?>
         </ul>
       </div>
     </div>

@@ -1,14 +1,23 @@
 <?php
+session_start();
 include_once "classes/banco.php";
 
 if (!empty($_POST)) {
   try{
-    $command = "insert into usuario (nome, email, senha) values(?,?,?)";
-    $query = Banco::instanciar()->prepare($command);
+    $insere_usuario = "insert into usuario (nome, email, senha) values(?,?,?)";
+    $query = Banco::instanciar()->prepare($insere_usuario);
     $query->bindValue(1, $_POST["nome"]);
     $query->bindValue(2, $_POST["email"]);
     $query->bindValue(3, $_POST["senha"]);
     $query->execute();
+    Banco::instanciar()->commit();
+    $usuario_id = Banco::instanciar()->lastInsertId();
+    $insere_perfil = "insert into perfil (id_usuario, perfil) values (?, ?)";
+    $query = Banco::instanciar()->prepare($insere_perfil);
+    $query->bindValue(1, $usuario_id);
+    $query->bindValue(2, "comum");
+    $query->execute();
+    Banco::instanciar()->commit();
     $resultado = "Usuário cadastrado com sucesso!";
   } catch(PDOException $e) {
     if($e->getCode() == "23000") {

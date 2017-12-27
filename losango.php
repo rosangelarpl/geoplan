@@ -1,5 +1,6 @@
 <?php
-  include_once "header.php";
+session_start();
+include_once "header.php";
 ?>
     <h2> Losango </h2>
     <h3> O que é um Losango?</h3>

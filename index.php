@@ -1,5 +1,6 @@
 <?php
-  include_once "header.php";
+session_start();
+include_once "header.php";
 ?>
     <h2> A Geometria Plana </h2>
     <p>A geometria plana ou euclidiana é a parte da matemática que estuda as figuras que não possuem volume. A geometria plana também é chamada de euclidiana, uma vez que seu nome representa uma homenagem ao geômetra Euclides de Alexandria, considerado o “pai da geometria”.
