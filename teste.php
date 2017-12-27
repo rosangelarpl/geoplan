@@ -12,5 +12,5 @@ $query->execute();
 #Banco::instanciar()->commit();
 
 $usuario = $query->fetch(Banco::FETCH_ASSOC);
-#echo var_dump($query->fetchAll(Banco::FETCH_ASSOC));
+echo var_dump($query->fetchAll(Banco::FETCH_ASSOC));
 echo $usuario["nome"];
