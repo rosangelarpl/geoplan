@@ -42,4 +42,5 @@
       <h5>Material Retirado de:</h5>
       <p>SILVA, Luiz Paulo Moreira. "O que é círculo?"; Brasil Escola. Disponível em http://brasilescola.uol.com.br/o-que-e/matematica/o-que-e-circulo.htm. Acesso em 12 de novembro de 2017. </p>
       <?php
+        include_once "comentario.php";
         include_once "footer.php";

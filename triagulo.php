@@ -64,4 +64,5 @@
       </div>
 
 <?php
-  include_once "footer.php";
+include_once "comentario.php";
+include_once "footer.php";

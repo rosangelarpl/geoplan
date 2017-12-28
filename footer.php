@@ -1,23 +1,3 @@
-
-<div class="container">
-  <form>
-    <p class="instrucoes">Deixe um comentário</p>
-    <div class="form-group row">
-      <div class="col-sm-12">
-        <input type="text" class="form-control" placeholder="raio" id="raio"/>
-      </div>
-    </div>
-    <div class="form-group row">
-      <div class="col-sm-12">
-        Área:<input type="text" class="form-control" id="area" name="area">
-      </div>
-    </div>
-    <button type="button" value="Calcular" class="btn btn-primary" onclick="calcularAreaCirculo();return true"/>Calcular</button>
-
-  </form>
-</div>
-
-
 </article>
 
 

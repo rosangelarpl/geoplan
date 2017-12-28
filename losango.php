@@ -13,7 +13,7 @@ include_once "header.php";
     <img src="images/forlosango.jpg" alt="" class="formlosango">
     <p>Sendo A, a área do losango, D1 a diagonal maior e D2 a diagonal maior.</p>
     <img src="images/losango2.jpg" alt="" class="losango1">
-    
+
         <div class="container">
             <form>
               <p class="instrucoes">DIGITE OS VALORES PEDIDOS PARA ENCONTRAR A ÁREA</p>
@@ -37,6 +37,7 @@ include_once "header.php";
         </div>
 
       <h5>Material Retirado de:</h5>
-      <p>SILVA, Luiz Paulo Moreira. "O que é triângulo?"; Brasil Escola. Disponível em http://brasilescola.uol.com.br/o-que-e/matematica/o-que-e-triangulo.htm. Acesso em 11 de novembro de 2017. </p>
+      <p>SILVA, Luiz Paulo Moreira. "O que é losango?"; Brasil Escola. Disponível em http://brasilescola.uol.com.br/o-que-e/matematica/o-que-e-losango.htm. Acesso em 11 de novembro de 2017. </p>
       <?php
+        include_once "comentario.php";
         include_once "footer.php";

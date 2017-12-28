@@ -40,4 +40,5 @@ include_once "header.php";
       <h5>Material Retirado de:</h5>
       <p> OLIVEIRA, Naysa Crystine Nogueira. "Área do trapézio"; Brasil Escola. Disponível em http://brasilescola.uol.com.br/matematica/area-trapezio.htm. Acesso em 28 de novembro de 2017. </p>
 <?php
+  include_once "comentario.php";
   include_once "footer.php";
