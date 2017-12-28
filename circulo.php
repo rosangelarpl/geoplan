@@ -21,31 +21,24 @@
     <p>Essa também é a fórmula utilizada para calcular o perímetro do círculo, uma vez que perímetro do círculo e circunferência são a mesma coisa. Quanto ao cálculo de área de um círculo, ele é dada pela seguinte expressão:</p>
     <p class="formula">A = π.r^2</p>
     <p>Uma vez dito isso, é mais correto afirmar que o cálculo de área é feito apenas no círculo ou que a área a ser calculada é delimitada por uma circunferência. Contudo, é comum encontrar exercícios e problemas cujas propostas de cálculo são para área da circunferência.</p>
-    <div class="area">
+    <div class="container">
       <form>
-        <div class="container">
-          <div class="col-md-12">
-            <p class="instrucoes">DIGITE OS VALORES PEDIDOS PARA ENCONTRAR A ÁREA</p>
-            <div class="form-group row">
-              <label for="base" class="col-sm-2 col-form-label">Raio:</label>
-              <div class="col-sm-3">
-                <input type="text" class="form-control" placeholder="tamanho da base" id="raio"/>
-              </div>
-            </div>
-
-          </div>
-          <div class="resultado">
-            <div class="form-group row">
-              <label for="inputPassword3" class="col-sm-2 col-form-label">Área</label>
-              <div class="col-sm-3">
-                <input type="text" class="form-control" id="area" name="area">
-              </div>
-                <input type="button" value="Calcular" onclick="calcularAreaCirculo();return true"/>
-            </div>
+        <p class="instrucoes">DIGITE OS VALORES PEDIDOS PARA ENCONTRAR A ÁREA</p>
+        <div class="form-group row">
+          <div class="col-sm-12">
+            Raio: <input type="text" class="form-control" placeholder="raio" id="raio"/>
           </div>
         </div>
+        <div class="form-group row">
+          <div class="col-sm-12">
+            Área:<input type="text" class="form-control" id="area" name="area">
+          </div>
+        </div>
+        <button type="button" value="Calcular" class="btn btn-primary" onclick="calcularAreaCirculo();return true"/>Calcular</button>
+
       </form>
-    </div>
+   </div>
+
       <h5>Material Retirado de:</h5>
       <p>SILVA, Luiz Paulo Moreira. "O que é círculo?"; Brasil Escola. Disponível em http://brasilescola.uol.com.br/o-que-e/matematica/o-que-e-circulo.htm. Acesso em 12 de novembro de 2017. </p>
       <?php
