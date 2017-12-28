@@ -9,41 +9,34 @@ include_once "header.php";
     <img src="images/trapezio.jpg" alt="" class="trapezio1">
     <p>Para calcularmos a área de um trapézio, devemos saber as medidas referentes à base maior (b), base menor (a) e altura (h). Veja:</p>
     <h4>Fórmula da Área do Trapézio</h4>
-      <div class="area">
-        <div class="container">
-          <div class="col-md-10">
-            <form>
-              <p class="instrucoes">DIGITE OS VALORES PEDIDOS PARA ENCONTRAR A ÁREA</p>
-              <div class="form-group row">
-                <label for="base" class="col-sm-2 col-form-label">Lado maior:</label>
-                <div class="col-sm-4">
-                  <input type="text" class="form-control" placeholder="lado maior" id="ladomaior">
-                </div>
-              </div>
-              <label for="base" class="col-sm-2 col-form-label">Lado menor:</label>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" placeholder="lado menor" id="ladomenor">
-              </div>
-              <img src="images/areatrapezio.png" alt="" class="trapezio">
-              <div class="form-group row">
-                <label for="altura" class="col-sm-2 col-form-label">Altura:</label>
-                <div class="col-sm-2">
-                  <input type="text" class="form-control" placeholder="Altura" id="altura">
-                  <input type="button" value="Calcular" onclick="calcularAreaTrapezio();return true"/>
-                </div>
-              </div>
-              <div class="resultado">
-                <div class="form-group row">
-                  <label for="inputPassword3" class="col-sm-2 col-form-label">Área</label>
-                  <div class="col-sm-2">
-                    <input type="text" class="form-control" id="area" name="area">
-                  </div>
-                </div>
-              </div>
-            </form>
+
+    <div class="container">
+        <form>
+          <p class="instrucoes">DIGITE OS VALORES PEDIDOS PARA ENCONTRAR A ÁREA</p>
+          <div class="form-group row">
+            <div class="col-sm-12">
+              Lado Maior: <input type="text" class="form-control" placeholder="lado maior" id="ladomaior">
+            </div>
           </div>
-        </div>
-      </div>
+          <div class="form-group row">
+            <div class="col-sm-12">
+              Lado Menor: <input type="text" class="form-control" placeholder="lado menor" id="ladomenor">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-12">
+            Altura:<input type="text" class="form-control" placeholder="Altura" id="altura">
+            </div>
+          </div>
+              <button type="button" value="Calcular" class="btn btn-primary" onclick="calcularAreaTrapezio();return true"/>Calcular</button>
+          <div class="form-group row">
+            <div class="col-sm-12">
+              Área:<input type="text" class="form-control" id="area" name="area">
+            </div>
+          </div>
+        </form>
+    </div>
+
       <h5>Material Retirado de:</h5>
       <p> OLIVEIRA, Naysa Crystine Nogueira. "Área do trapézio"; Brasil Escola. Disponível em http://brasilescola.uol.com.br/matematica/area-trapezio.htm. Acesso em 28 de novembro de 2017. </p>
 <?php

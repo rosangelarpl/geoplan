@@ -13,37 +13,29 @@ include_once "header.php";
     <img src="images/forlosango.jpg" alt="" class="formlosango">
     <p>Sendo A, a área do losango, D1 a diagonal maior e D2 a diagonal maior.</p>
     <img src="images/losango2.jpg" alt="" class="losango1">
-      <div class="area">
+    
         <div class="container">
-          <div class="col-md-10">
             <form>
               <p class="instrucoes">DIGITE OS VALORES PEDIDOS PARA ENCONTRAR A ÁREA</p>
               <div class="form-group row">
-                <label for="base" class="col-sm-2 col-form-label">Diagonal maior:</label>
-                <div class="col-sm-4">
-                  <input type="text" class="form-control" placeholder="diagonal maior" id="diagonalmaior">
+                <div class="col-sm-12">
+                  Dagonal Maior: <input type="text" class="form-control" placeholder="diagonal maior" id="diagonalmaior">
                 </div>
               </div>
-              <img src="images/forlosango.jpg" alt="" class="formlosango">
               <div class="form-group row">
-                <label for="altura" class="col-sm-2 col-form-label">Diagonal menor:</label>
-                <div class="col-sm-4">
-                  <input type="text" class="form-control"placeholder="tamanho da altura" id="diagonalmenor">
-                  <input type="button" value="Calcular" onclick="calcularAreaLosango();return true"/>
+                <div class="col-sm-12">
+                  Diagonal Menor: <input type="text" class="form-control"placeholder="tamanho da altura" id="diagonalmenor">
                 </div>
               </div>
-              <div class="resultado">
-                <div class="form-group row">
-                  <label for="inputPassword3" class="col-sm-2 col-form-label">Área</label>
-                  <div class="col-sm-2">
-                    <input type="text" class="form-control" id="area" name="area">
-                  </div>
+                  <button type="button" value="Calcular" class="btn btn-primary" onclick="calcularAreaLosango();return true"/>Calcular</button>
+              <div class="form-group row">
+                <div class="col-sm-12">
+                  Área:<input type="text" class="form-control" id="area" name="area">
                 </div>
               </div>
             </form>
-          </div>
         </div>
-      </div>
+
       <h5>Material Retirado de:</h5>
       <p>SILVA, Luiz Paulo Moreira. "O que é triângulo?"; Brasil Escola. Disponível em http://brasilescola.uol.com.br/o-que-e/matematica/o-que-e-triangulo.htm. Acesso em 11 de novembro de 2017. </p>
       <?php
