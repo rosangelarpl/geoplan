@@ -1,5 +1,6 @@
 <?php
-  include_once "header.php";
+session_start();
+include_once "header.php";
 ?>
     <h2> Trapézio </h2>
     <h3> O que é um Trapézio?</h3>
