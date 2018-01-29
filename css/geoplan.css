@@ -292,3 +292,21 @@ footer small{
   display:block;
   padding-top:7px;
 }
+
+/**************************botao salvar*********************************/
+.btn-custom {
+	padding: 1px 15px 3px 2px;
+	border-radius: 50px;
+
+}
+
+#salva {
+  float: right !important;
+}
+
+.btn-icon {
+	padding: 8px;
+	background: #ffffff;
+}
+
+/**************************botao salvar*********************************/

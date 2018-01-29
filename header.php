@@ -27,8 +27,17 @@
           <li>
             <a class="page-scroll" href="index.php">Inicial</a>
           </li>
-          <li>
-            <a class="page-scroll" href="figuras.php">As Figuras</a>
+          <li role="presentation">
+            <a class="page-scroll" class="dropdown-toggle" data-toggle="dropdown">As Figuras <span class="caret"></a>
+            <ul class="dropdown-menu">
+              <li><a href="triagulo.php">Triângulo</a></li>
+              <li><a href="circulo.php">Círculo</a></li>
+              <li><a href="losango.php">Losango</a></li>
+              <li><a href="paralelogramo.php">Paralelogramo</a></li>
+              <li><a href="retangulo.php">Retângulo</a></li>
+              <li><a href="trapezio.php">Trapézio</a></li>
+            </ul>
+
           </li>
           <li>
             <a class="page-scroll" href="sobre.php">Sobre</a>
