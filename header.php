@@ -8,7 +8,23 @@
   <link rel="stylesheet" type="text/css" href="css/geoplan.css">
 </head>
 <body>
+
+
   <article id="central">
+    <div class="sup">
+        <p><a href="index.php">GeoPlan</a>
+        <li role="presentation">
+          <a class="page-scroll" class="dropdown-toggle" data-toggle="dropdown"><img class="user" src= "images/user.png" > <span class="caret"></a>
+          <ul class="dropdown-menu">
+            <li><a href="perfil.php">Perfil</a></li>
+            <li><a href="#">Sair</a></li>
+          </ul>
+          </li>
+
+
+        </p>
+    </div>
+
     <header>
       <img src="images/header.png" alt="Minha Figura" class="head">
     </header>
