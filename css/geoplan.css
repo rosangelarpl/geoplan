@@ -110,7 +110,7 @@ header{
 }
 
 .navbar .navbar-collapse {
-    text-align: center;
+  text-align: center;
 }
 
 .navbar-nav {
@@ -310,3 +310,24 @@ footer small{
 }
 
 /**************************botao salvar*********************************/
+
+/*************************** Barra Superior ***************************/
+
+.sup{
+  background-color: rgba(220,220,220,0.4);
+  width: 100%;
+  color: inherit;
+  position: relative;
+  vertical-align:top;
+  height: 20%;
+
+  /*right:0px*/
+}
+
+.user{
+  width: 3%;
+}
+
+
+
+/*************************** Barra Superior ***************************/
