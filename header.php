@@ -77,7 +77,7 @@
           <li>
             <a class="page-scroll" href="logout.php">SAIR</a>
           </li>
-        <?php } else {  ?> 
+        <?php } else {  ?>
           <li>
             <a class="page-scroll" href="login.php">Entrar</a>
           </li>

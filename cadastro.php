@@ -34,7 +34,7 @@ include_once "header.php";
 ?>
         <p class="obs">Preencha as informações a seguir para fazer cadastro no site.</p>
         <div class="container">
-          <form method="post" action="cadastro.php">
+          <form class="cadastro" method="post" action="cadastro.php">
             <h3>Realizar Cadastro</h3>
             <div class="form-group row">
               <div class="col-sm-12">

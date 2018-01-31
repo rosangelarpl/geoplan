@@ -22,7 +22,7 @@
     <p class="formula">A = π.r^2</p>
     <p>Uma vez dito isso, é mais correto afirmar que o cálculo de área é feito apenas no círculo ou que a área a ser calculada é delimitada por uma circunferência. Contudo, é comum encontrar exercícios e problemas cujas propostas de cálculo são para área da circunferência.</p>
     <div class="container">
-      <form>
+      <form class"calcular">
         <p class="instrucoes">DIGITE OS VALORES PEDIDOS PARA ENCONTRAR A ÁREA</p>
         <div class="form-group row">
           <div class="col-sm-12">

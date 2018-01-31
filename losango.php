@@ -15,7 +15,7 @@ include_once "header.php";
     <img src="images/losango2.jpg" alt="" class="losango1">
 
         <div class="container">
-            <form>
+            <form class="calcular">
               <p class="instrucoes">DIGITE OS VALORES PEDIDOS PARA ENCONTRAR A ÁREA</p>
               <div class="form-group row">
                 <div class="col-sm-12">

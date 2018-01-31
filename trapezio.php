@@ -11,7 +11,7 @@ include_once "header.php";
     <h4>Fórmula da Área do Trapézio</h4>
 
     <div class="container">
-        <form>
+        <form class="calcular">
           <p class="instrucoes">DIGITE OS VALORES PEDIDOS PARA ENCONTRAR A ÁREA</p>
           <div class="form-group row">
             <div class="col-sm-12">

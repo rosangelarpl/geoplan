@@ -22,7 +22,7 @@ if (!empty($_POST)) {
   include_once "header.php";
 ?>
         <div class="container">
-          <form method="post" action="login.php">
+          <form method="post" action="login.php" class="login">
             <h3>Login</h3>
             <div class="form-group row">
               <div class="col-sm-12">
