@@ -19,7 +19,7 @@
         <ul>
           <form class="form-inline">
               <li role="presentation">
-                <a class="page-scroll" class="dropdown-toggle" data-toggle="dropdown"><img class="userperfil" src= "images/user.png" > <span class="caret"></a>
+                <a class="page-scroll dropdown-toggle" data-toggle="dropdown"><img class="userperfil" src= "images/user.png" > <span class="caret"></a>
                 <ul class="dropdown-menu">
                   <li><a href="perfil.php">Perfil</a></li>
                   <li><a href="#">Sair</a></li>
@@ -52,7 +52,7 @@
             <a class="page-scroll" href="index.php">Inicial</a>
           </li>
           <li role="presentation">
-            <a class="page-scroll" class="dropdown-toggle" data-toggle="dropdown">As Figuras <span class="caret"></a>
+            <a class="page-scroll dropdown-toggle" data-toggle="dropdown">As Figuras <span class="caret"></a>
             <ul class="dropdown-menu">
               <li><a href="triagulo.php">Triângulo</a></li>
               <li><a href="circulo.php">Círculo</a></li>
