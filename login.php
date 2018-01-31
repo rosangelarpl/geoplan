@@ -13,6 +13,7 @@ if (!empty($_POST)) {
       echo "Usuário não encontrado. Verifique as informações e tente novamente";
     } elseif ($usuario["senha"] == $_POST["senha"]) {
       $_SESSION["usuario"] = $usuario;
+      header( "location:perfil.php" );
     } else echo "Senha não confere. Verifique as informações e tente novamente";
   } catch(PDOException $e) {
     echo "Usuário ou senha não confere. Verifique as informações e tente novamente.";

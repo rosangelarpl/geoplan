@@ -4,6 +4,7 @@ include_once "classes/banco.php";
 
 if (!empty($_POST)) {
   try{
+    // Cadastrar usuário novo
     $insere_usuario = "insert into usuario (nome, email, senha) values(?,?,?)";
     $query = Banco::instanciar()->prepare($insere_usuario);
     $query->bindValue(1, $_POST["nome"]);
@@ -18,7 +19,14 @@ if (!empty($_POST)) {
     $query->bindValue(2, "comum");
     $query->execute();
     Banco::instanciar()->commit();
-    $resultado = "Usuário cadastrado com sucesso!";
+    // Logar o novo usuário no sistema
+    $encontra_usuario = "select * from usuario where email = ?";
+    $query = Banco::instanciar()->prepare($encontra_usuario);
+    $query->bindValue(1, $_POST["email"]);
+    $query->execute();
+    $usuario = $query->fetch(Banco::FETCH_ASSOC);
+    $_SESSION["usuario"] = $usuario;
+    header( "location:perfil.php" );
   } catch(PDOException $e) {
     if($e->getCode() == "23000") {
       $resultado = "Erro no cadastro. Usuário existente.";

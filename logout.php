@@ -4,4 +4,4 @@
   unset($_SESSION["usuario"]);
   session_destroy();
 
-  include_once "index.php";
+  header( "location:index.php" );
