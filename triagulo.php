@@ -2,6 +2,8 @@
   session_start();
   include_once "header.php";
 ?>
+    <a href="#" class="btn btn-primary btn-custom pull-right" id="salva">
+    <span class="glyphicon glyphicon-star img-circle btn-icon"></span>Salvar Página</a>
     <h2> Triângulos </h2>
     <h3> O que é um Triângulo?</h3>
     <img src="images/triangulo.jpg" alt="Minha Figura" class="triangulo1">

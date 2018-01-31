@@ -2,6 +2,8 @@
 session_start();
 include_once "header.php";
 ?>
+    <a href="#" class="btn btn-primary btn-custom pull-right" id="salva">
+    <span class="glyphicon glyphicon-star img-circle btn-icon"></span>Salvar Página</a>
     <h2> Paralelogramo </h2>
     <h3> O que é um Paralelogramo?</h3>
     <p> O paralelogramo é uma figura plana que possui quatro lados. Ele faz parte dos estudos da geometria plana sendo um quadrilátero cujos lados opostos são paralelos. Em outras palavras, os paralelogramos são polígonos de quatro lados opostos congruentes (que possuem a mesma medida), por exemplo, o quadrado, o losango e o retângulo.</p>

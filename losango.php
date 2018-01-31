@@ -2,6 +2,8 @@
 session_start();
 include_once "header.php";
 ?>
+    <a href="#" class="btn btn-primary btn-custom pull-right" id="salva">
+    <span class="glyphicon glyphicon-star img-circle btn-icon"></span>Salvar Página</a>
     <h2> Losango </h2>
     <h3> O que é um Losango?</h3>
     <p> Um losango é um polígono que possui quatro lados congruentes. Sendo assim, o losango é formado por segmentos de reta, chamados de lados do polígono, que se encontram apenas pelas extremidades. Esses segmentos de reta acabam formando uma figura fechada e seus lados não se cruzam em momento algum. Para ser losango, além de possuir todos os lados congruentes, a figura geométrica precisa ter exatamente quatro lados. Isso classifica o losango como quadrilátero.</p>

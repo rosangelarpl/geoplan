@@ -68,7 +68,6 @@
               <li><a href="retangulo.php">Retângulo</a></li>
               <li><a href="trapezio.php">Trapézio</a></li>
             </ul>
-
           </li>
           <li>
             <a class="page-scroll" href="sobre.php">Sobre</a>

@@ -2,6 +2,8 @@
 session_start();
 include_once "header.php";
 ?>
+    <a href="#" class="btn btn-primary btn-custom pull-right" id="salva">
+    <span class="glyphicon glyphicon-star img-circle btn-icon"></span>Salvar Página</a>
     <h2> Retangulo </h2>
     <h3> O que é um Retangulo?</h3>
     <p> O retângulo é uma figura geométrica plana formada por quatro lados (quadrilátero). Dentre os lados, dois deles são menores, o que os difere dos quadrados.

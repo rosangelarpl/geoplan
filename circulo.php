@@ -2,6 +2,8 @@
   session_start();
   include_once "header.php";
 ?>
+    <a href="#" class="btn btn-primary btn-custom pull-right" id="salva">
+    <span class="glyphicon glyphicon-star img-circle btn-icon"></span>Salvar Página</a>
     <h2> Círculo </h2>
     <h3> O que é um Círculo?</h3>
     <p> A definição de círculo está intimamente ligada à definição de circunferência. Um círculo é um conjunto de pontos resultantes da união de uma circunferência com todos os seus pontos internos. Desse modo, ao preencher uma piscina circular de água, por exemplo, a borda dessa piscina e a superfície da água compõem um círculo. Uma circunferência, por sua vez, é um conjunto de pontos no plano equidistantes a outro ponto fixo do mesmo plano. Isso quer dizer que, dado um ponto fixo C (ponto que permanece no mesmo local, sem se movimentar), qualquer ponto que possua uma distância r do ponto C pertence à circunferência.</p>
