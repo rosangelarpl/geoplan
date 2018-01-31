@@ -399,3 +399,9 @@ li[role=presentation]{
   width: 64px;
 
 }
+
+.navbar-right > ul > li {
+display:inline;
+padding: 18px;
+font-size: 18px;
+height: 50px;

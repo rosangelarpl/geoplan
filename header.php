@@ -16,16 +16,23 @@
         <a class="navbar-brand" style="margin:0; padding:0;" href="index.php"><img class="logo" src= "images/logo.png"></a>
       </div>
       <nav class="nav navbar-nav navbar-right">
-        <ul>
-          <form class="form-inline">
-              <li role="presentation">
-                <a class="page-scroll dropdown-toggle" data-toggle="dropdown"><img class="userperfil" src= "images/user.png" > <span class="caret"></a>
-                <ul class="dropdown-menu">
-                  <li><a href="perfil.php">Perfil</a></li>
-                  <li><a href="#">Sair</a></li>
-                </ul>
-              </li>
-          </form>
+        <ul id="entrar">
+          <?php if (!empty($_SESSION["usuario"])) { ?>
+          <li role="presentation">
+            <a class="page-scroll" class="dropdown-toggle" data-toggle="dropdown"><img class="userperfil" src= "images/user.png" > <span class="caret"></a>
+            <ul class="dropdown-menu">
+              <li><a href="perfil.php">Perfil</a></li>
+              <li><a href="logout.php">Sair</a></li>
+            </ul>
+          </li>
+          <?php } else { ?>
+          <li>
+            <a href="cadastro.php">Cadastre-se</a>
+          </li>
+          <li>
+            <a href="login.php">Entrar</a>
+          </li>
+          <?php } ?>
         </ul>
     </nav>
     </div>
@@ -67,21 +74,8 @@
             <a class="page-scroll" href="sobre.php">Sobre</a>
           </li>
           <li>
-            <a class="page-scroll" href="cadastro.php">Cadastre-se</a>
-          </li>
-
-          <li>
             <a class="page-scroll" href="contato.php">Contato</a>
           </li>
-          <?php if (!empty($_SESSION["usuario"])) { ?>
-          <li>
-            <a class="page-scroll" href="logout.php">SAIR</a>
-          </li>
-        <?php } else {  ?>
-          <li>
-            <a class="page-scroll" href="login.php">Entrar</a>
-          </li>
-        <?php } ?>
         </ul>
       </div>
     </div>
