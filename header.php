@@ -10,20 +10,28 @@
 <body>
 
 
-  <article id="central">
-    <div class="sup">
-        <p><a href="index.php">GeoPlan</a>
-        <li role="presentation">
-          <a class="page-scroll" class="dropdown-toggle" data-toggle="dropdown"><img class="user" src= "images/user.png" > <span class="caret"></a>
-          <ul class="dropdown-menu">
-            <li><a href="perfil.php">Perfil</a></li>
-            <li><a href="#">Sair</a></li>
-          </ul>
-          </li>
-
-
-        </p>
+  <nav class="navbar" style="background-color: rgba(220,220,220,0.4); margin:0;">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.php">Geoplan</a>
+      </div>
+      <nav class="nav navbar-nav navbar-right">
+        <ul>
+          <form class="form-inline">
+              <li role="presentation">
+                <a class="page-scroll" class="dropdown-toggle" data-toggle="dropdown"><img class="userperfil" src= "images/user.png" > <span class="caret"></a>
+                <ul class="dropdown-menu">
+                  <li><a href="perfil.php">Perfil</a></li>
+                  <li><a href="#">Sair</a></li>
+                </ul>
+              </li>
+          </form>
+        </ul>
+    </nav>
     </div>
+  </nav>
+
+  <article id="central">
 
     <header>
       <img src="images/header.png" alt="Minha Figura" class="head">
@@ -39,7 +47,7 @@
         </button>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav menu">
           <li>
             <a class="page-scroll" href="index.php">Inicial</a>
           </li>
@@ -61,15 +69,17 @@
           <li>
             <a class="page-scroll" href="cadastro.php">Cadastre-se</a>
           </li>
-          <li>
-            <a class="page-scroll" href="login.php">Entrar</a>
-          </li>
+
           <li>
             <a class="page-scroll" href="contato.php">Contato</a>
           </li>
           <?php if (!empty($_SESSION["usuario"])) { ?>
           <li>
             <a class="page-scroll" href="logout.php">SAIR</a>
+          </li>
+        <?php } else {  ?> 
+          <li>
+            <a class="page-scroll" href="login.php">Entrar</a>
           </li>
         <?php } ?>
         </ul>

@@ -1,5 +1,12 @@
+html, body{
+  padding: 0;
+  margin: 0;
+}
+
+
 body{
   background-color: white;
+
 }
 
 #central {
@@ -46,7 +53,7 @@ p.obs {
   margin: 0 auto;
 }
 
-form {
+.cont {
   display: block;
   width: 50%;
   border-radius: 10px;
@@ -105,7 +112,7 @@ header{
 
 .nav, .navbar {
   border:0;
-  background: #fff;
+
   margin-top: 10px;
 }
 
@@ -113,10 +120,11 @@ header{
   text-align: center;
 }
 
-.navbar-nav {
+.menu{
   width: 100%;
+  background: #fff;
 }
-.navbar-nav > li {
+.navbar-nav > li{
   float: none;
   display: inline-block;
   border-bottom: 1px solid #E4BB97;
@@ -334,6 +342,10 @@ footer small{
 
 /**************************** Perfil **********************************/
 
+form{
+  background-color:
+}
+
  .perfil{
    float: left;
    margin: 0% 50% 0% 0%;
@@ -342,11 +354,9 @@ footer small{
 
 
 .userperfil{
-  padding-top: 5%;
-  padding-left: 3%;
-  width: 10%;
-
+  width: 24px;
 }
+
 .nomeperfil{
   float: left 30%;
 }
@@ -377,4 +387,10 @@ p.obs1{
 
 .comen{
   border: 1px solid #dcdcdd;
+}
+
+
+li[role=presentation]{
+  list-style: none;
+
 }

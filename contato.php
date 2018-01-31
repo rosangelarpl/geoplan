@@ -5,7 +5,7 @@ include_once "header.php";
 
 <p class="obs">Preencha as informações a seguir para entrar em contato com a gente.</p>
 <div class="container">
-  <form>
+  <form class="cont">
     <h3></h3>
     <div class="form-group row">
       <div class="col-sm-12">
