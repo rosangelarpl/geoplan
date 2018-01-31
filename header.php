@@ -12,8 +12,8 @@
 
   <nav class="navbar" style="background-color: rgba(220,220,220,0.4); margin:0;">
     <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="index.php">Geoplan</a>
+      <div class="navbar-header" >
+        <a class="navbar-brand" style="margin:0; padding:0;" href="index.php"><img class="logo" src= "images/logo.png"></a>
       </div>
       <nav class="nav navbar-nav navbar-right">
         <ul>
