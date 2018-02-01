@@ -1,9 +1,38 @@
 <?php
 session_start();
 include_once "header.php";
+$pag = "index";
+include_once "classes/banco.php";
+
+if (!empty($_SESSION["usuario"])) {
+
+if(!empty($_POST)) {
+  try{
+    $insere_perfil = "insert into salva_pagina (id_usuario, pagina) values (?, ?)";
+    $query = Banco::instanciar()->prepare($insere_perfil);
+    $query->bindValue(1, $_SESSION["usuario"]["id"]);
+    $query->bindValue(2, $pag);
+    $query->execute();
+    array_push($_SESSION["usuario"]["paginas"], $pag);
+  } catch (PDOException $e) {
+
+  }
+}
+
+if (!in_array($pag, $_SESSION["usuario"]["paginas"])) {
 ?>
-  <a href="#" class="btn btn-primary btn-custom pull-right" id="salva">
-  <span class="glyphicon glyphicon-star img-circle btn-icon"></span>Salvar Página</a>
+<form method="post" action="index.php">
+  <input type="hidden" value="-" name="-"/>
+  <button type="submit" class="btn btn-primary btn-custom pull-right" id="salva">
+  <span class="glyphicon glyphicon-star img-circle btn-icon"></span>
+  Salvar Página</button>
+</form>
+<?php } else { ?>
+  <a href="#" class="btn btn-secondary active btn-custom pull-right" id="salva">
+  <span class="glyphicon glyphicon-heart img-circle btn-icon"></span>
+  Página Salva</a>
+<?php } ?>
+<?php } ?>
       <div class="row">
       <h2> A Geometria Plana </h2>
     <p>A geometria plana ou euclidiana é a parte da matemática que estuda as figuras que não possuem volume. A geometria plana também é chamada de euclidiana, uma vez que seu nome representa uma homenagem ao geômetra Euclides de Alexandria, considerado o “pai da geometria”.

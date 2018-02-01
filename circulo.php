@@ -1,9 +1,38 @@
 <?php
   session_start();
   include_once "header.php";
+  $pag = "circulo";
+  include_once "classes/banco.php";
+
+  if (!empty($_SESSION["usuario"])) {
+
+  if(!empty($_POST)) {
+    try{
+      $insere_perfil = "insert into salva_pagina (id_usuario, pagina) values (?, ?)";
+      $query = Banco::instanciar()->prepare($insere_perfil);
+      $query->bindValue(1, $_SESSION["usuario"]["id"]);
+      $query->bindValue(2, $pag);
+      $query->execute();
+      array_push($_SESSION["usuario"]["paginas"], $pag);
+    } catch (PDOException $e) {
+
+    }
+  }
+
+  if (!in_array($pag, $_SESSION["usuario"]["paginas"])) {
 ?>
-    <a href="#" class="btn btn-primary btn-custom pull-right" id="salva">
-    <span class="glyphicon glyphicon-star img-circle btn-icon"></span>Salvar Página</a>
+  <form method="post" action="circulo.php">
+    <input type="hidden" value="-" name="-"/>
+    <button type="submit" class="btn btn-primary btn-custom pull-right" id="salva">
+    <span class="glyphicon glyphicon-star img-circle btn-icon"></span>
+    Salvar Página</button>
+  </form>
+  <?php } else { ?>
+    <a href="#" class="btn btn-secondary active btn-custom pull-right" id="salva">
+    <span class="glyphicon glyphicon-heart img-circle btn-icon"></span>
+    Página Salva</a>
+  <?php } ?>
+<?php } ?>
     <h2> Círculo </h2>
     <h3> O que é um Círculo?</h3>
     <p> A definição de círculo está intimamente ligada à definição de circunferência. Um círculo é um conjunto de pontos resultantes da união de uma circunferência com todos os seus pontos internos. Desse modo, ao preencher uma piscina circular de água, por exemplo, a borda dessa piscina e a superfície da água compõem um círculo. Uma circunferência, por sua vez, é um conjunto de pontos no plano equidistantes a outro ponto fixo do mesmo plano. Isso quer dizer que, dado um ponto fixo C (ponto que permanece no mesmo local, sem se movimentar), qualquer ponto que possua uma distância r do ponto C pertence à circunferência.</p>

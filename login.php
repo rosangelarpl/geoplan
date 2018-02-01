@@ -13,7 +13,18 @@ if (!empty($_POST)) {
       echo "Usuário não encontrado. Verifique as informações e tente novamente";
     } elseif ($usuario["senha"] == $_POST["senha"]) {
       $_SESSION["usuario"] = $usuario;
-      header( "location:perfil.php" );
+      $temp = array();
+      $encontra_paginas = "select pagina from salva_pagina where id_usuario = ?";
+      $query = Banco::instanciar()->prepare($encontra_paginas);
+      $query->bindValue(1, $_SESSION["usuario"]["id"]);
+      $query->execute();
+      $paginas = $query->fetchall(Banco::FETCH_ASSOC);
+      foreach ($paginas as $pagina) {
+       $temp = array_push($pagina);
+       echo var_dump($pagina);
+      }
+      echo var_dump($temp);
+      //header( "location:perfil.php" );
     } else echo "Senha não confere. Verifique as informações e tente novamente";
   } catch(PDOException $e) {
     echo "Usuário ou senha não confere. Verifique as informações e tente novamente.";

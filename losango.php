@@ -1,9 +1,38 @@
 <?php
 session_start();
 include_once "header.php";
+$pag = "losango";
+include_once "classes/banco.php";
+
+if (!empty($_SESSION["usuario"])) {
+
+if(!empty($_POST)) {
+  try{
+    $insere_perfil = "insert into salva_pagina (id_usuario, pagina) values (?, ?)";
+    $query = Banco::instanciar()->prepare($insere_perfil);
+    $query->bindValue(1, $_SESSION["usuario"]["id"]);
+    $query->bindValue(2, $pag);
+    $query->execute();
+    array_push($_SESSION["usuario"]["paginas"], $pag);
+  } catch (PDOException $e) {
+
+  }
+}
+echo var_dump($_SESSION["usuario"]["paginas"]);
+if (!in_array($pag, $_SESSION["usuario"]["paginas"])) {
 ?>
-    <a href="#" class="btn btn-primary btn-custom pull-right" id="salva">
-    <span class="glyphicon glyphicon-star img-circle btn-icon"></span>Salvar Página</a>
+<form method="post" action="losango.php">
+  <input type="hidden" value="-" name="-"/>
+  <button type="submit" class="btn btn-primary btn-custom pull-right" id="salva">
+  <span class="glyphicon glyphicon-star img-circle btn-icon"></span>
+  Salvar Página</button>
+</form>
+<?php } else { ?>
+  <a href="#" class="btn btn-secondary active btn-custom pull-right" id="salva">
+  <span class="glyphicon glyphicon-heart img-circle btn-icon"></span>
+  Página Salva</a>
+<?php } ?>
+<?php } ?>
     <h2> Losango </h2>
     <h3> O que é um Losango?</h3>
     <p> Um losango é um polígono que possui quatro lados congruentes. Sendo assim, o losango é formado por segmentos de reta, chamados de lados do polígono, que se encontram apenas pelas extremidades. Esses segmentos de reta acabam formando uma figura fechada e seus lados não se cruzam em momento algum. Para ser losango, além de possuir todos os lados congruentes, a figura geométrica precisa ter exatamente quatro lados. Isso classifica o losango como quadrilátero.</p>
@@ -38,7 +67,7 @@ include_once "header.php";
             </form>
         </div>
 
-      
+
       <?php
         include_once "comentario.php";
         include_once "footer.php";
