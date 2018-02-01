@@ -19,7 +19,7 @@ include_once "header.php";
     </div>
     <div class="form-group row">
       <div class="col-sm-12">
-      Mensagem: </br> <textarea name=mytextarea cols=60 rows=5 readonly> </textarea> <!-- Alterar caixa de texto-->
+      Mensagem: <textarea name="mytextarea" class="form-control" id="textarea" placeholder="Digite seu comentário aqui" rows="3"></textarea>
       </div>
     </div>
     <button type="submit" class="btn btn-primary">ENVIAR MENSAGEM</button>
