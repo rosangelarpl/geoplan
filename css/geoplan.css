@@ -378,7 +378,8 @@ form{
 
 .h2perfil{
   text-align: left;
-  padding-left: 1%;
+  padding-left: 30px;
+
 }
 
 
@@ -424,4 +425,22 @@ display:inline;
 padding: 18px;
 font-size: 18px;
 height: 50px;
+}
+
+.sectionsalva, .sectioncomentario{
+  background-color: rgba(221,221,221,0.2);
+  width: 95%;
+  border-radius: 10px;
+  margin-left: 30px;
+}
+
+.hrperfil{
+  border-color: #696969;
+}
+
+.secaoperfil{
+  border-radius: 10px;
+  border-color: rgba(220,220,220,0.2);
+  background-color: rgba(220,220,220,0.1);
+  padding: 1%;
 }

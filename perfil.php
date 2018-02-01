@@ -22,20 +22,25 @@ include_once "header.php";
       </form>
   </div>
 
+   <hr class="hrperfil"/>
+  <section class="secaoperfil">
+   <h3>Páginas Salvas:</h3>
+   <div class="sectionsalva">
+     <p>Aqui fica a primeira página salva</p>
+     <p>Aqui fica a segunda página salva</p>
+     <p>...</p>
+     <p>...</p>
+   </div>
+   <hr class="hrperfil"/>
+   <h3>Seus Comentários:</h3>
+   <div class="sectioncomentario">
+     <p>Aqui fica o primeiro comentário</p>
+     <p>Aqui fica o segundo comentário</p>
+     <p>...</p>
+     <p>...</p>
+   </div>
+ </section>
 
-
-
-<h3>Páginas Salvas:</h3>
-
-  <ul>
-    <li>Página 1</li>
-    <li>Página 2</li>
-  </ul>
-<h3>Seus Comentários:</h3>
-  <ul>
-    <li>Comentário 1</li>
-    <li>Comentário 2</li>
-  </ul>
 
 
 
