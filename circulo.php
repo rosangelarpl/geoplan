@@ -13,14 +13,18 @@
       $query->bindValue(1, $_SESSION["usuario"]["id"]);
       $query->bindValue(2, $pag);
       $query->execute();
-      array_push($_SESSION["usuario"]["paginas"], $pag);
     } catch (PDOException $e) {
 
     }
   }
-
-  if (!in_array($pag, $_SESSION["usuario"]["paginas"])) {
-?>
+  $encontra_paginas = "select pagina from salva_pagina where id_usuario = ? and pagina = ?";
+  $query = Banco::instanciar()->prepare($encontra_paginas);
+  $query->bindValue(1, $_SESSION["usuario"]["id"]);
+  $query->bindValue(2, $pag);
+  $query->execute();
+  $pagina = $query->fetch(Banco::FETCH_ASSOC);
+  if ($pagina["pagina"] !== $pag) {
+  ?>
   <form method="post" action="circulo.php">
     <input type="hidden" value="-" name="-"/>
     <button type="submit" class="btn btn-primary btn-custom pull-right" id="salva">
