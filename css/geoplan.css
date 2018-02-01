@@ -29,7 +29,7 @@ h2{
 h3{
   font-family: Lobster;
   color: #4B0082;
-  padding-left: 5%;
+  padding-left: 50px;
 }
 
 p{
@@ -63,9 +63,10 @@ p.obs {
   margin: 20px auto;
 }
 .comen{
-  padding-left: 20px;
-  padding-top: 20px;
-  margin: 10px ;
+  padding-left: 30px;
+  padding-top: 15px;
+  margin: 10px;
+  padding-bottom:
 }
 
 ul.figuras {
@@ -349,10 +350,22 @@ form{
 }
 
  .perfil{
-   float: left;
+   float: right;
    margin: 0% 50% 0% 0%;
    background-color: inherit;
+   width: 40%;
+   padding: 2%;
  }
+
+
+.divperfil{
+  padding: 2%;
+  padding-left: 10%;
+}
+
+.iconperfil{
+  width: 10%;
+}
 
 
 .userperfil{
@@ -365,7 +378,7 @@ form{
 
 .h2perfil{
   text-align: left;
-  padding-left: 3%;
+  padding-left: 1%;
 }
 
 

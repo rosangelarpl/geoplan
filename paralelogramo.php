@@ -36,8 +36,7 @@ include_once "header.php";
               </div>
             </form>
         </div>
-      <h5>Material Retirado de:</h5>
-      <p>SILVA, Luiz Paulo Moreira. "O que é triângulo?"; Brasil Escola. Disponível em http://brasilescola.uol.com.br/o-que-e/matematica/o-que-e-triangulo.htm. Acesso em 11 de novembro de 2017. </p>
+      
 <?php
   include_once "comentario.php";
   include_once "footer.php";

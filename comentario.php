@@ -1,6 +1,7 @@
 <div class="container">
 <hr/>
-<p class="obs1">Deixe-nos um comentário</p>
+<h3>Deixe-nos um comentário</h3>
+<p></p>
   <form class="comen">
 
     <div class="form-group row">
