@@ -12,9 +12,27 @@ class Banco extends \PDO
 
     final public static function instanciar(){
         if (!(self::$instance instanceof self)) {
-            self::$instance = new self();
+          self::$instance = new self();
         }
         return self::$instance;
+        //$handle = new PDO('sqlite:/temp/banco.db',null,null,array(self::ATTR_PERSISTENT => true));
+        //Set errormode to exceptions
+        //$handle->setAttribute(PDO::ATTR_ERRMODE,
+                              //  PDO::ERRMODE_EXCEPTION);
+        //$handle->exec("CREATE TABLE IF NOT EXISTS perfil (
+          //id INTEGER PRIMARY KEY,
+          //id_usuario INTEGER,
+          //perfil TEXT,
+          //criado_em INTEGER
+      //  )");
+
+        //$handle->exec("CREATE TABLE  IF NOT EXISTS usuario (
+          //id INTEGER PRIMARY KEY,
+          //email TEXT,
+          //nome TEXT,
+          //senha TEXT
+        //)");
+        //return $handle;
     }
 
     public function __construct(){
