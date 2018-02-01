@@ -5,7 +5,8 @@
 
     <div class="form-group row">
       <div class="col-sm-12">
-        <textarea name=mytextarea cols=50% rows=5 readonly> </textarea>
+        <label for="textcomentario">Comente:</label>
+        <textarea name="mytextarea" class="form-control" id="textarea" placeholder="Digite seu comentário aqui" rows="3"></textarea>
       </div>
     </div>
     <button type="submit" class="btn btn-primary" >Comentar</button>
