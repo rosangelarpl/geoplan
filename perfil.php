@@ -42,10 +42,7 @@ include_once "classes/banco.php";
    <hr class="hrperfil"/>
    <h3>Seus Comentários:</h3>
    <div class="sectioncomentario">
-     <p>Aqui fica o primeiro comentário</p>
-     <p>Aqui fica o segundo comentário</p>
-     <p>...</p>
-     <p>...</p>
+     <p>EM MANUTENÇÃO</p>
    </div>
  </section>
 <?php

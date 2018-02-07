@@ -37,7 +37,7 @@ if ($pagina["pagina"] !== $pag) {
   Página Salva</a>
 <?php } ?>
 <?php } ?>
-      <div class="row">
+
       <h2> A Geometria Plana </h2>
     <p>A geometria plana ou euclidiana é a parte da matemática que estuda as figuras que não possuem volume. A geometria plana também é chamada de euclidiana, uma vez que seu nome representa uma homenagem ao geômetra Euclides de Alexandria, considerado o “pai da geometria”.
       Curioso notar que o termo geometria é a união das palavras “geo” (terra) e “metria” (medida); assim, a palavra geometria significa a "medida de terra".</p>
@@ -56,6 +56,6 @@ if ($pagina["pagina"] !== $pag) {
       <h3>2. Definição de Área</h3>
       <p>Área é um conceito matemático que pode ser definida como quantidade de espaço bidimensional, ou seja, de superfície. Existem várias unidades de medida de área, sendo a mais utilizada o metro quadrado (m²) e os seus múltiplos e sub-múltiplos. Cada figura possui uma fórmula diferente para calcular a área.</p>
       <p>Clique nas figuras a seguir para obter mais informações sobre cada uma delas.</p>
-</div>
+
 <?php
   include_once "footer.php";
