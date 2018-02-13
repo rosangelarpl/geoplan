@@ -10,7 +10,7 @@
 <body>
 
 
-  <nav class="navbar " style="background-color: rgba(30,144,255); margin:0;">
+  <nav class="navbar" style="background-color: rgba(30,144,255); margin:0;">
     <div class="container-fluid">
       <div class="navbar-header" >
         <a class="navbar-brand" style="margin:0; padding:0;" href="index.php"><img class="logo" src= "images/logo.png"></a>
@@ -50,7 +50,27 @@
   <article id="central">
 
     <header>
-      <img src="images/header.png" alt="Minha Figura" class="head">
+      <div id="carouselSite" class="carousel-slide" data-ride="carousel">
+        <div class="carousel-inner" >
+          <div class="carousel-item active">
+            <img src="images/header.png" class="image-fluid d-block" alt="">
+          </div> <!--carousel-item-->
+          <div class="carousel-item">
+            <img src="images/logo.png" class="image-fluid d-block" alt="">
+          </div> <!--carousel-item-->
+        </div> <!--carousel-inner-->
+
+        <a class="#carousel-control-prev" href="#carouselSite" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+          <span class="sr-only">Anterior</span>
+        </a>
+
+        <a class="carousel-control-next" href="#carouseSite" role="button" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+          <span class="sr-only">avançar</span>
+        </a>
+      </div>
+
     </header>
     <nav class="navbar navbar-default">
     <div class="container-fluid">
