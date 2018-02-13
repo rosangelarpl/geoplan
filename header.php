@@ -10,16 +10,25 @@
 <body>
 
 
-  <nav class="navbar" style="background-color: rgba(220,220,220,0.4); margin:0;">
+  <nav class="navbar " style="background-color: rgba(30,144,255); margin:0;">
     <div class="container-fluid">
       <div class="navbar-header" >
         <a class="navbar-brand" style="margin:0; padding:0;" href="index.php"><img class="logo" src= "images/logo.png"></a>
       </div>
       <nav class="nav navbar-nav navbar-right">
+        <div class="pesquisar">
+          <form class="navbar-form">
+            <input type="text" class="form-control" placeholder="Search">
+            <button type="submit" class="btn btn-default">Buscar</button>
+          </form>
+        </div>
         <ul id="entrar">
           <?php if (!empty($_SESSION["usuario"])) { ?>
+
           <li role="presentation">
             <a class="page-scroll" class="dropdown-toggle" data-toggle="dropdown"><img class="userperfil" src= "images/user.png" > <span class="caret"></a>
+
+
             <ul class="dropdown-menu">
               <li><a href="perfil.php">Perfil</a></li>
               <li><a href="logout.php">Sair</a></li>
