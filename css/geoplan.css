@@ -130,10 +130,9 @@ header{
 .navbar-nav > li{
   float: none;
   display: inline-block;
-  border-bottom: 1px solid #E4BB97;
   list-style: none;
   text-align: center;
-  border-radius: 7px;
+  margin: 0 0 0 15px;
 }
 
 .navbar-nav > li a {
@@ -141,14 +140,38 @@ header{
   font-weight: bolder;
   padding: 10px;
   display: block;
+  background-color: indigo !important;
+}
+
+.dropdown-menu {
+    background-color: indigo;
+}
+
+.dropdown-menu a {
+    color: orchid;
 }
 
 .navbar-nav > li a:hover{
-  color: purple !important;
-  background-color: #dcdcdc !important;
+  color: #fff !important;
+  background-color: orchid!important;
   border-top: 1px solid #E4BB97;
   padding-top: 9px;
-  border-radius: 7px;
+}
+
+.navbar-dark.bg-primary {
+    background-color: purple !important;
+}
+
+.navbar-right {
+  padding: 10px 0 0;
+}
+
+.navbar-right > ul > li {
+display:inline;
+padding: 8px;
+font-size: 18px;
+height: 50px;
+color: #fff !important;
 }
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
@@ -413,17 +436,6 @@ p.obs1{
 .logo{
   width: 64px;
 
-}
-
-.navbar-right {
-  padding: 10px 0 0;
-}
-
-.navbar-right > ul > li {
-display:inline;
-padding: 18px;
-font-size: 18px;
-height: 50px;
 }
 
 .sectionsalva, .sectioncomentario{
