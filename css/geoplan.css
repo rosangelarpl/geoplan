@@ -140,21 +140,22 @@ header{
   font-weight: bolder;
   padding: 10px;
   display: block;
-  background-color: indigo !important;
+  /*background-color: indigo !important;*/
 }
 
 .dropdown-menu {
-    background-color: indigo;
+    background-color: white;
 }
 
 .dropdown-menu a {
-    color: orchid;
+    color: blueViolet;
+
 }
 
 .navbar-nav > li a:hover{
   color: #fff !important;
-  background-color: orchid!important;
-  border-top: 1px solid #E4BB97;
+  background-color: rgba(138,43,226, 0.8)!important;
+  /*border-top: 1px solid #E4BB97;*/
   padding-top: 9px;
 }
 

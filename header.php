@@ -32,10 +32,10 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.php">Sobre</a>
+            <a class="nav-link" href="sobre.php">Sobre</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.php">Contato</a>
+            <a class="nav-link" href="contato.php">Contato</a>
           </li>
         </ul>
 
@@ -65,12 +65,27 @@
       </div>
     </div>
   </nav>
+  <div id="carouselSite" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <p>Slide 1</p>
+      </div>
+      <div class="carousel-item">
+        <h1>Slide 2</h1>
+      </div>
+      <div class="carousel-item">
+        <p>Slide 3</p>
+      </div>
+    </div>
+    <a href="#" class="carousel-control-prev" href="#carouselSite" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+      <span class="sr-only">Anterior</span>
+    </a>
+    <a href="#" class="carousel-control-next" href="#carouselSite" role="button" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+      <span class="sr-only">Próximo</span>
+    </a>
+  </div>
 
 
   <article id="central">
-
-    <header>
-      
-
-
-    </header>
