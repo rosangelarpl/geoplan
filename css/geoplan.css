@@ -405,8 +405,8 @@ p.obs1{
 }
 
 
-li[role=presentation]{
-  list-style: none;
+/*li[role=presentation]{
+  list-style: none;*/
 
 }
 
@@ -444,6 +444,6 @@ height: 50px;
   padding: 1%;
 }
 
-li a {
+
   cursor: pointer;
 }

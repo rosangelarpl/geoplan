@@ -4,107 +4,73 @@
   <title> Página Inicial </title>
   <meta charset="UTF-8"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/geoplan.css">
 </head>
 <body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand h1 nb-0" href="index.php">Geoplan</a>
 
+      <div class="collapse navbar-collapse" id="navbarSite">
 
-  <nav class="navbar" style="background-color: rgba(30,144,255); margin:0;">
-    <div class="container-fluid">
-      <div class="navbar-header" >
-        <a class="navbar-brand" style="margin:0; padding:0;" href="index.php"><img class="logo" src= "images/logo.png"></a>
-      </div>
-      <nav class="nav navbar-nav navbar-right">
-        <div class="pesquisar">
-          <form class="navbar-form">
-            <input type="text" class="form-control" placeholder="Search">
-            <button type="submit" class="btn btn-default">Buscar</button>
-          </form>
-        </div>
-        <ul id="entrar">
-          <?php if (!empty($_SESSION["usuario"])) { ?>
+        <ul class="navbar-nav mr-auto">
 
-          <li role="presentation">
-            <a class="page-scroll" class="dropdown-toggle" data-toggle="dropdown"><img class="userperfil" src= "images/user.png" > <span class="caret"></a>
-
-
-            <ul class="dropdown-menu">
-              <li><a href="perfil.php">Perfil</a></li>
-              <li><a href="logout.php">Sair</a></li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php">Inicial</a>
           </li>
-          <?php } else { ?>
-          <li>
-            <a href="cadastro.php">Cadastre-se</a>
+          <li class="navbar-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navDrop">As Figuras</a>
+            <div class="dropdown-menu">
+              <a href="triagulo.php">Triângulo</a>
+              <a href="circulo.php">Círculo</a>
+              <a href="losango.php">Losango</a>
+              <a href="paralelogramo.php">Paralelogramo</a>
+              <a href="retangulo.php">Retângulo</a>
+              <a href="trapezio.php">Trapézio</a>
+            </div>
           </li>
-          <li>
-            <a href="login.php">Entrar</a>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php">Sobre</a>
           </li>
-          <?php } ?>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php">Contato</a>
+          </li>
         </ul>
-    </nav>
+
+        <form class="form-inline">
+          <input class="form-control  ml-4 mr-2" type="search" placeholder="Buscar...">
+          <button class="btn btn-dark" type="submit" name="button">OK</button>
+          <ul id="entrar">
+            <?php if (!empty($_SESSION["usuario"])) { ?>
+
+            <li role="presentation">
+              <a class="page-scroll" class="dropdown-toggle" data-toggle="dropdown"><img class="userperfil" src= "images/user.png" > <span class="caret"></a>
+              <ul class="dropdown-menu">
+                <li><a href="perfil.php">Perfil</a></li>
+                <li><a href="logout.php">Sair</a></li>
+              </ul>
+            </li>
+            <?php } else { ?>
+            <li>
+              <a href="cadastro.php">Cadastre-se</a>
+            </li>
+            <li>
+              <a href="login.php">Entrar</a>
+            </li>
+            <?php } ?>
+          </ul>
+        </form>
+      </div>
     </div>
   </nav>
+
 
   <article id="central">
 
     <header>
-      <div id="carouselSite" class="carousel-slide" data-ride="carousel">
-        <div class="carousel-inner" >
-          <div class="carousel-item active">
-            <img src="images/header.png" class="image-fluid d-block" alt="">
-          </div> <!--carousel-item-->
-          <div class="carousel-item">
-            <img src="images/logo.png" class="image-fluid d-block" alt="">
-          </div> <!--carousel-item-->
-        </div> <!--carousel-inner-->
+      
 
-        <a class="#carousel-control-prev" href="#carouselSite" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-          <span class="sr-only">Anterior</span>
-        </a>
-
-        <a class="carousel-control-next" href="#carouseSite" role="button" data-slide="next">
-          <span class="carousel-control-next-icon"></span>
-          <span class="sr-only">avançar</span>
-        </a>
-      </div>
 
     </header>
-    <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav menu">
-          <li>
-            <a class="page-scroll" href="index.php">Inicial</a>
-          </li>
-          <li role="presentation">
-            <a class="page-scroll dropdown-toggle" data-toggle="dropdown">As Figuras <span class="caret"></a>
-            <ul class="dropdown-menu">
-              <li><a href="triagulo.php">Triângulo</a></li>
-              <li><a href="circulo.php">Círculo</a></li>
-              <li><a href="losango.php">Losango</a></li>
-              <li><a href="paralelogramo.php">Paralelogramo</a></li>
-              <li><a href="retangulo.php">Retângulo</a></li>
-              <li><a href="trapezio.php">Trapézio</a></li>
-            </ul>
-          </li>
-          <li>
-            <a class="page-scroll" href="sobre.php">Sobre</a>
-          </li>
-          <li>
-            <a class="page-scroll" href="contato.php">Contato</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    </nav>
