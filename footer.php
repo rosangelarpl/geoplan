@@ -4,6 +4,7 @@
 
 <footer>
 <small>2017 &copy; Rosângela Rafaela </small>
+
 </footer>
 <input type="hidden" value="Retirado de: Ferret, Rodrigo Bozi. História e filosofia da matemática. Aracaju: Gráf. UNIT, 2007"/>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

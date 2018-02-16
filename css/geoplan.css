@@ -147,14 +147,20 @@ header{
     background-color: white;
 }
 
+.dropdown-menu a:hover{
+  background-color: rgba(138,43,226, 0.8)!important;
+
+}
+
 .dropdown-menu a {
     color: blueViolet;
+    background-color:
 
 }
 
 .navbar-nav > li a:hover{
   color: #fff !important;
-  background-color: rgba(138,43,226, 0.8)!important;
+  /*background-color: rgba(138,43,226, 0.8)!important;*/
   /*border-top: 1px solid #E4BB97;*/
   padding-top: 9px;
 }
