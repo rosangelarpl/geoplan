@@ -27,13 +27,6 @@ if (!empty($_SESSION["usuario"])) {
     }
   }
 }
-$encontra_comentarios = "select c.*,u.nome from comentario as c join usuario as u on u.id=c.id_usuario where pagina = '$pag' ORDER BY id ASC";
-$query = Banco::instanciar()->prepare($encontra_comentarios);
-$query->execute();
-$comentarios = $query->fetchall(Banco::FETCH_ASSOC);
-
-$asd = "select p.*, c.nome as cat_nome from produtos as p join categ as c on c.id=p.categoria_id";
-
 
 if (!empty($_SESSION["usuario"])) { ?> <!-- VERIFICA SE TA LOGADO -->
 
@@ -60,12 +53,18 @@ if (!empty($_SESSION["usuario"])) { ?> <!-- VERIFICA SE TA LOGADO -->
 <div class="container">
 	<hr/>
 	<h3>Ultimos Comentarios</h3>
-	<?php	foreach($comentarios as $comentario) : ?>  <!-- LAÇO DE REPETIÇÃO -->
+	<?php	
+	$encontra_comentarios = "select c.*,u.nome from comentario as c join usuario as u on u.id=c.id_usuario where pagina = '$pag' ORDER BY id ASC";
+	$query = Banco::instanciar()->prepare($encontra_comentarios);
+	$query->execute();
+	$comentarios = $query->fetchall(Banco::FETCH_ASSOC);
 
-		<p><?=$comentario['nome']?>: <!-- $comentario['nome'] É A VARIÁVEL QUE CONTEM O NOME -->
+	foreach($comentarios as $comentario) : ?>  <!-- LAÇO DE REPETIÇÃO -->
+
+		<p>
+			<?=$comentario['nome']?>: <!-- $comentario['nome'] É A VARIÁVEL QUE CONTEM O NOME -->
 			<br>
 			<?=$comentario['texto']?> <!-- $comentario['texto'] É A VARIÁVEL QUE CONTEM O COMENTÁRIO -->
-
 		</p>
 
 	<?php	endforeach	?> <!-- FIM DO LAÇO -->

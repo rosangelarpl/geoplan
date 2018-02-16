@@ -41,10 +41,26 @@ include_once "classes/banco.php";
    </div>
    <hr class="hrperfil"/>
    <h3>Seus Comentários:</h3>
-   <div class="sectioncomentario">
-     <p>EM MANUTENÇÃO</p>
+   <div class="sectioncomentario"> <!-- LISTANDO COMENTARIOS DO USUÁRIO -->
+      <?php 
+      $encontra_comentarios = "select * from comentario where id_usuario = ? ORDER BY id ASC";
+      $query = Banco::instanciar()->prepare($encontra_comentarios);
+      $query->bindValue(1, $_SESSION["usuario"]["id"]);
+      $query->execute();
+      $comentarios = $query->fetchall(Banco::FETCH_ASSOC);
+
+      foreach($comentarios as $comentario) : ?>  <!-- LAÇO DE REPETIÇÃO -->
+
+        <p>
+          <a href="<?=$comentario['pagina']?>.php"><?=$comentario['pagina']?></a>: <!-- LINK PARA A PAGINA -->
+          <br>
+          <?=$comentario['texto']?> <!-- $comentario['texto'] É A VARIÁVEL QUE CONTEM O COMENTÁRIO -->
+        </p>
+
+      <?php endforeach  ?> <!-- FIM DO LAÇO -->
    </div>
  </section>
+
 <?php
   include_once "footer.php";
 } else {
