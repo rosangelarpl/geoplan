@@ -3,7 +3,6 @@ session_start();
 if (!empty($_SESSION["usuario"])) {
 include_once "header.php";
 include_once "classes/banco.php";
-error_reporting(E_ALL ^ E_NOTICE);
 ?>
 
 <h2 class="h2perfil"> Seu Perfil</h2>
