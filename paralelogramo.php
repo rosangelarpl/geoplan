@@ -2,41 +2,9 @@
 session_start();
 include_once "header.php";
 $pag = "paralelogramo";
-include_once "classes/banco.php";
+include_once "salvar_pagina.php";
 
-if (!empty($_SESSION["usuario"])) {
-
-if(!empty($_POST)) {
-  try{
-    $insere_perfil = "insert into salva_pagina (id_usuario, pagina) values (?, ?)";
-    $query = Banco::instanciar()->prepare($insere_perfil);
-    $query->bindValue(1, $_SESSION["usuario"]["id"]);
-    $query->bindValue(2, $pag);
-    $query->execute();
-  } catch (PDOException $e) {
-
-  }
-}
-$encontra_paginas = "select pagina from salva_pagina where id_usuario = ? and pagina = ?";
-$query = Banco::instanciar()->prepare($encontra_paginas);
-$query->bindValue(1, $_SESSION["usuario"]["id"]);
-$query->bindValue(2, $pag);
-$query->execute();
-$pagina = $query->fetch(Banco::FETCH_ASSOC);
-if ($pagina["pagina"] !== $pag) {
 ?>
-<form method="post" action="paralelogramo.php">
-  <input type="hidden" value="-" name="-"/>
-  <button type="submit" class="btn btn-primary btn-custom pull-right" id="salva">
-  <span class="glyphicon glyphicon-star img-circle btn-icon"></span>
-  Salvar Página</button>
-</form>
-<?php } else { ?>
-  <a href="#" class="btn btn-secondary active btn-custom pull-right" id="salva">
-  <span class="glyphicon glyphicon-heart img-circle btn-icon"></span>
-  Página Salva</a>
-<?php } ?>
-<?php } ?>
     <h2> Paralelogramo </h2>
     <h3> O que é um Paralelogramo?</h3>
     <p> O paralelogramo é uma figura plana que possui quatro lados. Ele faz parte dos estudos da geometria plana sendo um quadrilátero cujos lados opostos são paralelos. Em outras palavras, os paralelogramos são polígonos de quatro lados opostos congruentes (que possuem a mesma medida), por exemplo, o quadrado, o losango e o retângulo.</p>
