@@ -52,9 +52,13 @@ include_once "classes/banco.php";
       foreach($comentarios as $comentario) : ?>  <!-- LAÇO DE REPETIÇÃO -->
 
         <p>
-          <a href="<?=$comentario['pagina']?>.php"><?=$comentario['pagina']?></a>: <!-- LINK PARA A PAGINA -->
+          <!-- LINK PARA A PAGINA DO COMENTARIO -->
+          Feito na página <a href="<?=$comentario['pagina']?>.php"><?=$comentario['pagina'].'.php'?></a> em 
+          <!-- DATA DO COMENTARIO -->
+          <?=date('d/m/Y', strtotime($comentario["feito_em"]))?>:
           <br>
-          <?=$comentario['texto']?> <!-- $comentario['texto'] É A VARIÁVEL QUE CONTEM O COMENTÁRIO -->
+          <!-- $comentario['texto'] É A VARIÁVEL QUE CONTEM O COMENTÁRIO -->
+          <?=$comentario['texto']?>
         </p>
 
       <?php endforeach  ?> <!-- FIM DO LAÇO -->

@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
--- https://www.phpmyadmin.net/
+-- version 4.5.5.1
+-- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: 01-Fev-2018 às 08:43
--- Versão do servidor: 5.7.19-0ubuntu0.16.04.1
--- PHP Version: 7.0.22-0ubuntu0.16.04.1
+-- Host: 127.0.0.1
+-- Generation Time: 17-Fev-2018 às 05:21
+-- Versão do servidor: 5.7.11
+-- PHP Version: 5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -31,8 +29,20 @@ SET time_zone = "+00:00";
 CREATE TABLE `comentario` (
   `id` int(10) NOT NULL,
   `id_usuario` int(10) NOT NULL,
-  `texto` text NOT NULL
+  `texto` text NOT NULL,
+  `pagina` varchar(48) NOT NULL,
+  `feito_em` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `comentario`
+--
+
+INSERT INTO `comentario` (`id`, `id_usuario`, `texto`, `pagina`, `feito_em`) VALUES
+(1, 6, 'com', 'triagulo', '2018-02-17 05:21:33'),
+(2, 6, 'com', 'paralelogramo', '2018-02-17 05:21:28'),
+(7, 6, '64565', 'triagulo', '2018-02-17 05:07:48'),
+(18, 6, 'oi', 'triagulo', '2018-02-17 05:16:00');
 
 -- --------------------------------------------------------
 
@@ -78,7 +88,8 @@ CREATE TABLE `perfil` (
 
 INSERT INTO `perfil` (`id`, `id_usuario`, `perfil`, `criado_em`) VALUES
 (1, 1, 'comum', '2017-12-28 15:47:17'),
-(2, 3, 'comum', '2018-02-01 07:25:34');
+(2, 3, 'comum', '2018-02-01 07:25:34'),
+(4, 6, 'comum', '2018-02-12 07:45:31');
 
 -- --------------------------------------------------------
 
@@ -100,7 +111,9 @@ CREATE TABLE `salva_pagina` (
 INSERT INTO `salva_pagina` (`id`, `id_usuario`, `pagina`, `salva_em`) VALUES
 (1, 3, 'circulo', '2018-02-01 08:33:06'),
 (4, 3, 'index', '2018-02-01 09:08:32'),
-(5, 3, 'losango', '2018-02-01 09:09:57');
+(5, 3, 'losango', '2018-02-01 09:09:57'),
+(19, 6, 'circulo', '2018-02-16 15:29:16'),
+(20, 6, 'index', '2018-02-17 04:30:49');
 
 -- --------------------------------------------------------
 
@@ -121,7 +134,8 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id`, `email`, `nome`, `senha`) VALUES
 (1, 'eli.embits@gmail.com', 'Elionai Moura Cordeiro', '123456'),
-(3, 'rosangelarafaela61@gmail.com', 'RosÃ¢ngela Rafaela', '123456');
+(3, 'rosangelarafaela61@gmail.com', 'RosÃ¢ngela Rafaela', '123456'),
+(6, 'admin@admin.com', 'Bruno', '123456');
 
 --
 -- Indexes for dumped tables
@@ -168,7 +182,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `historico`
 --
@@ -178,17 +192,17 @@ ALTER TABLE `historico`
 -- AUTO_INCREMENT for table `perfil`
 --
 ALTER TABLE `perfil`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `salva_pagina`
 --
 ALTER TABLE `salva_pagina`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- Constraints for dumped tables
 --
@@ -198,7 +212,6 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `perfil`
   ADD CONSTRAINT `id_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON DELETE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

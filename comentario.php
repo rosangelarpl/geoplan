@@ -1,11 +1,3 @@
-<!--
-Acrescentei a coluna 'pagina' na tabela de 'comentarios' no banco de dados, pra poder filtrar os comentários pelas páginas tbm.
-
-ALTER TABLE `comentario` ADD `pagina` VARCHAR(48) NOT NULL AFTER `texto`;
-
--->
-<!--  -->
-
 <?php
 
 
