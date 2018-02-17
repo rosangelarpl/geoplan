@@ -5,21 +5,21 @@ include_once "header.php";
 
 <p class="obs">Preencha as informações a seguir para entrar em contato com a gente.</p>
 <div class="container">
-  <form class="cont">
+  <form class="cont" method="post" action="envia-contato.php">
     <h3></h3>
     <div class="form-group row">
       <div class="col-sm-12">
-      Nome:  <input type="text" class="form-control" placeholder="Nome" value="" id="nome">
+      Nome:  <input type="text" class="form-control" placeholder="Nome" name="nome" value="" id="nome">
       </div>
     </div>
     <div class="form-group row">
       <div class="col-sm-12">
-      Email: <input type="text" class="form-control"placeholder="Email" value="" id="email">
+      Email: <input type="text" class="form-control"placeholder="Email" value="" name="email" id="email">
       </div>
     </div>
     <div class="form-group row">
       <div class="col-sm-12">
-      Mensagem: <textarea name="mytextarea" class="form-control" id="textarea" placeholder="Digite seu comentário aqui" rows="3"></textarea>
+      Mensagem: <textarea name="mensagem" class="form-control" id="textarea" placeholder="Digite seu comentário aqui" rows="3"></textarea>
       </div>
     </div>
     <button type="submit" class="btn btn-primary">ENVIAR MENSAGEM</button>
