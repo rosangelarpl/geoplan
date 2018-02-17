@@ -10,6 +10,7 @@ error_reporting(E_ALL ^ E_NOTICE);
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/geoplan.css">
+  <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css">
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -77,13 +78,13 @@ error_reporting(E_ALL ^ E_NOTICE);
 
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="images/slide1.jpg" alt="">
+        <img src="images/slide1.png" alt="">
       </div>
       <div class="carousel-item">
-        <img src="images/slide2.jpg" alt="">
+        <img src="images/slide2.png" alt="">
       </div>
       <div class="carousel-item">
-        <img src="images/slide3.jpg" alt="">
+        <img src="images/slide3.png" alt="">
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselSite" role="button" data-slide="prev">

@@ -39,33 +39,40 @@ if (!empty($_POST)) {
 include_once "header.php";
 
 ?>
-
   <div class="container">
+    <p class="obs">Preencha as informações a seguir para fazer cadastro no site.</p>
+    <div class="row justify-content-center ml-4 mb-5">
+      <div class="col-sm-10 col-md-8 col-lg-6">
+        <h4>Realizar Cadastro</h4>
+
+        <form class="cadastro">
 
 
-  <p class="obs">Preencha as informações a seguir para fazer cadastro no site.</p>
-  <div class="container">
-    <form class="cadastro" method="post" action="cadastro.php">
-      <h3>Realizar Cadastro</h3>
-      <div class="form-group row">
-        <div class="col-sm-12">
-          Nome:  <input type="text" class="form-control" placeholder="Nome" value="" id="nome" name="nome">
-        </div>
+          <div class="form-row ml-4">
+            <div class="form-group col-sm-10">
+
+              <label for="inputNome">Nome</label>
+              <input type="text" class="form-control" placeholder="Nome" value="" id="nome" name="nome">
+            </div>
+            <div class="form-group col-sm-10">
+              <label for="inputEmail">Email</label>
+              <input type="email" class="form-control" placeholder="Email" value="" id="email" name="email">
+            </div>
+            <div class="form-group col-sm-10">
+              <label for="inputEmail">Senha</label>
+              <input type="password" class="form-control" placeholder="Senha" name="senha">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">CADASTRAR</button>
+        </form>
+
+
       </div>
-      <div class="form-group row">
-        <div class="col-sm-12">
-          Email: <input type="text" class="form-control" placeholder="Email" value="" id="email" name="email">
-        </div>
-      </div>
-      <div class="form-group row">
-        <div class="col-sm-12">
-          Senha: <input type="password" class="form-control" placeholder="Senha" name="senha">
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary">CADASTRAR</button>
-    </form>
-  </div>
-</div>
+
+    </div>
+
+  </div> <!--Container-->
+
 </div> <!-- Div sem fechar nada nessa pagina-->
 </div> <!-- Div sem fechar nada nessa pagina-->
 <?php
