@@ -18,7 +18,7 @@ include_once "salvar_pagina.php";
 
         <div class="col-sm-4">
            <div class="card">
-             <img src="images/card1.png" alt="">
+             <img src="images/card1.png" class="fluid-img" alt="">
              <div class="card-body">
                <h3>Como surgiu?</h3>
                 <p>Os  primeiros  conhecimentos  geométricos  que  o  homem  teve,  a  respeito  da
@@ -34,7 +34,7 @@ include_once "salvar_pagina.php";
 
         <div class="col-sm-4">
            <div class="card">
-             <img src="images/card2.png" alt="">
+             <img src="images/card2.png" class="fluid-img" alt="">
 
              <div class="card-body">
                <h3>O que são figuras planas</h3>
@@ -50,7 +50,7 @@ include_once "salvar_pagina.php";
 
         <div class="col-sm-4">
            <div class="card">
-             <img src="images/card3.png" alt="">
+             <img src="images/card3.png" class="fluid-img" alt="">
 
              <div class="card-body">
                <h3>Perímetro e área</h3>

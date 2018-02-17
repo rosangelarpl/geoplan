@@ -78,13 +78,13 @@ error_reporting(E_ALL ^ E_NOTICE);
 
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="images/slide1.png" alt="">
+        <img src="images/slide1.png" class="fluid-img" alt="">
       </div>
       <div class="carousel-item">
-        <img src="images/slide2.png" alt="">
+        <img src="images/slide2.png" class="fluid-img" alt="">
       </div>
       <div class="carousel-item">
-        <img src="images/slide3.png" alt="">
+        <img src="images/slide3.png" class="fluid-img" alt="">
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselSite" role="button" data-slide="prev">
