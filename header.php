@@ -69,22 +69,30 @@ error_reporting(E_ALL ^ E_NOTICE);
     </div>
   </nav>
   <div id="carouselSite" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselSite" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselSite" data-slide-to="1"></li>
+      <li data-target="#carouselSite" data-slide-to="2"></li>
+
+    </ol>
+
+
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <p>Slide 1</p>
+        <img src="images/slide1.jpg" alt="">
       </div>
       <div class="carousel-item">
-        <h1>Slide 2</h1>
+        <img src="images/slide2.jpg" alt="">
       </div>
       <div class="carousel-item">
-        <p>Slide 3</p>
+        <img src="images/slide3.jpg" alt="">
       </div>
     </div>
-    <a href="#" class="carousel-control-prev" href="#carouselSite" role="button" data-slide="prev">
+    <a class="carousel-control-prev" href="#carouselSite" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon"></span>
       <span class="sr-only">Anterior</span>
     </a>
-    <a href="#" class="carousel-control-next" href="#carouselSite" role="button" data-slide="next">
+    <a class="carousel-control-next" href="#carouselSite" role="button" data-slide="next">
       <span class="carousel-control-next-icon"></span>
       <span class="sr-only">Próximo</span>
     </a>
