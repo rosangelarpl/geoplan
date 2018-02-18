@@ -2,6 +2,7 @@
 $nome = $_POST['nome'];
 $email = $_POST['email'];
 $mensagem = $_POST['mensagem'];
+$assunto = $_POST['assunto'];
 
 require_once('classes/Exception.php');
 require_once('classes/OAuth.php');
@@ -25,7 +26,7 @@ $mail->Password = "4093287615";
 
 $mail->setFrom("bwbr21@gmail.com", "Geoplan");
 $mail->addAddress("bwbr21@gmail.com");
-$mail->Subject = "Email de contato - Geoplan";
+$mail->Subject = "Contato Geoplan - {$assunto}";
 $mail->msgHTML("<html>de: {$nome}<br/>email: {$email}<br/>mensagem: {$mensagem}</html>");
 $mail->AltBody = "de: {$nome}\nemail: {$email}\nmensagem: {$mensagem}";
 

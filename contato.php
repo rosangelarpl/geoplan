@@ -3,28 +3,44 @@ session_start();
 include_once "header.php";
 ?>
 
-<p class="obs">Preencha as informações a seguir para entrar em contato com a gente.</p>
-<div class="container">
-  <form class="cont" method="post" action="envia-contato.php">
-    <h3></h3>
-    <div class="form-group row">
-      <div class="col-sm-12">
-      Nome:  <input type="text" class="form-control" placeholder="Nome" name="nome" value="" id="nome">
+<!-- Contact section -->
+<div class="contact-section spad">
+  <div class="overlay"></div>
+  <div class="container">
+
+    <div class="row">
+      <!-- contact form -->
+      <div class="col-md-6">
+        <form class="form-class" id="con_form" method="post" action="envia-contato.php">
+          <div class="row">
+            <div class="col-sm-6">
+              <input type="text" name="nome" placeholder="Seu nome">
+            </div>
+            <div class="col-sm-6">
+              <input type="text" name="email" placeholder="Seu email">
+            </div>
+            <div class="col-sm-12">
+              <input type="text" name="assunto" placeholder="Subject">
+              <textarea name="mensagem" placeholder="Messagem"></textarea>
+              <button type="submit" class="site-btn">Enviar</button>
+            </div>
+          </div>
+        </form>
       </div>
-    </div>
-    <div class="form-group row">
-      <div class="col-sm-12">
-      Email: <input type="text" class="form-control"placeholder="Email" value="" name="email" id="email">
+      <!-- contact info -->
+      <div class="col-md-6 contact-info">
+        <div class="section-title left">
+          <h2>Fale conosco</h2>
+        </div>
+        <p>Aqui você pode entrar em contato com a equipe para suas dúvidas, sugestões, reclamações, pedidos e outras informações.</p>
       </div>
+      
     </div>
-    <div class="form-group row">
-      <div class="col-sm-12">
-      Mensagem: <textarea name="mensagem" class="form-control" id="textarea" placeholder="Digite seu comentário aqui" rows="3"></textarea>
-      </div>
-    </div>
-    <button type="submit" class="btn btn-primary">ENVIAR MENSAGEM</button>
-  </form>
+  </div>
 </div>
+<!-- Contact section end-->
+
+
 
 <?php
   include_once "footer.php"

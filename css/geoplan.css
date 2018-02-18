@@ -436,7 +436,7 @@ PAGINA INCIAL - INDEX
   height: 100%;
   left: 0;
   top: 0;
-  z-index: 3;
+  z-index: 0;
   background-image: url("../images/overlay.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -1297,6 +1297,88 @@ SOBRE
   color: #2be6ab;
   font-weight: 400;
   text-transform: uppercase;
+}
+
+
+/*------------------------
+  Contact section
+--------------------------*/
+.contact-section {
+  position: relative;
+  background-color: #6a23b5;
+  border-top: 2px solid #999;
+  z-index: 4;
+}
+
+
+.form-class input[type="text"] {
+  width: 100%;
+  margin-bottom: 26px;
+  border: none;
+  background: #f6edfb;
+  padding: 17px 20px;
+}
+
+.form-class input[type="text"]:focus,
+.form-class input[type="text"]:hover {
+  outline: none;
+}
+
+.form-class textarea {
+  width: 100%;
+  margin-bottom: 40px;
+  border: none;
+  background: #f6edfb;
+  padding: 15px 20px;
+  height: 260px;
+}
+
+.form-class textarea:focus,
+.form-class textarea:hover {
+  outline: none;
+}
+
+.form-class ::-webkit-input-placeholder {
+  font-style: italic;
+}
+
+.form-class :-ms-input-placeholder {
+  font-style: italic;
+}
+
+.form-class ::-ms-input-placeholder {
+  font-style: italic;
+}
+
+.form-class ::placeholder {
+  font-style: italic;
+}
+
+.form-class :-ms-input-placeholder {
+  font-style: italic;
+}
+
+.form-class ::-ms-input-placeholder {
+  font-style: italic;
+}
+
+/* Contact Info*/
+.contact-info .section-title {
+  margin-bottom: 40px;
+}
+
+.contact-info p {
+  color: #fff;
+}
+
+.contact-info h3 {
+  font-weight: 400;
+  color: #2be6ab;
+  margin-bottom: 20px;
+}
+
+.contact-info .con-item {
+  font-size: 14px;
 }
 
 
