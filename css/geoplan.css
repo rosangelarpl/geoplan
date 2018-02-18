@@ -1306,7 +1306,6 @@ SOBRE
 .contact-section {
   position: relative;
   background-color: #6a23b5;
-  border-top: 2px solid #999;
   z-index: 4;
 }
 
@@ -1397,4 +1396,68 @@ SOBRE
   color: #6a23b5;
   font-size: 14px;
   padding: 18px 0;
+}
+
+
+
+/*******************************
+SALVAR PAGINA
+**********************************/
+.favorite{
+  float: right;
+  position: relative;
+  top: 10px;
+  right: 10px;
+  color: #b9b4c7;
+  font-size: 25px;
+  cursor:pointer;
+  z-index: 1;
+}
+
+
+.btn-favorite{
+  background-color: transparent;
+  border:none;
+  padding: 0;
+  margin:0;
+  color: #b9b4c7;
+  cursor:pointer;
+}
+
+.btn-favorite::after{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 400;
+  content: "\f004";
+}
+
+.btn-favorite:hover::after{
+  color: #b9b4c7;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: "\f004";
+  color: #fe4c50;
+}
+
+.btn-favorite-active{
+  background-color: transparent;
+  border:none;
+  padding: 0;
+  margin:0;
+  color: #fe4c50;
+  cursor:pointer;
+}
+
+.btn-favorite-active::after{
+
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: "\f004";
+}
+
+.btn-favorite-active:hover::after{
+  color: #b9b4c7;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 400;
+  content: "\f004";
+ 
 }

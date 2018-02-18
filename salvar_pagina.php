@@ -41,19 +41,23 @@ $query->execute();
 $pagina = $query->fetch(Banco::FETCH_ASSOC);
 if ($pagina["pagina"] !== $pag) {
 ?>
-<form method="post" action="<?=$pag?>.php">
-  <input type="hidden" value="salvar_pagina" name="salvar_pagina"/>
-  <button type="submit" class="btn btn-primary btn-custom pull-right" id="salva">
-  <span class="glyphicon glyphicon-star img-circle btn-icon"></span>
-  Salvar Página</button>
-</form>
+
+<div class="favorite">
+  <form method="post" action="<?=$pag?>.php">
+    <input type="hidden" value="salvar_pagina" name="salvar_pagina"/>
+    <button type="submit" class="btn-favorite"></button>
+  </form>
+</div>
+
 <?php } else { ?>
-<form method="post" action="<?=$pag?>.php">
-  <input type="hidden" value="remover_pagina" name="salvar_pagina"/>
-  <button type="submit" class="btn btn-primary active btn-custom pull-right" id="salva">
-  <span class="glyphicon glyphicon-star img-circle btn-icon"></span>
-  Página Salva</button>
-</form>
+
+<div class="favorite">
+  <form method="post" action="<?=$pag?>.php">
+    <input type="hidden" value="remover_pagina" name="salvar_pagina"/>
+    <button type="submit" class="btn-favorite-active"></button>
+  </form>
+</div>
+
 
 <?php } ?>
 <?php } 

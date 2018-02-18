@@ -2,7 +2,6 @@
 session_start();
 include_once "header.php";
 $pag = "paralelogramo";
-include_once "salvar_pagina.php";
 include_once "section_header.php";
 
 ?>
@@ -10,6 +9,10 @@ include_once "section_header.php";
 <!-- Article section -->
 <div class="spad">
   <div class="container box">
+
+    <?php include_once "salvar_pagina.php"; ?>
+
+    
     <div class="section-title dark">
       <h2>Paralelogramo</h2>
     </div>

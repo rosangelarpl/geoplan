@@ -2,8 +2,6 @@
 session_start();
 include_once "header.php";
 $pag = "index";
-
-include_once "salvar_pagina.php";
 ?>
 
 <!-- Slide -->
