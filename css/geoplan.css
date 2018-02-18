@@ -1211,6 +1211,97 @@ SECTION HEADER
 }
 
 
+/*----------------------------------
+SOBRE
+------------------------------------*/
+.service {
+  margin-bottom: 90px;
+}
+
+.service,
+.icon-box {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.service .icon,
+.icon-box .icon {
+  font-size: 40px;
+  margin-right: 30px;
+}
+
+.service .service-text h2,
+.service .icon-box-text h2,
+.icon-box .service-text h2,
+.icon-box .icon-box-text h2 {
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.service .service-text p,
+.service .icon-box-text p,
+.icon-box .service-text p,
+.icon-box .icon-box-text p {
+  font-size: 15px;
+}
+
+.service.light h2,
+.service.light p,
+.service.light .icon,
+.icon-box.light h2,
+.icon-box.light p,
+.icon-box.light .icon {
+  color: #fff;
+}
+
+.service.left,
+.icon-box.left {
+  text-align: right;
+}
+
+.service.left .icon,
+.icon-box.left .icon {
+  margin-left: 30px;
+  margin-right: 0;
+}
+
+
+/*------------------------
+  Team section
+--------------------------*/
+.team-section .container {
+  position: relative;
+  z-index: 5;
+}
+
+.member {
+  text-align: center;
+}
+
+.member img {
+  margin-bottom: 60px;
+}
+
+.member h2 {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.member h3 {
+  font-size: 14px;
+  color: #2be6ab;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+
+
+
 
 /*------------------------
   Footer section
