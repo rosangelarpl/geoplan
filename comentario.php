@@ -20,46 +20,96 @@ if (!empty($_SESSION["usuario"])) {
   }
 }
 
-if (!empty($_SESSION["usuario"])) { ?> <!-- VERIFICA SE TA LOGADO -->
 
-<!-- FORMULARIO DOS COMENTARIOS  -->
-<div class="container">
-<hr/>
-<h3>Deixe-nos um comentário</h3>
-<p></p>
-  <form class="comen"  method="post" action="<?=$pag?>.php">
+if (!empty($_SESSION["usuario"])) { 
+$encontra_comentarios = "select c.*,u.nome from comentario as c join usuario as u on u.id=c.id_usuario where pagina = '$pag' ORDER BY id ASC";
+$query = Banco::instanciar()->prepare($encontra_comentarios);
+$query->execute();
+$comentarios = $query->fetchall(Banco::FETCH_ASSOC);
 
-    <div class="form-group row">
-      <div class="col-sm-12">
-        <label for="textarea">Comente:</label>
-        <textarea name="comentario" class="form-control" id="textarea" placeholder="Digite seu comentário aqui" rows="3"></textarea>
+?> <!-- VERIFICA SE TA LOGADO E PEGA OS COMENTARIOS DA PAGINA -->
+
+<!-- comentarios section -->
+<div class="comentarios-section spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-7 mb-5">
+        
+        <!-- COMENTÁRIOS -->
+        <div class="comments">
+          <h2>Comentários (<?=count($comentarios);?>)</h2>
+          <ul class="comment-list">
+
+            <?php foreach($comentarios as $comentario) : ?>
+
+            <li>
+              <div class="avatar">
+                <img src="images/avatar/01.jpg" alt="">
+              </div>
+              <div class="commetn-text">
+                <h3><?=$comentario['nome'];?> | 03 nov, 2017 </h3>
+                <p><?=$comentario['texto'];?></p>
+              </div>
+            </li>
+            
+            <?php endforeach ?> <!-- FIM DO LAÇO -->
+
+
+            
+          </ul>
+        </div>
+
+        <!-- FORMULÁRIO DE COMENTÁRIO -->
+        <div class="row">
+          <div class="col-md-9 comment-from">
+            <h2>Faça um comentário</h2>
+            <form class="form-class" method="post" action="<?=$pag?>.php">
+              <div class="row">
+                <div class="col-sm-12">
+                  <textarea name="comentario" placeholder="Messagem"></textarea>
+                  <button  type="submit" class="site-btn">Enviar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
+
+      <!-- LATERAL area -->
+      <div class="col-md-4 col-sm-5 sidebar">
+        <!-- Single widget -->
+        <div class="widget-item">
+          <h2 class="widget-title">Add</h2>
+          <div class="add">
+            <a href=""><img src="images/add.jpg" alt=""></a>
+          </div>
+        </div>
+        <!-- Single widget -->
+        <div class="widget-item">
+          <h2 class="widget-title">Categories</h2>
+          <ul>
+            <li><a href="#">Vestibulum maximus</a></li>
+            <li><a href="#">Nisi eu lobortis pharetra</a></li>
+            <li><a href="#">Orci quam accumsan </a></li>
+            <li><a href="#">Auguen pharetra massa</a></li>
+            <li><a href="#">Tellus ut nulla</a></li>
+            <li><a href="#">Etiam egestas viverra </a></li>
+          </ul>
+        </div>
+        <!-- Single widget -->
+        <div class="widget-item">
+          <h2 class="widget-title">Quote</h2>
+          <div class="quote">
+            <span class="quotation">‘​‌‘​‌</span>
+            <p>Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique. Sed lacinia turpis at ultricies vestibulum.</p>
+          </div>
+        </div>
+      </div>
+      <!-- LATERAL end -->
     </div>
-    <button type="submit" class="btn btn-primary">Comentar</button>
-
-  </form>
-
+  </div>
 </div>
-
-<!-- LISTANDO COMENTARIOS -->
-<div class="container">
-	<hr/>
-	<h3>Ultimos Comentarios</h3>
-	<?php	
-	$encontra_comentarios = "select c.*,u.nome from comentario as c join usuario as u on u.id=c.id_usuario where pagina = '$pag' ORDER BY id ASC";
-	$query = Banco::instanciar()->prepare($encontra_comentarios);
-	$query->execute();
-	$comentarios = $query->fetchall(Banco::FETCH_ASSOC);
-
-	foreach($comentarios as $comentario) : ?>  <!-- LAÇO DE REPETIÇÃO -->
-
-		<p>
-			<?=$comentario['nome']?>: <!-- $comentario['nome'] É A VARIÁVEL QUE CONTEM O NOME -->
-			<br>
-			<?=$comentario['texto']?> <!-- $comentario['texto'] É A VARIÁVEL QUE CONTEM O COMENTÁRIO -->
-		</p>
-
-	<?php	endforeach	?> <!-- FIM DO LAÇO -->
-</div>
+<!-- comentarios section end-->
 
 <?php } ?>
+
