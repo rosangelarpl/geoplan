@@ -1,6 +1,4 @@
 <?php
-session_start();
-include_once "header.php";
 include_once "section_header.php";
 ?>
 
@@ -82,6 +80,3 @@ include_once "section_header.php";
     </div>
   </div>
   <!-- Team Section end-->
-
-<?php
-  include_once "footer.php";

@@ -1,7 +1,6 @@
 <?php
-session_start();
 if (!empty($_SESSION["usuario"])) {
-include_once "header.php";
+
 include_once "classes/banco.php";
 ?>
 
@@ -35,7 +34,7 @@ include_once "classes/banco.php";
      $query->execute();
      $paginas = $query->fetchall(Banco::FETCH_ASSOC);
      foreach ($paginas as $pagina) {
-      echo '<p><a href="'. $pagina["pagina"] .'.php">Página: '. $pagina["pagina"] .'.php</a> - Salva em '. date('d/m/Y', strtotime($pagina["salva_em"])). '</p>';
+      echo '<p><a href="'. $pagina["pagina"] .'">Página: '. $pagina["pagina"] .'</a> - Salva em '. date('d/m/Y', strtotime($pagina["salva_em"])). '</p>';
      }
      ?>
    </div>
@@ -48,14 +47,17 @@ include_once "classes/banco.php";
       $query->bindValue(1, $_SESSION["usuario"]["id"]);
       $query->execute();
       $comentarios = $query->fetchall(Banco::FETCH_ASSOC);
+      setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+      date_default_timezone_set('America/Sao_Paulo');
+
 
       foreach($comentarios as $comentario) : ?>  <!-- LAÇO DE REPETIÇÃO -->
 
         <p>
           <!-- LINK PARA A PAGINA DO COMENTARIO -->
-          Feito na página <a href="<?=$comentario['pagina']?>.php"><?=$comentario['pagina'].'.php'?></a> em 
+          Feito na página <a href="<?=$comentario['pagina']?>"><?=$comentario['pagina']?></a> em 
           <!-- DATA DO COMENTARIO -->
-          <?=date('d/m/Y', strtotime($comentario["feito_em"]))?>:
+          <?=strftime('%d de %B de %Y', strtotime($comentario["feito_em"]))?>:
           <br>
           <!-- $comentario['texto'] É A VARIÁVEL QUE CONTEM O COMENTÁRIO -->
           <?=$comentario['texto']?>
@@ -66,7 +68,6 @@ include_once "classes/banco.php";
  </section>
 
 <?php
-  include_once "footer.php";
 } else {
-  header("location:login.php");
+  header("location:login");
 }

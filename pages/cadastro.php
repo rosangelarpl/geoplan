@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once "classes/banco.php";
 
 if (!empty($_POST)) {
@@ -35,8 +34,6 @@ if (!empty($_POST)) {
 
   echo $resultado;
 }
-
-include_once "header.php";
 
 ?>
   <div class="container">
@@ -75,5 +72,4 @@ include_once "header.php";
 
 </div> <!-- Div sem fechar nada nessa pagina-->
 </div> <!-- Div sem fechar nada nessa pagina-->
-<?php
-include_once "footer.php";
+

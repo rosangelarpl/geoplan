@@ -13,14 +13,13 @@ if (!empty($_POST)) {
       echo "Usuário não encontrado. Verifique as informações e tente novamente";
     } elseif ($usuario["senha"] == $_POST["senha"]) {
       $_SESSION["usuario"] = $usuario;
-      header( "location:perfil.php" );
+      header( "location:perfil" );
     } else echo "Senha não confere. Verifique as informações e tente novamente";
   } catch(PDOException $e) {
     echo "Usuário ou senha não confere. Verifique as informações e tente novamente.";
   }
 }
 
-  include_once "header.php";
 ?>
         <div class="container">
           <form method="post" action="login.php" class="login">
@@ -39,6 +38,4 @@ if (!empty($_POST)) {
             <a href="cadastro.php" class="redcadastro"> Ou cadastre-se </a>
           </form>
         </div>
-<?php
-  include_once "footer.php";
-?>
+

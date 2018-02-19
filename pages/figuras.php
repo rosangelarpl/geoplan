@@ -1,7 +1,4 @@
-<?php
-session_start();
-include_once "header.php";
-?>
+
     <h2> Figuras Planas </h2>
     <p>Uma figura plana nada mais é que um plano que possui uma forma específica e para que ela exista é preciso que tenha no mínimo três lados. Todas essas formas geométricas definidas como Figuras Planas possuem fórmulas matemáticas  para o cálculo da medida de seus perímetros e de suas superfícies (ou áreas).</p>
     <h3>1. Perímetro – Definição e cálculo</h3>
@@ -36,5 +33,4 @@ include_once "header.php";
         </ul>
       </div>
     </div>
-<?php
-  include_once "footer.php";
+

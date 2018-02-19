@@ -1,6 +1,14 @@
 <?php
+session_start();
 error_reporting(E_ALL ^ E_NOTICE);
+require_once "config.php";
+//Essa parte é pra deixar a URL amigável, pra pegar e passar os parametros pela URL tbm
+$url = (isset($_GET['url'])) ? htmlentities(strip_tags($_GET['url'])) : '';
+$parametros = explode('/', $url);
+// echo var_dump($parametros);
 ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,32 +35,33 @@ error_reporting(E_ALL ^ E_NOTICE);
   <header>
     <nav class="navbar navbar-expand-lg p-0">
       <div class="container">
-        <a class="navbar-brand" href="index.php">
+        <a class="navbar-brand" href="home">
           <img src="images/logo (2).png" alt="">
         </a>
 
         <div class="collapse navbar-collapse" id="navbarSite">
           <ul class="navbar-nav">
 
-            <li class="nav-item active">
-              <a class="nav-link" href="index.php">Início</a>
+            <li class="nav-item">
+              <a class="nav-link <?php if(($parametros[0]=='home')||($parametros[0]=='')){echo 'active';}else{echo '';}?>" href="<?=PATH;?>home">Início</a>
             </li>
             <li class="navbar-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navDrop">As Figuras</a>
+              <a class="nav-link dropdown-toggle
+              <?php if(($parametros[0]=='triangulo')||($parametros[0]=='circulo')||($parametros[0]=='losango')||($parametros[0]=='paralelogramo')||($parametros[0]=='retangulo')||($parametros[0]=='trapezio')){echo 'active';$section_title="As Figuras";}else{echo '';}?>" href="#" data-toggle="dropdown" id="navDrop">As Figuras</a>
               <div class="dropdown-menu">
-                <a href="triagulo.php">Triângulo</a>
-                <a href="circulo.php">Círculo</a>
-                <a href="losango.php">Losango</a>
-                <a href="paralelogramo.php">Paralelogramo</a>
-                <a href="retangulo.php">Retângulo</a>
-                <a href="trapezio.php">Trapézio</a>
+                <a class="<?=($parametros[0]=='triangulo') ? 'active'.$section_subtitle="Triângulo".'' : ''?>" href="<?=PATH;?>triangulo">Triângulo</a>
+                <a class="<?=($parametros[0]=='circulo') ? 'active'.$section_subtitle="Círculo".'' : ''?>" href="<?=PATH;?>circulo">Círculo</a>
+                <a class="<?=($parametros[0]=='losango') ? 'active'.$section_subtitle="Losango".'' : ''?>" href="<?=PATH;?>losango">Losango</a>
+                <a class="<?=($parametros[0]=='paralelogramo') ? 'active'.$section_subtitle="Paralelogramo".'' : ''?>" href="<?=PATH;?>paralelogramo">Paralelogramo</a>
+                <a class="<?=($parametros[0]=='retangulo') ? 'active'.$section_subtitle="Retângulo".'' : ''?>" href="<?=PATH;?>retangulo">Retângulo</a>
+                <a class="<?=($parametros[0]=='trapezio') ? 'active'.$section_subtitle="Trapézio".'' : ''?>" href="<?=PATH;?>trapezio">Trapézio</a>
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="sobre.php">Sobre</a>
+              <a class="nav-link <?php if($parametros[0]=='sobre'){echo 'active';$section_title="Sobre";$section_subtitle="Sobre";}else{echo '';}?>" href="sobre">Sobre</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contato.php">Contato</a>
+              <a class="nav-link <?php if($parametros[0]=='contato'){echo 'active';}else{echo '';}?>" href="contato">Contato</a>
             </li>
           </ul>
 
@@ -63,45 +72,20 @@ error_reporting(E_ALL ^ E_NOTICE);
                   <span></span><img class="img-xs rounded-circle" src="images/user.png" alt="">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                  <a href="perfil.php">Perfil</a>
-                  <a href="logout.php">Logout</a>
+                  <a href="perfil">Perfil</a>
+                  <a href="logout">Logout</a>
                 </div>
               </li>
             <?php } else { ?>
               <li class="nav-item">
-                <a class="site-btn btn-3" href="login.php">Entrar</a>
+                <a class="site-btn btn-3" href="login">Entrar</a>
               </li>
               <li class="nav-item">
-                <a class="site-btn btn-2" href="cadastro.php">Cadastre-se</a>
+                <a class="site-btn btn-2" href="cadastro">Cadastre-se</a>
               </li>
             <?php } ?>
           </ul>
 
-          <!-- <form class="form-inline">
-            <input class="form-control  ml-4 mr-2" type="search" placeholder="Buscar...">
-            <button class="btn btn-dark" type="submit" name="button">OK</button>
-          </form> -->
-<!-- 
-          <ul id="entrar">
-              <?php if (!empty($_SESSION["usuario"])) { ?>
-
-              <li role="presentation">
-                <a class="page-scroll" class="dropdown-toggle" data-toggle="dropdown"><img class="userperfil" src= "images/user.png" > <span class="caret"></a>
-                <ul class="dropdown-menu">
-                  <li><a href="perfil.php">Perfil</a></li>
-                  <li><a href="logout.php">Sair</a></li>
-                </ul>
-              </li>
-              <?php } else { ?>
-              <li>
-                <a href="cadastro.php">Cadastre-se</a>
-              </li>
-              <li>
-                <a href="login.php">Entrar</a>
-              </li>
-              <?php } ?>
-            </ul> -->
-        </div>
       </div>
     </nav>
   </header>

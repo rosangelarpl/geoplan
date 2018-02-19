@@ -12,7 +12,7 @@ if(!empty($_POST)) {
     $insere_perfil = "insert into salva_pagina (id_usuario, pagina) values (?, ?)";
     $query = Banco::instanciar()->prepare($insere_perfil);
     $query->bindValue(1, $_SESSION["usuario"]["id"]);
-    $query->bindValue(2, $pag);
+    $query->bindValue(2, $parametros[0]);
     $query->execute();
     } catch (PDOException $e) {
     }
@@ -23,7 +23,7 @@ if(!empty($_POST)) {
     $insere_perfil = "delete from salva_pagina where id_usuario = ? and pagina = ?";
     $query = Banco::instanciar()->prepare($insere_perfil);
     $query->bindValue(1, $_SESSION["usuario"]["id"]);
-    $query->bindValue(2, $pag);
+    $query->bindValue(2, $parametros[0]);
     $query->execute();
 
     } catch (PDOException $e) {
@@ -36,25 +36,25 @@ if(!empty($_POST)) {
 $encontra_paginas = "select pagina from salva_pagina where id_usuario = ? and pagina = ?";
 $query = Banco::instanciar()->prepare($encontra_paginas);
 $query->bindValue(1, $_SESSION["usuario"]["id"]);
-$query->bindValue(2, $pag);
+$query->bindValue(2, $parametros[0]);
 $query->execute();
 $pagina = $query->fetch(Banco::FETCH_ASSOC);
-if ($pagina["pagina"] !== $pag) {
+if ($pagina["pagina"] !== $parametros[0]) {
 ?>
 
 <div class="favorite">
-  <form method="post" action="<?=$pag?>.php">
+  <form method="post" action="<?=$parametros[0]?>">
     <input type="hidden" value="salvar_pagina" name="salvar_pagina"/>
-    <button type="submit" class="btn-favorite"></button>
+    <button type="submit" class="site-btn btn-favorite-3"> SALVAR PÁGINA</button>
   </form>
 </div>
 
 <?php } else { ?>
 
 <div class="favorite">
-  <form method="post" action="<?=$pag?>.php">
+  <form method="post" action="<?=$parametros[0]?>">
     <input type="hidden" value="remover_pagina" name="salvar_pagina"/>
-    <button type="submit" class="btn-favorite-active"></button>
+    <button type="submit" class="site-btn btn-favorite-active-3"> PÁGINA SALVA</button>
   </form>
 </div>
 

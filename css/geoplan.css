@@ -315,13 +315,15 @@ header{
   transition: all 0.4s ease 0s;
 }
 
-.navbar-nav > li.active a {
-  background: #2be6ab;
+
+
+
+.navbar-nav > li a:hover{
   color: #6a23b5;
 }
 
-.navbar-nav > li a:hover,
 .navbar-nav > li a.active{
+  background-color: #2be6ab;
   color: #6a23b5;
 }
 
@@ -898,18 +900,7 @@ BOTOES
   padding: 14px 25px;
 }
 
-.site-btn.btn-4 {
-  background: transparent;
-  color: #2be6ab;
-  border: 1px solid #2be6ab;
-  padding: 14px 25px;
-}
 
-.site-btn.btn-5 {
- background: #2be6ab;
-  color: #6a23b5;
-  font-weight: 400;
-}
 
 .site-btn:hover,
 .site-btn:focus {
@@ -955,7 +946,7 @@ SECTION HEADER
   color: #fff;
   font-weight: 400;
   margin-bottom: 15px;
-  float: left;
+  float: right;
 }
 
 .page-top-section .page-info .page-links a,
@@ -1410,12 +1401,67 @@ SALVAR PAGINA
 .favorite{
   float: right;
   position: relative;
-  top: 10px;
-  right: 10px;
+  top: 0px;
+  right: 0px;
   color: #b9b4c7;
   font-size: 25px;
   cursor:pointer;
   z-index: 1;
+}
+
+.site-btn.btn-favorite-3 {
+  background: transparent;
+  color: #6a23b5;
+  border: 2px solid #6a23b5;
+  padding: 14px 25px;
+  cursor:pointer;
+}
+
+
+.site-btn.btn-favorite-3:hover {
+  background: #6a23b5;
+  color: #fff;
+}
+
+.site-btn.btn-favorite-3::before{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 400;
+  content: "\f005";
+  font-size: 17px;
+}
+
+.site-btn.btn-favorite-3:hover::before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: "\f005";
+}
+
+.site-btn.btn-favorite-active-3 {
+  background: #6a23b5;
+  color: #fff;
+  border: 2px solid #6a23b5;
+  padding: 14px 25px;
+  cursor:pointer;
+}
+
+
+.site-btn.btn-favorite-active-3:hover {
+  background: transparent;
+  color: #6a23b5;
+
+}
+
+.site-btn.btn-favorite-active-3::before{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: "\f004";
+  font-size: 17px;
+}
+
+.site-btn.btn-favorite-active-3:hover::before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 400;
+  content: "\f004";
 }
 
 

@@ -1,6 +1,4 @@
 <?php
-session_start();
-include_once "header.php";
 $pag = "paralelogramo";
 include_once "salvar_pagina.php";
 
@@ -23,7 +21,3 @@ include_once "salvar_pagina.php";
     </div>
 
   </div>
-
-
-<?php
-  include_once "footer.php";
