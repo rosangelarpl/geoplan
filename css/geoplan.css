@@ -6,6 +6,10 @@ html, body{
   background-color: #F0F1F2;
 }
 
+.overlay{
+  background-color: #9370DB;
+}
+
 h1,
 h2,
 h3,
@@ -488,7 +492,7 @@ PAGINA INCIAL - INDEX
 }
 
 .lab-card:hover {
-  background: rgba(220,220,220, 0.4);
+  background: rgba(135, 206, 250, 0.3);
 }
 
 .lab-card:hover h2,
