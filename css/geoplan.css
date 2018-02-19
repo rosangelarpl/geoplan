@@ -488,7 +488,7 @@ PAGINA INCIAL - INDEX
 }
 
 .lab-card:hover {
-  background: #2be6ab;
+  background: rgba(220,220,220, 0.4);
 }
 
 .lab-card:hover h2,
@@ -844,7 +844,7 @@ label{
 */
 
 /*************************
-BOTOES 
+BOTOES
 *************************/
 .img-xs{
   width: 35px;
@@ -1459,5 +1459,5 @@ SALVAR PAGINA
   font-family: 'Font Awesome 5 Free';
   font-weight: 400;
   content: "\f004";
- 
+
 }
