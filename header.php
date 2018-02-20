@@ -43,37 +43,39 @@ $parametros = explode('/', $url);
           <ul class="navbar-nav">
 
             <li class="nav-item">
-              <a class="nav-link <?php if(($parametros[0]=='home')||($parametros[0]=='')){echo 'active';}else{echo '';}?>" href="<?=PATH;?>home">Início</a>
+              <a class="nav-link <?php if(($parametros[0]=='home')||($parametros[0]=='')){echo 'active';}else{echo '';}?>" href="<?=PATH?>home">Início</a>
             </li>
             <li class="navbar-item dropdown">
               <a class="nav-link dropdown-toggle
               <?php if(($parametros[0]=='triangulo')||($parametros[0]=='circulo')||($parametros[0]=='losango')||($parametros[0]=='paralelogramo')||($parametros[0]=='retangulo')||($parametros[0]=='trapezio')){echo 'active';$section_title="As Figuras";}else{echo '';}?>" href="#" data-toggle="dropdown" id="navDrop">As Figuras</a>
               <div class="dropdown-menu">
-                <a class="<?=($parametros[0]=='triangulo') ? 'active'.$section_subtitle="Triângulo".'' : ''?>" href="<?=PATH;?>triangulo">Triângulo</a>
-                <a class="<?=($parametros[0]=='circulo') ? 'active'.$section_subtitle="Círculo".'' : ''?>" href="<?=PATH;?>circulo">Círculo</a>
-                <a class="<?=($parametros[0]=='losango') ? 'active'.$section_subtitle="Losango".'' : ''?>" href="<?=PATH;?>losango">Losango</a>
-                <a class="<?=($parametros[0]=='paralelogramo') ? 'active'.$section_subtitle="Paralelogramo".'' : ''?>" href="<?=PATH;?>paralelogramo">Paralelogramo</a>
-                <a class="<?=($parametros[0]=='retangulo') ? 'active'.$section_subtitle="Retângulo".'' : ''?>" href="<?=PATH;?>retangulo">Retângulo</a>
-                <a class="<?=($parametros[0]=='trapezio') ? 'active'.$section_subtitle="Trapézio".'' : ''?>" href="<?=PATH;?>trapezio">Trapézio</a>
+                <a class="<?=($parametros[0]=='triangulo') ? 'active'.$section_subtitle="Triângulo".'' : ''?>" href="<?=PATH?>triangulo">Triângulo</a>
+                <a class="<?=($parametros[0]=='circulo') ? 'active'.$section_subtitle="Círculo".'' : ''?>" href="<?=PATH?>circulo">Círculo</a>
+                <a class="<?=($parametros[0]=='losango') ? 'active'.$section_subtitle="Losango".'' : ''?>" href="<?=PATH?>losango">Losango</a>
+                <a class="<?=($parametros[0]=='paralelogramo') ? 'active'.$section_subtitle="Paralelogramo".'' : ''?>" href="<?=PATH?>paralelogramo">Paralelogramo</a>
+                <a class="<?=($parametros[0]=='retangulo') ? 'active'.$section_subtitle="Retângulo".'' : ''?>" href="<?=PATH?>retangulo">Retângulo</a>
+                <a class="<?=($parametros[0]=='trapezio') ? 'active'.$section_subtitle="Trapézio".'' : ''?>" href="<?=PATH?>trapezio">Trapézio</a>
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?php if($parametros[0]=='sobre'){echo 'active';$section_title="Sobre";$section_subtitle="Sobre";}else{echo '';}?>" href="sobre">Sobre</a>
+              <a class="nav-link <?php if($parametros[0]=='sobre'){echo 'active';$section_title="Sobre";$section_subtitle="Sobre";}else{echo '';}?>" href="<?=PATH?>sobre">Sobre</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?php if($parametros[0]=='contato'){echo 'active';}else{echo '';}?>" href="contato">Contato</a>
+              <a class="nav-link <?php if($parametros[0]=='contato'){echo 'active';}else{echo '';}?>" href="<?=PATH?>contato">Contato</a>
             </li>
           </ul>
 
           <ul id="user-nav" class="navbar-nav collapse navbar-collapse justify-content-end">
             <?php if (!empty($_SESSION["usuario"])) { ?>
+              <img class="img-xs rounded-circle" src="images/user.png" alt="">
               <li class="navbar-item dropdown">
-                <a class="nome-user dropdown-toggle" href="#" data-toggle="dropdown">
-                  <span></span><img class="img-xs rounded-circle" src="images/user.png" alt="">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                  usuadasfadfadriox
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                  <a href="perfil">Perfil</a>
-                  <a href="logout">Logout</a>
+                  <a href="<?=PATH?>perfil">Seu perfil</a>
+                  <a href="<?=PATH?>configuracoes">Configurações</a>
+                  <a href="<?=PATH?>logout">Sair</a>
                 </div>
               </li>
             <?php } else { ?>
@@ -85,6 +87,8 @@ $parametros = explode('/', $url);
               </li>
             <?php } ?>
           </ul>
+
+
 
       </div>
     </nav>

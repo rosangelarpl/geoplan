@@ -3,7 +3,7 @@ if (!empty($_SESSION["usuario"])) {
 include_once "classes/banco.php";
 ?>
 
-<div class="spad">
+<div class="section-perfil spad">
   <div class="container">
 
     
@@ -11,56 +11,51 @@ include_once "classes/banco.php";
     <div class="row">
       <div class="col-md-8">
         <div class="box">
-            <h2 class="post-title">CONFIGURAÇÕES DE CONTA</h2>
-            <form class="mt60 pl-4 pr-4">
-              <div class="form-group row">
-                <label for="inputEmail3" class="text-right col-sm-3 col-form-label">Email</label>
-                <div class="col-sm-9">
-                  <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                  
-                </div>
-              </div>
+            <div class="perfil-avatar text-center mt-5">
+                <img class="rounded-circle" src="images/avatar/01.jpg" alt="">
+            </div>
+            <h2 class="text-center mt-4">BRUNO WAGNER</h2>
+            <h3 class="post-subtitle text-center mt-5">usuario <span class="span-subtitle"><i class="fa fa-map-marker-alt"></i>Ceará-Mirim</span></h3>
+            <div class="biografia text-center">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequat ante ac congue.
+              </p>
+            </div>
 
-              <div class="form-group row">
-                <label for="inputPassword3" class="text-right col-sm-3 col-form-label">Password</label>
-                <div class="col-sm-9">
-                  <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                  <small id="passwordHelpBlock" class="form-text text-muted">
-                    Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-                  </small>
-                </div>
-              </div>
+            <div class="comments mt60">
+              <h2>Comentários (2)</h2>
+              <ul class="comment-list">
 
-              <div class="form-group row">
-                <div class="col-sm-3 text-right"><label class="col-form-label">Foto</label></div>
-                <div class="col-sm-9">
-                  <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="customFileLang" lang="es">
-                  <label class="custom-file-label" for="customFileLang">Foto do perfil</label>
-                  </div>
-                </div>
                 
-              </div>
 
-              <div class="form-group row">
-                <div class="col-sm-12">
-                  <button type="submit" class="btn btn-primary mt-5 float-right">Salvar alterações</button>
-                </div>
-              </div>
-            </form>
+                <li>
+                  <div class="avatar">
+                    <img src="images/avatar/01.jpg" alt="">
+                  </div>
+                  <div class="commetn-text">
+                    <h3>Bruno Wagner |  19 feb, 2014 </h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequat ante ac congue.</p>
+                  </div>
+                </li>
+                
+
+
+
+                
+              </ul>
+            </div>
+
+
         </div>
       </div>
 
       <div class="col-md-4">
         <div class="box">
-          <div class="nav-config">
-            <img class="img-sm rounded-circle float-left" src="images/user.png" alt="">
-            <h4 class="font-weight-normal" style="font-family: 'Roboto';">usuariox</h4>
-            <a href="">Ver perfil</a>
-          </div>
+          <h2 class="post-title"><i class="fa fa-star"></i> FAVORITOS</h2>
+
             
 
-          <ul class="nav flex-column nav-pills">
+          <ul class="nav flex-column mt-4">
             <li class="nav-item">
               <a class="nav-link active" href="#">Conta</a>
             </li>

@@ -22,7 +22,7 @@ if (!empty($_POST)) {
 
 ?>
         <div class="container">
-          <form method="post" action="login.php" class="login">
+          <form method="post" action="login" class="login">
             <h3>Login</h3>
             <div class="form-group row">
               <div class="col-sm-12">

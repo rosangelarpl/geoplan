@@ -175,6 +175,7 @@ ul#figuras li a:hover{
   box-sizing: border-box;
   -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  border-radius: .25rem;
 }
 
 .post{
@@ -276,6 +277,35 @@ ul#figuras li a:hover{
   color: #0b1033;
 }
 
+.img-xs{
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+  border: 1px solid #999;
+  -webkit-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+.post-title {
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.post-subtitle {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+  margin-bottom: 18px;
+  font-family: "Roboto", sans-serif;
+
+}
+
+
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /*                            Estilo do Cabeçalho                            */
@@ -284,7 +314,8 @@ ul#figuras li a:hover{
 header{
   background-color: #fff;
   text-align: center;
-  box-shadow: -21.213px 21.213px 30px 0px rgba(158, 158, 158, 0.3);
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 }
 
 .head{
@@ -350,7 +381,7 @@ header{
 }
 
 .dropdown-menu-right{
-  top:40px;
+  top:60px;
 }
 
 #user-nav > li a.nome-user{
@@ -362,6 +393,7 @@ header{
   -webkit-transition: all 0.4s ease 0s;
   -o-transition: all 0.4s ease 0s;
   transition: all 0.4s ease 0s;
+  height: 72px;
 }
 
 #user-nav > li a.nome-user:hover{
@@ -374,6 +406,11 @@ header{
   margin-right: 10px;
   margin-top:7px;
 }
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; 
+ }
 
 .dropdown-menu > a {
   text-decoration: none;
@@ -394,6 +431,16 @@ header{
   background-color: #2be6ab!important;
 
 }
+
+.dropdown-menu.show {
+    display: block;
+    background: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+    color: #3c3c3c;
+}
+
+
 
 .navbar-dark.bg-primary {
     background-color: purple !important;
@@ -861,23 +908,6 @@ p.obs1{
 /*************************
 BOTOES
 *************************/
-.img-xs{
-  width: 35px;
-  height: 35px;
-  border: 1px solid #999;
-  -webkit-transition: all 0.4s ease 0s;
-  -o-transition: all 0.4s ease 0s;
-  transition: all 0.4s ease 0s;
-}
-
-.post-title {
-  font-size: 24px;
-  font-weight: 400;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 18px;
-}
-
 
 .site-btn {
   font-family: "Oswald", sans-serif;
@@ -959,7 +989,7 @@ BOTÕES SALVAR PÁGINA
   background: transparent;
   color: #6a23b5;
   border: 2px solid #6a23b5;
-  padding: 14px 25px;
+  padding: 10px 25px;
   cursor:pointer;
 }
 
@@ -986,7 +1016,7 @@ BOTÕES SALVAR PÁGINA
   background: #6a23b5;
   color: #fff;
   border: 2px solid #6a23b5;
-  padding: 14px 25px;
+  padding: 10px 25px;
   cursor:pointer;
 }
 
@@ -1590,4 +1620,50 @@ CONFIGURAÇÕES DE PERFIL
 
 .nav-config a{
   font-size: 12px;
+}
+
+/**************************************************************
+PERFIL
+***************************************************************/
+.section-perfil h2{
+  font-size:28px;
+}
+
+.section-perfil .comments h2{
+  font-size: 18px;
+}
+
+.section-perfil h3{
+  letter-spacing: 0px;
+}
+
+.section-perfil h3 span{
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  text-transform: none;
+  margin-bottom: 18px;
+  font-family: "Roboto", sans-serif;
+  color:#aaa;
+}
+
+.section-perfil i{
+  padding: 0 5px 0 7px;
+}
+
+.perfil-avatar{
+  width: 100%;
+}
+
+.perfil-avatar img{
+  text-align: center;
+  width: 120px;
+  height: 120px;
+}
+
+.biografia{
+    color: #999;
+    margin: 0 auto 25px;
+    max-width: 350px;
+}
 }
