@@ -1,7 +1,6 @@
 html, body{
   padding: 0;
   margin: 0;
-  line-height: 1;
   font-family: "Roboto", sans-serif;
   background-color: #F0F1F2;
 }
@@ -9,6 +8,11 @@ html, body{
 .overlay{
   background-color: #9370DB;
 }
+
+.overlay-dark{
+  background-color: #6a23b5;
+}
+
 
 h1,
 h2,
@@ -24,6 +28,7 @@ h6 {
 h2 {
   font-size: 36px;
 }
+
 
 
 p {
@@ -164,6 +169,16 @@ ul#figuras li a:hover{
 .box{
   padding: 30px;
   background-color: #fff;
+  border: solid 1px #e6e6e6;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post{
+
 }
 
 .fix {
@@ -228,6 +243,7 @@ ul#figuras li a:hover{
   color: #fff;
   font-weight: 400;
 }
+
 
 .section-title h2 span {
   background: #2be6ab;
@@ -460,11 +476,11 @@ PAGINA INCIAL - INDEX
   padding: 50px 25px;
   text-align: center;
   background: #f5faf8;
-  -webkit-box-shadow: 0 0 8px rgba(74, 74, 74, 0.1);
-          box-shadow: 0 0 8px rgba(74, 74, 74, 0.1);
   -webkit-transition: all 0.4s ease 0s;
   -o-transition: all 0.4s ease 0s;
   transition: all 0.4s ease 0s;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .lab-card .icon {
@@ -841,13 +857,6 @@ p.obs1{
   background-color: rgba(220,220,220,0.2);
 }
 
-label{
-  color: purple;
-}
-
-/*  cursor: pointer;
-}
-*/
 
 /*************************
 BOTOES
@@ -887,6 +896,11 @@ BOTOES
   transition: all 0.1s ease 0s;
 }
 
+.site-btn.btn-1{
+  color: #641fb1;
+  background: #2be6ab;
+}
+
 .site-btn.btn-2 {
   background: #6a23b5;
   color: #fff;
@@ -901,11 +915,21 @@ BOTOES
 }
 
 
-
 .site-btn:hover,
 .site-btn:focus {
   text-decoration: none;
   outline: none;
+}
+
+.site-btn.btn-1:hover {
+  background: #24C290;
+  color: #fff;
+}
+
+.site-btn.btn-2:hover {
+  outline: none;
+  color:#fff;
+  background-color: #8A2DE8;
 }
 
 .site-btn.btn-3:hover {
@@ -914,11 +938,127 @@ BOTOES
   border: 1px solid #8A2DE8;
 }
 
-.site-btn.btn-2:hover {
-  outline: none;
-  color:#fff;
-  background-color: #8A2DE8;
+
+
+
+/*******************************
+BOTÕES SALVAR PÁGINA
+**********************************/
+.favorite{
+  float: right;
+  position: relative;
+  top: 0px;
+  right: 0px;
+  color: #b9b4c7;
+  font-size: 25px;
+  cursor:pointer;
+  z-index: 1;
 }
+
+.site-btn.btn-favorite-3 {
+  background: transparent;
+  color: #6a23b5;
+  border: 2px solid #6a23b5;
+  padding: 14px 25px;
+  cursor:pointer;
+}
+
+
+.site-btn.btn-favorite-3:hover {
+  background: #6a23b5;
+  color: #fff;
+}
+
+.site-btn.btn-favorite-3::before{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 400;
+  content: "\f005";
+  font-size: 17px;
+}
+
+.site-btn.btn-favorite-3:hover::before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: "\f005";
+}
+
+.site-btn.btn-favorite-active-3 {
+  background: #6a23b5;
+  color: #fff;
+  border: 2px solid #6a23b5;
+  padding: 14px 25px;
+  cursor:pointer;
+}
+
+
+.site-btn.btn-favorite-active-3:hover {
+  background: transparent;
+  color: #6a23b5;
+
+}
+
+.site-btn.btn-favorite-active-3::before{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: "\f004";
+  font-size: 17px;
+}
+
+.site-btn.btn-favorite-active-3:hover::before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 400;
+  content: "\f004";
+}
+
+
+.btn-favorite{
+  background-color: transparent;
+  border:none;
+  padding: 0;
+  margin:0;
+  color: #b9b4c7;
+  cursor:pointer;
+}
+
+.btn-favorite::after{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 400;
+  content: "\f004";
+}
+
+.btn-favorite:hover::after{
+  color: #b9b4c7;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: "\f004";
+  color: #fe4c50;
+}
+
+.btn-favorite-active{
+  background-color: transparent;
+  border:none;
+  padding: 0;
+  margin:0;
+  color: #fe4c50;
+  cursor:pointer;
+}
+
+.btn-favorite-active::after{
+
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: "\f004";
+}
+
+.btn-favorite-active:hover::after{
+  color: #b9b4c7;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 400;
+  content: "\f004";
+
+}
+
+
 
 
 
@@ -1294,6 +1434,13 @@ SOBRE
   text-transform: uppercase;
 }
 
+.member h3 span {
+    background: #2be6ab;
+    padding: 0 3px 5px;
+    display: inline-block;
+    color: #0b1033;
+    font-weight: 500;
+}
 
 /*------------------------
   Contact section
@@ -1395,119 +1542,52 @@ SOBRE
 
 
 
-/*******************************
-SALVAR PAGINA
-**********************************/
-.favorite{
-  float: right;
-  position: relative;
-  top: 0px;
-  right: 0px;
-  color: #b9b4c7;
-  font-size: 25px;
-  cursor:pointer;
-  z-index: 1;
+
+
+/***********************************
+ERROR 404 PAGE NOT FOUND
+************************************/
+h2.error-title {
+    color: #ff2a40;
+    font-size: 10rem;
 }
 
-.site-btn.btn-favorite-3 {
-  background: transparent;
-  color: #6a23b5;
-  border: 2px solid #6a23b5;
-  padding: 14px 25px;
-  cursor:pointer;
+.error-section h4 {
+    font-size: 1.5rem;
 }
 
+/************************************
+CONFIGURAÇÕES DE PERFIL
+*************************************/
 
-.site-btn.btn-favorite-3:hover {
-  background: #6a23b5;
-  color: #fff;
+.custom-file-label::after {
+    content: "Escolher arquivo";
+    background-color: #e9ecef;
+    border-left: 1px solid #ced4da;
+    border-radius: 0 .25rem .25rem 0;
+    cursor:pointer;
 }
 
-.site-btn.btn-favorite-3::before{
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 400;
-  content: "\f005";
-  font-size: 17px;
+.custom-file-label:hover::after {
+    background-color: #fff;
+    border-left: 1px solid #C3C9CF;
+    border-radius: 0 .25rem .25rem 0;
 }
 
-.site-btn.btn-favorite-3:hover::before {
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  content: "\f005";
+.nav-config{
+  margin-bottom: 25px;
 }
 
-.site-btn.btn-favorite-active-3 {
-  background: #6a23b5;
-  color: #fff;
-  border: 2px solid #6a23b5;
-  padding: 14px 25px;
-  cursor:pointer;
+.nav-config .img-sm{
+  width: 50px;
+  height: 50px;
+  border: 1px solid #999;
+  -webkit-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+  margin-right: 10px;
 }
 
-
-.site-btn.btn-favorite-active-3:hover {
-  background: transparent;
-  color: #6a23b5;
-
-}
-
-.site-btn.btn-favorite-active-3::before{
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  content: "\f004";
-  font-size: 17px;
-}
-
-.site-btn.btn-favorite-active-3:hover::before {
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 400;
-  content: "\f004";
-}
-
-
-.btn-favorite{
-  background-color: transparent;
-  border:none;
-  padding: 0;
-  margin:0;
-  color: #b9b4c7;
-  cursor:pointer;
-}
-
-.btn-favorite::after{
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 400;
-  content: "\f004";
-}
-
-.btn-favorite:hover::after{
-  color: #b9b4c7;
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  content: "\f004";
-  color: #fe4c50;
-}
-
-.btn-favorite-active{
-  background-color: transparent;
-  border:none;
-  padding: 0;
-  margin:0;
-  color: #fe4c50;
-  cursor:pointer;
-}
-
-.btn-favorite-active::after{
-
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  content: "\f004";
-}
-
-.btn-favorite-active:hover::after{
-  color: #b9b4c7;
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 400;
-  content: "\f004";
-
+.nav-config a{
+  font-size: 12px;
 }

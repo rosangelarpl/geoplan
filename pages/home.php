@@ -72,7 +72,7 @@ $pag = "index";
             <h2>Como surgiu?</h2>
             <p>Os primeiros conhecimentos geométricos que o homem teve, a respeito da geometria partiram das necessidades em compreender melhor o meio onde vivia. Motivo este que talvez justifique a origem da sua palavra, pois o termo “geometria” deriva do grego geo = terra + metria = medida que significa medição de terra.</p>
             <div class="text-center mt60">
-              <a href="" class="site-btn">Browse</a>
+              <a href="" class="site-btn btn-1">LEIA MAIS</a>
             </div>   
           </div>
         </div>
@@ -85,7 +85,7 @@ $pag = "index";
             <h2>O que são figuras planas</h2>
             <p>Uma figura plana nada mais é que um plano que possui uma forma específica e para que ela exista é preciso que tenha no mínimo três lados. Todas essas formas geométricas definidas como Figuras Planas possuem fórmulas matemáticas para o cálculo da medida de seus perímetros e de suas superfícies (ou áreas).</p>
             <div class="text-center mt60">
-              <a href="" class="site-btn">Browse</a>
+              <a href="" class="site-btn btn-1">LEIA MAIS</a>
             </div>  
           </div>
         </div>
@@ -98,7 +98,7 @@ $pag = "index";
             <h2>Perímetro e área</h2>
             <p>O perímetro de uma figura plana representa a soma de todas as medidas de seus lados. Já a área é um conceito matemático que pode ser definida como quantidade de espaço bidimensional, ou seja, de superfície. Cada figura possui uma fórmula diferente para calcular a área.<br><br></p>
             <div class="text-center mt60">
-              <a href="" class="site-btn">Browse</a>
+              <a href="" class="site-btn btn-1">LEIA MAIS</a>
             </div>  
           </div>
         </div>

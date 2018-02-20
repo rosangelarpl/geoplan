@@ -57,7 +57,7 @@ include_once "section_header.php";
           <div class="member">
             <img src="images/team/1.jpg" alt="">
             <h2>Christinne Williams</h2>
-            <h3>Project Manager</h3>
+            <h3><span>Project Manager</span></h3>
           </div>
         </div>
         <!-- single member -->
@@ -65,7 +65,7 @@ include_once "section_header.php";
           <div class="member">
             <img src="images/team/2.jpg" alt="">
             <h2>Christinne Williams</h2>
-            <h3>Junior developer</h3>
+            <h3><span>Junior developer</span></h3>
           </div>
         </div>
         <!-- single member -->
@@ -73,7 +73,7 @@ include_once "section_header.php";
           <div class="member">
             <img src="images/team/3.jpg" alt="">
             <h2>Christinne Williams</h2>
-            <h3>Digital designer</h3>
+            <h3><span>Digital designer</span></h3>
           </div>
         </div>
       </div>

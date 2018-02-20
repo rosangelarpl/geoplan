@@ -31,7 +31,7 @@ if($url == ''){
   include_once "pages/".$parametros[0].'.php';
 
 }else{
-  include_once "pages/erro404.php";
+  include_once "pages/error404.php";
 }
 
 
