@@ -9,42 +9,47 @@ include_once "classes/banco.php";
     
     
     <div class="row">
-      <div class="col-md-8">
+      <div id="box-perfil" class="col-md-8">
         <div class="box">
-            <div class="perfil-avatar text-center mt-5">
-                <img class="rounded-circle" src="images/avatar/01.jpg" alt="">
+          <div class="perfil-avatar text-center mt-5">
+              <img class="rounded-circle" src="images/avatar/01.jpg" alt="">
+          </div>
+          <h2 class="text-center mt-4">BRUNO WAGNER</h2>
+          <h3 class="post-subtitle text-center mt-5">usuario <span class="span-subtitle"><i class="fa fa-map-marker-alt"></i>Ceará-Mirim</span></h3>
+          <div class="biografia text-center">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequat ante ac congue.
+            </p>
+          </div>
+
+          <div class="container mt-5">
+            <div class="row">
+                <div class="timeline-centered">
+                  <article class="timeline-entry">
+                      <div class="timeline-entry-inner">
+                       
+                          <img  class="timeline-icon" src="images/avatar/01.jpg" alt="">
+                          
+                          <div class="timeline-label">
+                              <h2><a href="#">Art Ramadani</a> <span>posted a status update</span></h2>
+                              <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.</p>
+                          </div>
+                      </div>
+                  </article>
+
+
+
+                  <article class="timeline-entry begin">
+                      <div class="timeline-entry-inner">
+                          <div class="timeline-icon" style="-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);">
+                              +
+                          </div>
+                      </div>
+                  </article>
+              </div>
+
             </div>
-            <h2 class="text-center mt-4">BRUNO WAGNER</h2>
-            <h3 class="post-subtitle text-center mt-5">usuario <span class="span-subtitle"><i class="fa fa-map-marker-alt"></i>Ceará-Mirim</span></h3>
-            <div class="biografia text-center">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequat ante ac congue.
-              </p>
-            </div>
-
-            <div class="comments mt60">
-              <h2>Comentários (2)</h2>
-              <ul class="comment-list">
-
-                
-
-                <li>
-                  <div class="avatar">
-                    <img src="images/avatar/01.jpg" alt="">
-                  </div>
-                  <div class="commetn-text">
-                    <h3>Bruno Wagner |  19 feb, 2014 </h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequat ante ac congue.</p>
-                  </div>
-                </li>
-                
-
-
-
-                
-              </ul>
-            </div>
-
+          </div>
 
         </div>
       </div>
@@ -72,6 +77,9 @@ include_once "classes/banco.php";
 
   </div>
 </div>
+
+
+
 
 
 <h2 class="h2perfil"> Seu Perfil</h2>

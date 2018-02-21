@@ -28,6 +28,7 @@ $parametros = explode('/', $url);
   <link href="fontawesome/web-fonts-with-css/css/fontawesome-all.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" type="text/css" href="css/geoplan.css">
   <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css">
+  
 </head>
 <body>
 
