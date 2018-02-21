@@ -1376,9 +1376,9 @@ SECTION HEADER
 }
 
 
-/*----------------------------------
+/********************************************************
 SOBRE
-------------------------------------*/
+********************************************************/
 .service {
   margin-bottom: 90px;
 }
@@ -1556,9 +1556,9 @@ SOBRE
 
 
 
-/*------------------------
+/*************************************************************
   Footer section
---------------------------*/
+**************************************************************/
 .footer-section {
   background: #220c3b;
   text-align: center;
@@ -1574,9 +1574,9 @@ SOBRE
 
 
 
-/***********************************
+/*************************************************************
 ERROR 404 PAGE NOT FOUND
-************************************/
+**************************************************************/
 h2.error-title {
     color: #ff2a40;
     font-size: 10rem;
@@ -1586,9 +1586,9 @@ h2.error-title {
     font-size: 1.5rem;
 }
 
-/************************************
+/*************************************************************
 CONFIGURAÇÕES DE PERFIL
-*************************************/
+*************************************************************/
 
 .custom-file-label::after {
     content: "Escolher arquivo";
@@ -1930,4 +1930,44 @@ margin-right: -18px;
   opacity: .6;
   -ms-filter: alpha(opacity=60);
   filter: alpha(opacity=60);
+}
+
+
+/*********************************************************
+SECTION NAV
+***********************************************************/
+#section-nav {
+  background-color: #fff;
+  font-weight: 500;
+  padding: 0;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+#section-nav .container{
+  padding: 0px;
+}
+
+#section-nav .navbar-nav > li a.nav-link{
+  padding: 10px 15px;
+   -webkit-transition: all 0s ease 0s;
+  -o-transition: all 0s ease 0s;
+  transition: all 0s ease 0s;
+  
+}
+#section-nav .navbar-nav > li a.active{
+  border-bottom: 4px solid #6a23b5;
+  background-color: transparent;
+}
+
+#section-nav .navbar-nav > li a.active:hover{
+  color:#6a23b5;
+  border-bottom: 4px solid #ddd;
+  background-color: transparent;
+}
+
+#section-nav .navbar-nav > li a:hover{
+  color:#000;
+  border-bottom: 4px solid #ddd;
+  background-color: transparent;
 }

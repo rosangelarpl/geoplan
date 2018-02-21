@@ -25,7 +25,7 @@ include_once "classes/banco.php";
           <div class="container mt-5">
             <div class="row">
                 <div class="timeline-centered">
-                  <article class="timeline-entry">
+                  <article class="timeline-entry pr-3">
                       <div class="timeline-entry-inner">
                        
                           <img  class="timeline-icon" src="images/avatar/01.jpg" alt="">

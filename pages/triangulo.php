@@ -1,8 +1,8 @@
 <?php
-
 include_once "section_header.php";
-
+include_once "section_nav.php";
 ?>
+
 
 <!-- Article section -->
   <div class="spad">
