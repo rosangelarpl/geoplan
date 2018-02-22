@@ -916,7 +916,7 @@ BOTOES
   display: inline-block;
   text-transform: uppercase;
   background: #2be6ab;
-  padding: 15px 25px;
+  padding: 9px 25px;
   font-weight: 500;
   letter-spacing: 1px;
   text-align: center;
@@ -941,7 +941,7 @@ BOTOES
   background: transparent;
   color: #6a23b5;
   border: 1px solid #6a23b5;
-  padding: 14px 25px;
+  padding: 8px 25px;
 }
 
 
@@ -1970,4 +1970,93 @@ SECTION NAV
   color:#000;
   border-bottom: 4px solid #ddd;
   background-color: transparent;
+}
+
+
+/*******************************************************
+LOGIN
+********************************************************/
+#login{
+
+}
+
+#login .login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+
+}
+
+#login .form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 25px auto;
+  padding: 45px;
+  text-align: center;
+      -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+#login .form input {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+#login .form button{
+  width: 100%;
+}
+
+#login .form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 15px;
+}
+#login .form .message a {
+  color: #6a23b5;
+  text-decoration: none;
+}
+#login .form .register-form {
+  display: none;
+}
+#login .container {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+}
+#login .container:before, .container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#login .container .info {
+  margin: 50px auto;
+  text-align: center;
+}
+#login .container .info h1 {
+  margin: 0 0 15px;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+#login .container .info span {
+  color: #4d4d4d;
+  font-size: 12px;
+}
+#login .container .info span a {
+  color: #000000;
+  text-decoration: none;
+}
+#login .container .info span .fa {
+  color: #EF3B3A;
 }

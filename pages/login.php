@@ -21,21 +21,16 @@ if (!empty($_POST)) {
 }
 
 ?>
-        <div class="container">
-          <form method="post" action="login" class="login">
-            <h3>Login</h3>
-            <div class="form-group row">
-              <div class="col-sm-12">
-                Email: <input type="email" class="form-control" placeholder="Email" value="" name="email">
-              </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-sm-12">
-                Senha: <input type="password" class="form-control" placeholder="Senha" value="" name="senha">
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary">ENTRAR</button>
-            <a href="cadastro.php" class="redcadastro"> Ou cadastre-se </a>
-          </form>
-        </div>
+
+<div id="login" class="login-page spad">
+  <div class="form">
+    <form method="post" class="login-form" action="<?=PATH?>login">
+      <input type="email" name="email" placeholder="email"/>
+      <input type="password" name="senha" placeholder="senha"/>
+      <button type="submit" class="site-btn btn-2">ENTRAR</button>
+      <p class="message">Não é cadastrado? <a href="<?=PATH?>cadastro">Crie uma conta</a></p>
+    </form>
+  </div>
+</div>
+
 
