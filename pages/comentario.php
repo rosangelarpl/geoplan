@@ -12,9 +12,16 @@ if (!empty($_SESSION["usuario"])) {
     $query->bindValue(2, $parametros[0]);
     $query->bindValue(3, $_POST["comentario"]);
     $query->execute();
+
+    $insere_acao = "insert into historico (id_usuario, acao, id_acao) values (?, 'comentario', LAST_INSERT_ID())";
+    $query = Banco::instanciar()->prepare($insere_acao);
+    $query->bindValue(1, $_SESSION["usuario"]["id"]);
+    $query->execute();
     } catch (PDOException $e) {
  
     }
+
+
   }
 }
 
