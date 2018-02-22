@@ -1589,6 +1589,9 @@ h2.error-title {
 /*************************************************************
 CONFIGURAÇÕES DE PERFIL
 *************************************************************/
+.form-group {
+    margin-bottom: 2rem;
+}
 
 .custom-file-label::after {
     content: "Escolher arquivo";

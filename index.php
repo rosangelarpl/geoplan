@@ -20,7 +20,9 @@ $paginas_permitidas = array(
   'trapezio',
   'triangulo',
   'logout',
-  'configuracoes'
+  'configuracoes-conta',
+  'configuracoes-perfil',
+  'configuracoes-senha'
 ); //Quando tu fizer uma página, adiciona o nome dela aqui, sem o .php
 
 

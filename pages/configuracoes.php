@@ -57,13 +57,13 @@
 
           <ul class="nav flex-column nav-pills">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Conta</a>
+              <a class="nav-link active" href="<?=PATH?>configuracoes-conta">Conta</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Perfil</a>
+              <a class="nav-link" href="<?=PATH?>configuracoes-perfil">Perfil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Senha</a>
+              <a class="nav-link" href="configuracoes-perfil">Senha</a>
             </li>
           </ul>
         </div>  

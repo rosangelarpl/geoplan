@@ -75,7 +75,7 @@ $parametros = explode('/', $url);
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                   <a href="<?=PATH?>perfil">Seu perfil</a>
-                  <a href="<?=PATH?>configuracoes">Configurações</a>
+                  <a href="<?=PATH?>configuracoes-conta">Configurações</a>
                   <a href="<?=PATH?>logout">Sair</a>
                 </div>
               </li>

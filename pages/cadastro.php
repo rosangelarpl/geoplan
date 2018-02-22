@@ -24,7 +24,7 @@ if (!empty($_POST)) {
     $usuario = $query->fetch(Banco::FETCH_ASSOC);
     $_SESSION["usuario"] = $usuario;
     $_SESSION["usuario"]["paginas"] = array();
-    header( "location:perfil.php" );
+    header( "location:".PATH."perfil" );
   } catch(PDOException $e) {
     if($e->getCode() == "23000") {
       $resultado = "Erro no cadastro. Usuário existente.";
@@ -36,39 +36,20 @@ if (!empty($_POST)) {
 }
 
 ?>
-  <div class="container">
-    <p class="obs">Preencha as informações a seguir para fazer cadastro no site.</p>
-    <div class="row justify-content-center ml-4 mb-5">
-      <div class="col-sm-10 col-md-8 col-lg-6">
-        <h4>Realizar Cadastro</h4>
-
-        <form class="cadastro">
 
 
-          <div class="form-row ml-4">
-            <div class="form-group col-sm-10">
+<div id="login" class="login-page spad">
+  <div class="form">
+    <form method="post" class="login-form" action="<?=PATH?>cadastro">
+      <input type="text" name="nome" placeholder="nome"/>
+      <input type="email" name="email" placeholder="email"/>
+      <input type="password" name="senha" placeholder="senha"/>
+      <button type="submit" class="site-btn btn-2">CADASTRAR</button>
+      <p class="message">Já possui uma conta? <a href="<?=PATH?>cadastro">Entre aqui</a></p>
+    </form>
+  </div>
+</div>
 
-              <label for="inputNome">Nome</label>
-              <input type="text" class="form-control" placeholder="Nome" value="" id="nome" name="nome">
-            </div>
-            <div class="form-group col-sm-10">
-              <label for="inputEmail">Email</label>
-              <input type="email" class="form-control" placeholder="Email" value="" id="email" name="email">
-            </div>
-            <div class="form-group col-sm-10">
-              <label for="inputEmail">Senha</label>
-              <input type="password" class="form-control" placeholder="Senha" name="senha">
-            </div>
-          </div>
-          <button type="submit" class="btn btn-primary">CADASTRAR</button>
-        </form>
-
-
-      </div>
-
-    </div>
-
-  </div> <!--Container-->
 
 </div> <!-- Div sem fechar nada nessa pagina-->
 </div> <!-- Div sem fechar nada nessa pagina-->
