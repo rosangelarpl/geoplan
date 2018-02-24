@@ -1,12 +1,13 @@
 <?php
   session_start();
-  include_once "classes/banco.php";
+  include_once "classes/Banco.php";
 
 if (!empty($_POST)) {
   try{
-    $encontra_usuario = "select * from usuario where email = ?";
+    $encontra_usuario = "select * from usuario where (usuario = ? OR email = ?)";
     $query = Banco::instanciar()->prepare($encontra_usuario);
-    $query->bindValue(1, $_POST["email"]);
+    $query->bindValue(1, $_POST["login"]);
+    $query->bindValue(2, $_POST["login"]);
     $query->execute();
     $usuario = $query->fetch(Banco::FETCH_ASSOC);
     if (!$usuario) {
@@ -25,7 +26,7 @@ if (!empty($_POST)) {
 <div id="login" class="login-page spad">
   <div class="form">
     <form method="post" class="login-form" action="<?=PATH?>login">
-      <input type="email" name="email" placeholder="email"/>
+      <input type="text" name="login" placeholder="email ou usuário"/>
       <input type="password" name="senha" placeholder="senha"/>
       <button type="submit" class="site-btn btn-2">ENTRAR</button>
       <p class="message">Não é cadastrado? <a href="<?=PATH?>cadastro">Crie uma conta</a></p>

@@ -1,6 +1,6 @@
 <?php
 if (!empty($_SESSION["usuario"])) {
-include_once "classes/banco.php";
+include_once "classes/Banco.php";
 ?>
 
 <div class="section-perfil spad">
@@ -14,13 +14,29 @@ include_once "classes/banco.php";
           <div class="perfil-avatar text-center mt-5">
               <img class="rounded-circle" src="images/avatar/01.jpg" alt="">
           </div>
-          <h2 class="text-center mt-4">BRUNO WAGNER</h2>
-          <h3 class="post-subtitle text-center mt-5">usuario <span class="span-subtitle"><i class="fa fa-map-marker-alt"></i>Ceará-Mirim</span></h3>
+          <h2 class="text-center mt-4"><?php echo utf8_encode($_SESSION[usuario][nome]); ?></h2>
+          <h3 class="post-subtitle text-center mt-5">
+            <?php echo $_SESSION[usuario][usuario];
+
+            if($_SESSION[usuario][local] !== NULL){
+            ?>
+            <span class="span-subtitle"><i class="fa fa-map-marker-alt"></i><?php echo utf8_encode($_SESSION[usuario][local]); ?></span>
+            <?php 
+            }
+            ?>
+          </h3>
+          
+          <?php if($_SESSION[usuario][biografia] !== NULL){ ?>
+
           <div class="biografia text-center">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequat ante ac congue.
+              <?php echo utf8_encode($_SESSION[usuario][biografia]); ?>
             </p>
           </div>
+
+          <?php 
+          }
+          ?>
 
           <div class="container mt-5">
             <div class="row">
@@ -47,15 +63,15 @@ include_once "classes/banco.php";
 
                       foreach ($acoes as $acao) :  ?>  <!-- LAÇO DE REPETIÇÃO -->
 
-                      <article class="timeline-entry pr-3">
+                      <article class="timeline-entry pt-3 pr-3">
                           <div class="timeline-entry-inner">
                            
                               <img  class="timeline-icon" src="images/avatar/01.jpg" alt="">
                               
                               <div class="timeline-label">
                                   <h2><a href="#">Bruno Wagner</a><span> comentou em </span><a href="<?=PATH.$acao['pagina']?>"><?=$acao['pagina']?></a></h2>
-                                  <p><?=strftime('%d de %B de %Y', strtotime($acao["feito_em"]))?></p>
                                   <p><?=$acao['texto']?></p>
+                                  <p><?=strftime('%d de %B de %Y', strtotime($acao["feito_em"]))?></p>
                               </div>
                           </div>
                       </article>
@@ -73,7 +89,7 @@ include_once "classes/banco.php";
 
                       foreach ($acoes as $acao) :  ?>  <!-- LAÇO DE REPETIÇÃO -->
 
-                      <article class="timeline-entry pr-3">
+                      <article class="timeline-entry pt-3 pr-3">
                           <div class="timeline-entry-inner">
                            
                               <img  class="timeline-icon" src="images/avatar/01.jpg" alt="">
@@ -91,14 +107,11 @@ include_once "classes/banco.php";
                         
                       endforeach;
                     } 
-                  endforeach
+                  endforeach;
+
+                  if(!empty($historicos)){ 
 
                   ?>
-
-              
-
-                  
-
                   <article class="timeline-entry begin">
                       <div class="timeline-entry-inner">
                           <div class="timeline-icon" style="-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);">
@@ -106,6 +119,9 @@ include_once "classes/banco.php";
                           </div>
                       </div>
                   </article>
+                  <?php
+                  }
+                  ?>
               </div>
 
             </div>
@@ -123,10 +139,10 @@ include_once "classes/banco.php";
           <ul class="nav flex-column mt-4">
             <?php
             $encontra_paginas = "select * from salva_pagina where id_usuario = ?";
-     $query = Banco::instanciar()->prepare($encontra_paginas);
-     $query->bindValue(1, $_SESSION["usuario"]["id"]);
-     $query->execute();
-     $paginas = $query->fetchall(Banco::FETCH_ASSOC);
+            $query = Banco::instanciar()->prepare($encontra_paginas);
+            $query->bindValue(1, $_SESSION["usuario"]["id"]);
+            $query->execute();
+            $paginas = $query->fetchall(Banco::FETCH_ASSOC);
             foreach ($paginas as $pagina) :
             ?>
 

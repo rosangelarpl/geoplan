@@ -1,5 +1,5 @@
 <?php
-include_once "classes/banco.php";
+include_once "classes/Banco.php";
 
 if (!empty($_SESSION["usuario"])) {
 

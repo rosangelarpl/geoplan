@@ -1706,6 +1706,7 @@ img {
 .timeline-centered {
     position: relative;
     margin-bottom: 30px;
+    width:100%;
 }
 
 .timeline-centered:before, .timeline-centered:after {

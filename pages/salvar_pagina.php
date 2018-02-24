@@ -1,7 +1,7 @@
 <?php
 
 
-include_once "classes/banco.php";
+include_once "classes/Banco.php";
 
 if (!empty($_SESSION["usuario"])) {
 
@@ -23,7 +23,7 @@ if(!empty($_POST)) {
     } catch (PDOException $e) {
     }
 
-  } else {
+  } elseif ($_POST["salvar_pagina"] == "remover_pagina") {
 
     try{
     $insere_perfil = "delete from salva_pagina where id_usuario = ? and pagina = ?";

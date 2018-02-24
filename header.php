@@ -71,7 +71,7 @@ $parametros = explode('/', $url);
               <img class="img-xs rounded-circle" src="images/user.png" alt="">
               <li class="navbar-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                  usuadasfadfadriox
+                  <?php echo utf8_encode($_SESSION[usuario][nome]); ?>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                   <a href="<?=PATH?>perfil">Seu perfil</a>
