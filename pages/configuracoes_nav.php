@@ -1,7 +1,7 @@
 <div class="box">
   <div class="nav-config">
     <img class="img-sm rounded-circle float-left" src="images/user.png" alt="">
-    <h4 class="font-weight-normal" style="font-family: 'Roboto';">usuariox</h4>
+    <h4 class="font-weight-normal" style="font-family: 'Roboto';"><?php echo utf8_encode($_SESSION[usuario][usuario]); ?></h4>
     <a href="<?=PATH?>perfil">Ver perfil</a>
   </div>
     
