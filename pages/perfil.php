@@ -12,7 +12,7 @@ include_once "classes/Banco.php";
       <div id="box-perfil" class="col-md-8">
         <div class="box">
           <div class="perfil-avatar text-center mt-5">
-              <img class="rounded-circle" src="images/avatar/01.jpg" alt="">
+              <img class="rounded-circle" src="images/fotos/<?php echo $_SESSION[usuario][slug_foto];?>" alt="">
           </div>
           <h2 class="text-center mt-4"><?php echo utf8_encode($_SESSION[usuario][nome]); ?></h2>
           <h3 class="post-subtitle text-center mt-5">

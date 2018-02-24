@@ -1,6 +1,6 @@
 <div class="box">
   <div class="nav-config">
-    <img class="img-sm rounded-circle float-left" src="images/user.png" alt="">
+    <img class="img-sm rounded-circle float-left" src="images/fotos/<?php echo $_SESSION[usuario][slug_foto];?>" alt="">
     <h4 class="font-weight-normal" style="font-family: 'Roboto';"><?php echo utf8_encode($_SESSION[usuario][usuario]); ?></h4>
     <a href="<?=PATH?>perfil">Ver perfil</a>
   </div>

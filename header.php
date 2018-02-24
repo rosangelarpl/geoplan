@@ -13,7 +13,7 @@ $parametros = explode('/', $url);
 <html>
 <head>
   <title>Geoplan</title>
-  <meta charset="UTF-8"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
   <!-- Icone -->
   <link href="images/favicon.ico" rel="shortcut icon"/>
@@ -68,7 +68,7 @@ $parametros = explode('/', $url);
 
           <ul id="user-nav" class="navbar-nav collapse navbar-collapse justify-content-end">
             <?php if (!empty($_SESSION["usuario"])) { ?>
-              <img class="img-xs rounded-circle" src="images/user.png" alt="">
+              <img class="img-xs rounded-circle" src="images/fotos/<?php echo $_SESSION[usuario][slug_foto];?>" alt="">
               <li class="navbar-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
                   <?php echo utf8_encode($_SESSION[usuario][nome]); ?>

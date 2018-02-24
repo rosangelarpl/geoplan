@@ -51,7 +51,7 @@ date_default_timezone_set('America/Sao_Paulo');
 
             <li>
               <div class="avatar">
-                <img src="images/avatar/01.jpg" alt="">
+                <img src="images/fotos/<?php echo $_SESSION[usuario][slug_foto];?>" alt="">
               </div>
               <div class="commetn-text">
                 <h3><?=$comentario['nome'];?> |  <?=strftime('%d de %B de %Y', strtotime($comentario["feito_em"]))?> </h3>
