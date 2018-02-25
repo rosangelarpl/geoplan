@@ -22,7 +22,8 @@ $paginas_permitidas = array(
   'logout',
   'configuracoes-conta',
   'configuracoes-perfil',
-  'configuracoes-senha'
+  'configuracoes-senha',
+  'exercicios'
 ); //Quando tu fizer uma página, adiciona o nome dela aqui, sem o .php
 
 
@@ -32,7 +33,10 @@ if($url == ''){
 
 }elseif(in_array($parametros[0], $paginas_permitidas)){
   include_once "pages/".$parametros[0].'.php';
-
+}elseif($parametros[0] == 'exercicios'){
+  if(isset($parametros[2])){
+    include_once "pages/exercicios/".$parametros[1]."/".$parametros[2].".php";
+  }
 }else{
   include_once "pages/error404.php";
 }

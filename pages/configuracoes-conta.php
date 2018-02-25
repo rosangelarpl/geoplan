@@ -16,11 +16,11 @@ if (!empty($_POST)) {
     $tamanho = 1000;
  
     $error = array();
- 
-      // Verifica se o arquivo é uma imagem
-      if(!preg_match("/^image\/(pjpeg|jpeg|png|gif|bmp)$/", $foto["type"])){
-         $error[1] = "Isso não é uma imagem.";
-      } 
+
+    // Verifica se o arquivo é uma imagem
+    if(!preg_match("/^image\/(pjpeg|jpeg|png|gif|bmp)$/", $foto["type"])){
+       $error[1] = "Isso não é uma imagem.";
+    } 
   
     // Pega as dimensões da imagem
     $dimensoes = getimagesize($foto["tmp_name"]);

@@ -5,7 +5,7 @@
         <a class="nav-link active" href="#">Explorar</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Praticar</a>
+        <a class="nav-link" href="exercicios/<?=$parametros[0]?>/1">Praticar</a>
       </li>
     </ul>
   </div>

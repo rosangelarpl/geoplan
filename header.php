@@ -16,18 +16,22 @@ $parametros = explode('/', $url);
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
   <!-- Icone -->
-  <link href="images/favicon.ico" rel="shortcut icon"/>
+  <link href="<?=PATH?>images/favicon.ico" rel="shortcut icon"/>
   
   <!-- Fontes -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster|Oswald:300,400,500,700|Roboto:300,400,500,700">
   
   <!-- CSS -->
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/flaticon.css"/>
-  <link href="fontawesome/web-fonts-with-css/css/fontawesome-all.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" type="text/css" href="css/geoplan.css">
-  <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<?=PATH?>bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?=PATH?>css/flaticon.css"/>
+  <link href="<?=PATH?>fontawesome/web-fonts-with-css/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="<?=PATH?>css/geoplan.css">
+  <link rel="stylesheet" href="<?=PATH?>fontawesome/css/font-awesome.min.css">
+
+
+
 
 </head>
 <body>
@@ -37,7 +41,7 @@ $parametros = explode('/', $url);
     <nav class="navbar navbar-expand-lg p-0">
       <div class="container">
         <a class="navbar-brand" href="home">
-          <img src="images/logo (2).png" alt="">
+          <img src="<?=PATH?>images/logo (2).png" alt="">
         </a>
 
         <div class="collapse navbar-collapse" id="navbarSite">
@@ -68,7 +72,7 @@ $parametros = explode('/', $url);
 
           <ul id="user-nav" class="navbar-nav collapse navbar-collapse justify-content-end">
             <?php if (!empty($_SESSION["usuario"])) { ?>
-              <img class="img-xs rounded-circle" src="images/fotos/<?php echo $_SESSION[usuario][slug_foto];?>" alt="">
+              <img class="img-xs rounded-circle" src="<?=PATH?>images/fotos/<?php echo $_SESSION[usuario][slug_foto];?>" alt="">
               <li class="navbar-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
                   <?php echo utf8_encode($_SESSION[usuario][nome]); ?>

@@ -6,7 +6,7 @@ html, body{
 }
 
 .overlay{
-  background-color: #9370DB;
+  background-color: #6441a5;
 }
 
 .overlay-dark{
@@ -2063,4 +2063,89 @@ LOGIN
 }
 #login .container .info span .fa {
   color: #EF3B3A;
+}
+
+
+/******************************************************
+EXERCICIOS
+******************************************************/
+
+.exercicios-container {
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.box-exercicio{
+  padding: 30px;
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-top-right-radius: .25rem;
+  border-top-left-radius: .25rem; 
+  border-bottom: none;
+}
+
+.box-exercicio-submit{
+  padding: 30px;
+  background-color: #ddd;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom-right-radius: .25rem;
+  border-bottom-left-radius: .25rem; 
+  border-top: solid 1px #e6e6e6;;
+  height: 130px;
+}
+
+.box-exercicio-correto{
+  padding: 30px;
+  height: 130px;
+  background-color: #bff199;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom-right-radius: .25rem;
+  border-bottom-left-radius: .25rem; 
+  border-top: solid 1px #65ab00;;
+}
+
+.correto{
+  background: #fff;
+  border-radius: 98px;
+  display: inline-block;
+  height: 70px;
+  width: 70px;
+}
+
+.correto i{
+  font-size:35px;
+  margin: 17px 18px;
+  color:#65ab00;
+}
+
+.box-exercicio-errado{
+  padding: 30px;
+  height: 130px;
+  background-color: #ffd3d1;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom-right-radius: .25rem;
+  border-bottom-left-radius: .25rem; 
+  border-top: solid 1px #e70800;
+}
+
+.errado{
+  background: #fff;
+  border-radius: 98px;
+  display: inline-block;
+  height: 70px;
+  width: 70px;
+}
+
+.errado i{
+  font-size:35px;
+  margin: 17px 22px;
+  color:#e70800;
 }
