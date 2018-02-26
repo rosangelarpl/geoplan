@@ -10,7 +10,7 @@
 
         <h3 class="text-center post-title">Opps! Página não encontrada</h3>
        <div class="text-center mt60">
-              <a href="" class="site-btn btn-1"><i class="fa fa-home"></i> Volte ao Início</a></a>
+              <a href="" class="site-btn btn-1"><i class="fa fa-home"></i> Volte ao Início</a>
         </div> 
       </div>
     </div>

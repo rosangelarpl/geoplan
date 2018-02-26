@@ -132,6 +132,41 @@ include_once "classes/Banco.php";
 
       <div class="col-md-4">
         <div class="box">
+          <h2 class="post-title mb-4"><i class="fa fa-tasks"></i> LIÇÕES FEITAS</h2>
+
+            
+
+        
+            <?php
+
+              $encontra_progresso = "select * from progresso where id_usuario = ?";
+              $query = Banco::instanciar()->prepare($encontra_progresso);
+              $query->bindValue(1, $_SESSION[usuario][id]);
+              $query->execute();
+              $progressos = $query->fetchall(Banco::FETCH_ASSOC);
+              foreach ($progressos as $progresso) :
+
+            ?>
+
+            <h3 class="post-subtitle mb-1"><?=$progresso["assunto"]?></h3>
+
+            <div class="progress mb-3">
+              <div class="progress-bar" style="width: <?=$progresso["progresso"]?>%;" role="progressbar" aria-valuenow="<?=$progresso["progresso"]?>" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            
+            <?php
+    
+              endforeach;
+
+            ?>
+
+
+
+           
+
+    
+        </div> 
+        <div class="box mt-4">
           <h2 class="post-title"><i class="fa fa-star"></i> PÁGINAS SALVAS</h2>
 
             
