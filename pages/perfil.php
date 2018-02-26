@@ -1,6 +1,22 @@
 <?php
-if (!empty($_SESSION["usuario"])) {
+
 include_once "classes/Banco.php";
+
+$encontra_usuario = "select * from usuario where usuario = ?";
+$query = Banco::instanciar()->prepare($encontra_usuario);
+$query->bindValue(1, $parametros[1]);
+$query->execute();
+$usuarios = $query->fetchall(Banco::FETCH_ASSOC);
+$usuario = array();
+$i = 1;
+foreach ($usuarios as $var) :
+  $usuario[$i] = $var;
+  $i++;
+endforeach;
+
+//echo var_dump($usuario);
+//echo $usuario[1]["slug_foto"];
+
 ?>
 
 <div class="section-perfil spad">
@@ -12,25 +28,25 @@ include_once "classes/Banco.php";
       <div id="box-perfil" class="col-md-8">
         <div class="box">
           <div class="perfil-avatar text-center mt-5">
-              <img class="rounded-circle" src="images/fotos/<?php echo $_SESSION[usuario][slug_foto];?>" alt="">
+              <img class="rounded-circle" src="<?=PATH?>images/fotos/<?=$usuario[1]["slug_foto"]?>" alt="">
           </div>
-          <h2 class="text-center mt-4"><?php echo utf8_encode($_SESSION[usuario][nome]); ?></h2>
+          <h2 class="text-center mt-4"><?php echo utf8_encode($usuario[1]["nome"]); ?></h2>
           <h3 class="post-subtitle text-center mt-5">
-            <?php echo $_SESSION[usuario][usuario];
+            <?php echo $usuario[1]["usuario"];
 
-            if($_SESSION[usuario][local] !== NULL){
+            if($usuario[1]["local"] !== NULL){
             ?>
-            <span class="span-subtitle"><i class="fa fa-map-marker-alt"></i><?php echo utf8_encode($_SESSION[usuario][local]); ?></span>
+            <span class="span-subtitle"><i class="fa fa-map-marker-alt"></i><?php echo utf8_encode($usuario[1]["local"] ); ?></span>
             <?php 
             }
             ?>
           </h3>
           
-          <?php if($_SESSION[usuario][biografia] !== NULL){ ?>
+          <?php if($usuario[1]["biografia"] !== NULL){ ?>
 
           <div class="biografia text-center">
             <p>
-              <?php echo utf8_encode($_SESSION[usuario][biografia]); ?>
+              <?php echo utf8_encode($usuario[1]["biografia"]); ?>
             </p>
           </div>
 
@@ -48,7 +64,7 @@ include_once "classes/Banco.php";
 
                   $encontra_historicos = "select * from historico where id_usuario = ? ORDER BY datetime DESC";
                   $query = Banco::instanciar()->prepare($encontra_historicos);
-                  $query->bindValue(1, $_SESSION["usuario"]["id"]);
+                  $query->bindValue(1, $usuario[1]["id"]);
                   $query->execute();
                   $historicos = $query->fetchall(Banco::FETCH_ASSOC);
 
@@ -66,7 +82,7 @@ include_once "classes/Banco.php";
                       <article class="timeline-entry pt-3 pr-3">
                           <div class="timeline-entry-inner">
                            
-                              <img  class="timeline-icon" src="images/avatar/01.jpg" alt="">
+                              <img  class="timeline-icon" src="<?=PATH?>images/fotos/<?=$usuario[1]["slug_foto"]?>" alt="">
                               
                               <div class="timeline-label">
                                   <h2><a href="#">Bruno Wagner</a><span> comentou em </span><a href="<?=PATH.$acao['pagina']?>"><?=$acao['pagina']?></a></h2>
@@ -92,7 +108,7 @@ include_once "classes/Banco.php";
                       <article class="timeline-entry pt-3 pr-3">
                           <div class="timeline-entry-inner">
                            
-                              <img  class="timeline-icon" src="images/avatar/01.jpg" alt="">
+                              <img  class="timeline-icon" src="<?=PATH?>images/fotos/<?=$usuario[1]["slug_foto"]?>" alt="">
                               
                               <div class="timeline-label">
                                   <h2><a href="#">Bruno Wagner</a><span> salvou a página </span><a href="<?=PATH.$acao['pagina']?>"><?=$acao['pagina']?></a></h2>
@@ -141,7 +157,7 @@ include_once "classes/Banco.php";
 
               $encontra_progresso = "select * from progresso where id_usuario = ?";
               $query = Banco::instanciar()->prepare($encontra_progresso);
-              $query->bindValue(1, $_SESSION[usuario][id]);
+              $query->bindValue(1, $usuario[1]["id"]);
               $query->execute();
               $progressos = $query->fetchall(Banco::FETCH_ASSOC);
               foreach ($progressos as $progresso) :
@@ -175,7 +191,7 @@ include_once "classes/Banco.php";
             <?php
             $encontra_paginas = "select * from salva_pagina where id_usuario = ?";
             $query = Banco::instanciar()->prepare($encontra_paginas);
-            $query->bindValue(1, $_SESSION["usuario"]["id"]);
+            $query->bindValue(1, $usuario[1]["id"]);
             $query->execute();
             $paginas = $query->fetchall(Banco::FETCH_ASSOC);
             foreach ($paginas as $pagina) :
@@ -228,7 +244,7 @@ include_once "classes/Banco.php";
      <?php
      $encontra_paginas = "select * from salva_pagina where id_usuario = ?";
      $query = Banco::instanciar()->prepare($encontra_paginas);
-     $query->bindValue(1, $_SESSION["usuario"]["id"]);
+     $query->bindValue(1, $usuario[1]["id"]);
      $query->execute();
      $paginas = $query->fetchall(Banco::FETCH_ASSOC);
      foreach ($paginas as $pagina) {
@@ -242,7 +258,7 @@ include_once "classes/Banco.php";
       <?php 
       $encontra_comentarios = "select * from comentario where id_usuario = ? ORDER BY id ASC";
       $query = Banco::instanciar()->prepare($encontra_comentarios);
-      $query->bindValue(1, $_SESSION["usuario"]["id"]);
+      $query->bindValue(1, $usuario[1]["id"]);
       $query->execute();
       $comentarios = $query->fetchall(Banco::FETCH_ASSOC);
       setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
@@ -264,8 +280,3 @@ include_once "classes/Banco.php";
       <?php endforeach  ?> <!-- FIM DO LAÇO -->
    </div>
  </section>
-
-<?php
-} else {
-  header("location:login");
-}

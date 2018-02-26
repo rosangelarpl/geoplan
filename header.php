@@ -78,17 +78,17 @@ $parametros = explode('/', $url);
                   <?php echo utf8_encode($_SESSION[usuario][nome]); ?>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                  <a href="<?=PATH?>perfil">Seu perfil</a>
+                  <a href="<?=PATH?>perfil/<?=$_SESSION[usuario][usuario]?>">Seu perfil</a>
                   <a href="<?=PATH?>configuracoes-conta">Configurações</a>
                   <a href="<?=PATH?>logout">Sair</a>
                 </div>
               </li>
             <?php } else { ?>
               <li class="nav-item">
-                <a class="site-btn btn-3" href="login">Entrar</a>
+                <a class="site-btn btn-3" href="<?=PATH?>login">Entrar</a>
               </li>
               <li class="nav-item">
-                <a class="site-btn btn-2" href="cadastro">Cadastre-se</a>
+                <a class="site-btn btn-2" href="<?=PATH?>cadastro">Cadastre-se</a>
               </li>
             <?php } ?>
           </ul>

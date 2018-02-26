@@ -107,8 +107,8 @@ if(!empty($exercicio)){
   <div class="exercicios-container">
     <form class="form-objetiva" method="post" action="<?=PATH?>exercicios/<?=$parametros[1]?>/<?=$exercicio[1]["id"]?>">
       <div class="box-exercicio pb-5">
+        
         <div class="progress mb-5">
-
           <div class="progress-bar" style="width: <?=$progresso[1]["progresso"]?>%;" role="progressbar" aria-valuenow="<?=$progresso[1]["progresso"]?>" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
 
