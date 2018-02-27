@@ -1,4 +1,38 @@
+<?php 
+include_once "classes/Banco.php";
 
+try {
+$encontra_qtdExercicios = "select e.id,e.id_assunto,a.assunto from exercicio as e join assunto as a on a.id=e.id_assunto where assunto = ?";
+$query = Banco::instanciar()->prepare($encontra_qtdExercicios);
+$query->bindValue(1, $parametros[1]);
+$query->execute();
+$qtdExercicios = $query->fetchall(Banco::FETCH_ASSOC);
+
+$encontra_feitos = "select * from exercicios_feitos where feito = ? and id_usuario = ?";
+$query = Banco::instanciar()->prepare($encontra_feitos);
+$query->bindValue(1, 1);
+$query->bindValue(2, $_SESSION[usuario][id]);
+$query->execute();
+$qtdFeitos = $query->fetchall(Banco::FETCH_ASSOC);  
+
+$progresso = count($qtdFeitos)/count($qtdExercicios);
+$progresso = number_format($progresso,3);
+
+$altera_progresso = "update progresso set progresso = ? where id_assunto = ? and id_usuario = ?";
+$query = Banco::instanciar()->prepare($altera_progresso);
+$query->bindValue(1, $progresso);
+$query->bindValue(2, $qtdExercicios[1]["id_assunto"]);
+$query->bindValue(3, $_SESSION[usuario][id]);
+$query->execute(); 
+  
+} catch (PDOException $e) {
+  echo $e;
+}
+
+
+
+
+?>
 <section class="spad">
   <div class="container box">
     

@@ -167,7 +167,7 @@ endforeach;
             <h3 class="post-subtitle mb-1"><?=utf8_encode($progresso["titulo"])?></h3>
 
             <div class="progress mb-3">
-              <div class="progress-bar" style="width: <?=$progresso["progresso"]?>%;" role="progressbar" aria-valuenow="<?=$progresso["progresso"]?>" aria-valuemin="0" aria-valuemax="100"></div>
+              <div class="progress-bar" style="width: <?=$progresso["progresso"]*100?>%;" role="progressbar" aria-valuenow="<?=$progresso["progresso"]?>" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             
             <?php

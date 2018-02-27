@@ -2,6 +2,7 @@
 
 include_once "classes/Banco.php";
 
+
 if (!empty($_POST["opcao1"])) {
   try{
     // Cadastrar novo exercício

@@ -22,7 +22,34 @@ foreach ($exercicios as $var) :
 endforeach;
 
 
-$encontra_progresso = "select p.*,a.assunto from progresso as p join assunto as a on a.id=p.id_assunto where id_assunto = ? and id_usuario = ? limit 2";
+$encontra_qtdExercicios = "select * from exercicio where id_assunto = ?";
+$query = Banco::instanciar()->prepare($encontra_qtdExercicios);
+$query->bindValue(1, $exercicio[1]["id_assunto"]);
+$query->execute();
+$qtdExercicios = $query->fetchall(Banco::FETCH_ASSOC);
+
+$encontra_feitos = "select e.*,f.feito,a.assunto,f.id_usuario from exercicio as e join exercicios_feitos as f on e.id=f.id_exercicio join assunto as a on a.id=e.id_assunto where assunto = ? and feito = 1 and id_usuario = ?";
+$query = Banco::instanciar()->prepare($encontra_feitos);
+$query->bindValue(1, $parametros[1]);
+$query->bindValue(2, $_SESSION[usuario][id]);
+$query->execute();
+$qtdFeitos = $query->fetchall(Banco::FETCH_ASSOC);  
+
+$progresso = count($qtdFeitos)/count($qtdExercicios);
+$progresso = number_format($progresso,3);
+
+echo $progresso;
+
+$altera_progresso = "update progresso set progresso = ? where id_assunto = ? and id_usuario = ?";
+$query = Banco::instanciar()->prepare($altera_progresso);
+$query->bindValue(1, $progresso);
+$query->bindValue(2, $exercicio[1]["id_assunto"]);
+$query->bindValue(3, $_SESSION[usuario][id]);
+$query->execute();  
+
+//select p.*,a.assunto from progresso as p join assunto as a on a.id=p.id_assunto where id_assunto = ? and id_usuario = ? limit 2
+
+$encontra_progresso = "select * from progresso where id_assunto = ? and id_usuario = ? limit 2";
 $query = Banco::instanciar()->prepare($encontra_progresso);
 $query->bindValue(1, $exercicio[1]["id_assunto"]);
 $query->bindValue(2, $_SESSION[usuario][id]);
@@ -58,23 +85,10 @@ if ($resposta == $correta){
     $query->bindValue(1, 1);
     $query->bindValue(2, $exercicio[1]["id"]);
     $query->bindValue(3, $_SESSION[usuario][id]);
-    $query->execute();    
+    $query->execute();      
   }catch(PDOException $e){
     echo $e;
   }
-
-  try{
-    $soma_progresso = $progresso[1]["progresso"] + 10;
-    $altera_progresso = "update progresso set progresso = ? where id_assunto = ? and id_usuario = ?";
-    $query = Banco::instanciar()->prepare($altera_progresso);
-    $query->bindValue(1, $soma_progresso);
-    $query->bindValue(2, $exercicio[1]["id_assunto"]);
-    $query->bindValue(3, $_SESSION[usuario][id]);
-    $query->execute();    
-  }catch(PDOException $e){
-    echo $e;
-  }
-
 
   $tipo_box = 'correto';
   $type = 'button';
@@ -109,7 +123,7 @@ if(!empty($exercicio)){
       <div class="box-exercicio pb-5">
         
         <div class="progress mb-5">
-          <div class="progress-bar" style="width: <?=$progresso[1]["progresso"]?>%;" role="progressbar" aria-valuenow="<?=$progresso[1]["progresso"]?>" aria-valuemin="0" aria-valuemax="100"></div>
+          <div class="progress-bar" style="width: <?=(number_format($progresso[1]["progresso"],2)*100)?>%;" role="progressbar" aria-valuenow="<?=$progresso[1]["progresso"]?>" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
 
         

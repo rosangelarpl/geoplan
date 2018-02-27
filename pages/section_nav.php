@@ -15,6 +15,7 @@ foreach ($exercicios as $var) :
 endforeach;
 
 echo var_dump($exercicio);
+  
 
 if(!empty($exercicio)){
   $proxExercicio = $exercicio[1]["id"];
