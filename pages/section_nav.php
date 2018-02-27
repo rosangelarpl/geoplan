@@ -1,7 +1,7 @@
 <?php 
 require_once "classes/Banco.php";
 
-$encontra_exercicios = "select e.*,f.feito, f.id_usuario from exercicio as e join exercicios_feitos as f on e.id=f.id_exercicio where assunto = ? and feito != 1 and id_usuario = ? limit 2";
+$encontra_exercicios = "select e.*,f.feito,a.assunto,f.id_usuario from exercicio as e join exercicios_feitos as f on e.id=f.id_exercicio join assunto as a on a.id=e.id_assunto where assunto = ? and feito != 1 and id_usuario = ? limit 2";
 $query = Banco::instanciar()->prepare($encontra_exercicios);
 $query->bindValue(1, $parametros[0]);
 $query->bindValue(2, $_SESSION[usuario][id]);

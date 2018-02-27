@@ -148,14 +148,14 @@ endforeach;
 
       <div class="col-md-4">
         <div class="box">
-          <h2 class="post-title mb-4"><i class="fa fa-tasks"></i> LIÇÕES FEITAS</h2>
+          <h2 class="post-title mb-4"><i class="largura50 fa fa-tasks"></i>LIÇÕES FEITAS</h2>
 
             
 
         
             <?php
 
-              $encontra_progresso = "select * from progresso where id_usuario = ?";
+              $encontra_progresso = "select p.*,a.titulo from progresso as p join assunto as a on a.id=p.id_assunto where id_usuario = ?";
               $query = Banco::instanciar()->prepare($encontra_progresso);
               $query->bindValue(1, $usuario[1]["id"]);
               $query->execute();
@@ -164,7 +164,7 @@ endforeach;
 
             ?>
 
-            <h3 class="post-subtitle mb-1"><?=$progresso["assunto"]?></h3>
+            <h3 class="post-subtitle mb-1"><?=utf8_encode($progresso["titulo"])?></h3>
 
             <div class="progress mb-3">
               <div class="progress-bar" style="width: <?=$progresso["progresso"]?>%;" role="progressbar" aria-valuenow="<?=$progresso["progresso"]?>" aria-valuemin="0" aria-valuemax="100"></div>
@@ -183,7 +183,7 @@ endforeach;
     
         </div> 
         <div class="box mt-4">
-          <h2 class="post-title"><i class="fa fa-star"></i> PÁGINAS SALVAS</h2>
+          <h2 class="post-title"><i class="largura50 fa fa-star"></i>PÁGINAS SALVAS</h2>
 
             
 

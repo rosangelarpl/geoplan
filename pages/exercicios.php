@@ -8,7 +8,7 @@ $content = '';
 $button_content = '<button type="submit" class="btn float-right">Verificar</button>';
 
 
-$encontra_exercicios = "select e.*,f.feito, f.id_usuario from exercicio as e join exercicios_feitos as f on e.id=f.id_exercicio where assunto = ? and feito != 1 and id_usuario = ? limit 2";
+$encontra_exercicios = "select e.*,f.feito,a.assunto,f.id_usuario from exercicio as e join exercicios_feitos as f on e.id=f.id_exercicio join assunto as a on a.id=e.id_assunto where assunto = ? and feito != 1 and id_usuario = ? limit 2";
 $query = Banco::instanciar()->prepare($encontra_exercicios);
 $query->bindValue(1, $parametros[1]);
 $query->bindValue(2, $_SESSION[usuario][id]);
@@ -22,9 +22,9 @@ foreach ($exercicios as $var) :
 endforeach;
 
 
-$encontra_progresso = "select * from progresso where assunto = ? and id_usuario = ? limit 2";
+$encontra_progresso = "select p.*,a.assunto from progresso as p join assunto as a on a.id=p.id_assunto where id_assunto = ? and id_usuario = ? limit 2";
 $query = Banco::instanciar()->prepare($encontra_progresso);
-$query->bindValue(1, $exercicio[1]["assunto"]);
+$query->bindValue(1, $exercicio[1]["id_assunto"]);
 $query->bindValue(2, $_SESSION[usuario][id]);
 $query->execute();
 $progressos = $query->fetchall(Banco::FETCH_ASSOC);
@@ -65,10 +65,10 @@ if ($resposta == $correta){
 
   try{
     $soma_progresso = $progresso[1]["progresso"] + 10;
-    $altera_progresso = "update progresso set progresso = ? where assunto = ? and id_usuario = ?";
+    $altera_progresso = "update progresso set progresso = ? where id_assunto = ? and id_usuario = ?";
     $query = Banco::instanciar()->prepare($altera_progresso);
     $query->bindValue(1, $soma_progresso);
-    $query->bindValue(2, $exercicio[1]["assunto"]);
+    $query->bindValue(2, $exercicio[1]["id_assunto"]);
     $query->bindValue(3, $_SESSION[usuario][id]);
     $query->execute();    
   }catch(PDOException $e){
@@ -91,7 +91,7 @@ if ($resposta == $correta){
   $tipo_box = 'errado';
   $type = 'button';
   $content = '<i class="fas fa-times"></i>';
-  $button_content = '<a class="site-btn float-right" href="'. PATH .'exercicios/'.$parametros[1].'/'.$proxExercicio .'">Continuar</a>';
+  $button_content = '<button type="submit" class="btn float-right">Continuar</button>'; //<a class="site-btn float-right" href="'. PATH .'exercicios/'.$parametros[1].'/'.$proxExercicio .'">Continuar</a>';
 }
 
 

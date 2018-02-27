@@ -12,8 +12,38 @@ if (!empty($_POST)) {
     $query->bindValue(4, $_POST["usuario"]);
     $query->execute();
 
-
     $usuario_id = Banco::instanciar()->lastInsertId();
+
+    //Encontra exercicios e registra os exercicios do usuario para analisar progresso
+
+    $encontra_exercicios = "select * from exercicio";
+    $query = Banco::instanciar()->prepare($encontra_exercicios);
+    $query->execute();
+    $exercicios = $query->fetchall(Banco::FETCH_ASSOC);
+    foreach ($exercicios as $exercicio) :
+      $insere_feitos = "insert into exercicios_feitos (id_usuario, id_exercicio) values (?, ?)";
+      $query = Banco::instanciar()->prepare($insere_feitos);
+      $query->bindValue(1, $usuario_id);
+      $query->bindValue(2, $exercicio["id"]);
+      $query->execute();
+    endforeach;
+
+    //Encontra assuntos e cria um avaliador de progresso para cada um
+
+    $encontra_assuntos = "select * from assunto";
+    $query = Banco::instanciar()->prepare($encontra_assuntos);
+    $query->execute();
+    $assuntos = $query->fetchall(Banco::FETCH_ASSOC);
+    foreach ($assuntos as $assunto) :
+      $insere_feitos = "insert into progresso (id_usuario, id_assunto) values (?, ?)";
+      $query = Banco::instanciar()->prepare($insere_feitos);
+      $query->bindValue(1, $usuario_id);
+      $query->bindValue(2, $assunto["id"]);
+      $query->execute();
+    endforeach;
+
+    
+    // Cria perfil
     $insere_perfil = "insert into perfil (id_usuario, perfil) values (?, ?)";
     $query = Banco::instanciar()->prepare($insere_perfil);
     $query->bindValue(1, $usuario_id);
@@ -27,7 +57,7 @@ if (!empty($_POST)) {
     $usuario = $query->fetch(Banco::FETCH_ASSOC);
     $_SESSION["usuario"] = $usuario;
     $_SESSION["usuario"]["paginas"] = array();
-    header( "location:perfil" );
+    header( "location:perfil/".$_SESSION[usuario][usuario] );
   } catch(PDOException $e) {
     if($e->getCode() == "23000") {
       $resultado = "Erro no cadastro. Usuário existente.";

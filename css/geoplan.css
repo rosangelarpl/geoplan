@@ -1638,6 +1638,7 @@ PERFIL
 
 .section-perfil h3{
   letter-spacing: 0px;
+  text-transform: none;
 }
 
 .section-perfil h3 span{
@@ -1652,6 +1653,10 @@ PERFIL
 
 .section-perfil i{
   padding: 0 5px 0 7px;
+}
+
+.largura50{
+  width: 50px;
 }
 
 .perfil-avatar{
@@ -2148,4 +2153,25 @@ EXERCICIOS
   font-size:35px;
   margin: 17px 22px;
   color:#e70800;
+}
+
+/********************************************************
+CADASTRO EXERCICIOS
+********************************************************/
+.card-header {
+  padding: 0;
+}
+
+.card-body {
+    padding: 0rem 0;
+}
+
+.section-form-exercicio .table td{
+  font-size: 12px;
+  padding: 0.75rem;
+}
+
+.section-form-exercicio .table td .btn {
+    padding: 0;
+    font-size: 12px;
 }
