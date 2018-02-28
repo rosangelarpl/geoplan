@@ -35,7 +35,7 @@ include_once "section_nav.php";
           </div>
           <div class="form-group row">
             <div class="col-sm-12">
-              Altura: <input type="text" class="form-control" placeholder="tamanho da altura" id="altura">
+              Altura: <input type="text" class="form-control"placeholder="tamanho da altura" id="altura">
             </div>
           </div>
               <button type="button" value="Calcular" class="btn btn-primary" onclick="calcularAreaParalelogramo();return true"/>Calcular</button>

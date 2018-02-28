@@ -8,9 +8,9 @@ $query->bindValue(1, $parametros[1]);
 $query->execute();
 $qtdExercicios = $query->fetchall(Banco::FETCH_ASSOC);
 
-$encontra_feitos = "select * from exercicios_feitos where feito = ? and id_usuario = ?";
+$encontra_feitos = "select e.*,f.feito,a.assunto,f.id_usuario from exercicio as e join exercicios_feitos as f on e.id=f.id_exercicio join assunto as a on a.id=e.id_assunto where assunto = ? and feito = 1 and id_usuario = ?";
 $query = Banco::instanciar()->prepare($encontra_feitos);
-$query->bindValue(1, 1);
+$query->bindValue(1, $parametros[1]);
 $query->bindValue(2, $_SESSION[usuario][id]);
 $query->execute();
 $qtdFeitos = $query->fetchall(Banco::FETCH_ASSOC);  
@@ -18,13 +18,28 @@ $qtdFeitos = $query->fetchall(Banco::FETCH_ASSOC);
 $progresso = count($qtdFeitos)/count($qtdExercicios);
 $progresso = number_format($progresso,3);
 
+$encontra_assuntos = "select * from assunto";
+$query = Banco::instanciar()->prepare($encontra_assuntos);
+$query->execute();
+$assuntos = $query->fetchall(Banco::FETCH_ASSOC);
+foreach ($assuntos as $assunto) :
+  if($assunto["assunto"] == $parametros[1]){
+    $id_assunto = $assunto["id"];
+  }
+endforeach;
+
+echo '-------'.$id_assunto.'------------';  
+
 $altera_progresso = "update progresso set progresso = ? where id_assunto = ? and id_usuario = ?";
 $query = Banco::instanciar()->prepare($altera_progresso);
 $query->bindValue(1, $progresso);
-$query->bindValue(2, $qtdExercicios[1]["id_assunto"]);
+$query->bindValue(2, $id_assunto);
 $query->bindValue(3, $_SESSION[usuario][id]);
 $query->execute(); 
   
+echo $progresso.'---'.count($qtdFeitos).'----'.count($qtdExercicios).'<br>';
+
+
 } catch (PDOException $e) {
   echo $e;
 }

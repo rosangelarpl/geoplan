@@ -23,7 +23,8 @@ $paginas_permitidas = array(
   'configuracoes-conta',
   'configuracoes-perfil',
   'configuracoes-senha',
-  'form-exercicio-objetivo'
+  'form-exercicio-objetivo',
+  'paralelo'
 ); //Quando tu fizer uma página, adiciona o nome dela aqui, sem o .php
 
 

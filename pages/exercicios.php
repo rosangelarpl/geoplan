@@ -5,7 +5,8 @@ include_once "classes/Banco.php";
 $tipo_box = 'submit';
 $type = 'submit';
 $content = '';
-$button_content = '<button type="submit" class="btn float-right">Verificar</button>';
+$button_content = '<button type="submit" class="btn btn-primary float-right">Verificar</button>';
+$exclamacao = '';
 
 
 $encontra_exercicios = "select e.*,f.feito,a.assunto,f.id_usuario from exercicio as e join exercicios_feitos as f on e.id=f.id_exercicio join assunto as a on a.id=e.id_assunto where assunto = ? and feito != 1 and id_usuario = ? limit 2";
@@ -89,11 +90,11 @@ if ($resposta == $correta){
   }catch(PDOException $e){
     echo $e;
   }
-
+  $exclamacao = 'Correto!';
   $tipo_box = 'correto';
   $type = 'button';
   $content = '<i class="fas fa-check"></i>';
-  $button_content = '<a class="site-btn float-right" href="'. PATH .'exercicios/'.$parametros[1].'/'.$proxExercicio .'">Continuar</a>';
+  $button_content = '<a class="btn btn-success float-right" href="'. PATH .'exercicios/'.$parametros[1].'/'.$proxExercicio .'">Continuar</a>';
 } elseif (!empty($resposta)) {
 
   if(!empty($exercicio[1])){
@@ -102,10 +103,11 @@ if ($resposta == $correta){
     $proxExercicio = 'concluido';
   }
 
+  $exclamacao = 'Errado!';
   $tipo_box = 'errado';
   $type = 'button';
   $content = '<i class="fas fa-times"></i>';
-  $button_content = '<button type="submit" class="btn float-right">Continuar</button>'; //<a class="site-btn float-right" href="'. PATH .'exercicios/'.$parametros[1].'/'.$proxExercicio .'">Continuar</a>';
+  $button_content = '<button type="submit" class="btn btn-danger float-right">Continuar</button>'; //<a class="site-btn float-right" href="'. PATH .'exercicios/'.$parametros[1].'/'.$proxExercicio .'">Continuar</a>';
 }
 
 
@@ -126,8 +128,13 @@ if(!empty($exercicio)){
           <div class="progress-bar" style="width: <?=(number_format($progresso[1]["progresso"],2)*100)?>%;" role="progressbar" aria-valuenow="<?=$progresso[1]["progresso"]?>" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
 
+
         
           <h3 class="post-title"><?=$exercicio[1]["pergunta"]?></h3>
+
+          <div class="mb-4">
+            <img src="<?=PATH?>/images/exercicios/<?=$exercicio[1]["slug_img"]?>" alt="">
+          </div>
           
           <div class="form-check">
             <input class="form-check-input" type="radio" name="resposta" id="exampleRadios1" value="1" <?php 
@@ -169,18 +176,30 @@ if($resposta==4){echo 'checked';}?>>
         <div class="<?=$tipo_box?> float-left">
           <?=$content?>
         </div>
+
+        <div class="float-left ml-4">
+          <h3 class="title-box-exercicio"><?=$exclamacao?></h3>
+        </div>
+
         <div class="botoes">
           <?=$button_content?>
         </div>
       </div>
     </form>
-<!--<div class="box-exercicio-correto">
+<!--
+
+<div class="box-exercicio-correto">
       <div class="correto float-left">
         <i class="fas fa-check"></i>
       </div>
+
+      <div class="float-left ml-4">
+        <h3 class="title-box-exercicio">Correto!</h3>
+      </div>
+
       <div class="botoes">
 
-         <button type="submit" class="btn float-right">Continuar</button>
+         <button type="submit" class="btn btn-success float-right">Continuar</button>
       </div>
     </div>
 

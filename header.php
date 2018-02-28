@@ -57,7 +57,7 @@ $parametros = explode('/', $url);
                 <a class="<?=($parametros[0]=='triangulo') ? 'active'.$section_subtitle="Triângulo".'' : ''?>" href="<?=PATH?>triangulo">Triângulo</a>
                 <a class="<?=($parametros[0]=='circulo') ? 'active'.$section_subtitle="Círculo".'' : ''?>" href="<?=PATH?>circulo">Círculo</a>
                 <a class="<?=($parametros[0]=='losango') ? 'active'.$section_subtitle="Losango".'' : ''?>" href="<?=PATH?>losango">Losango</a>
-                <a class="<?=($parametros[0]=='paralelogramo') ? 'active'.$section_subtitle="Paralelogramo".'' : ''?>" href="<?=PATH?>paralelogramo">Paralelogramo</a>
+                <a class="<?=($parametros[0]=='paralelogramo') ? 'active'.$section_subtitle="Paralelogramo".'' : ''?>" href="<?=PATH?>paralelo">Paralelogramo</a>
                 <a class="<?=($parametros[0]=='retangulo') ? 'active'.$section_subtitle="Retângulo".'' : ''?>" href="<?=PATH?>retangulo">Retângulo</a>
                 <a class="<?=($parametros[0]=='trapezio') ? 'active'.$section_subtitle="Trapézio".'' : ''?>" href="<?=PATH?>trapezio">Trapézio</a>
               </div>

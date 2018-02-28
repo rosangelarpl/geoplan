@@ -2091,6 +2091,14 @@ EXERCICIOS
   border-bottom: none;
 }
 
+.title-box-exercicio{
+font-size: 22px;
+font-weight: 700;
+letter-spacing: 1px;
+text-transform: none;
+font-family: "Roboto", sans-serif;
+}
+
 .box-exercicio-submit{
   padding: 30px;
   background-color: #ddd;
@@ -2112,7 +2120,9 @@ EXERCICIOS
   box-sizing: border-box;
   border-bottom-right-radius: .25rem;
   border-bottom-left-radius: .25rem; 
-  border-top: solid 1px #65ab00;;
+  border-top: solid 1px #65ab00;
+  color:#65ab00;
+  font-weight: 700;
 }
 
 .correto{
@@ -2139,6 +2149,8 @@ EXERCICIOS
   border-bottom-right-radius: .25rem;
   border-bottom-left-radius: .25rem; 
   border-top: solid 1px #e70800;
+  color:#ec0b1b;
+  font-weight: 700;
 }
 
 .errado{
