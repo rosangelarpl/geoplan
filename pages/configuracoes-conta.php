@@ -1,13 +1,47 @@
 <?php
 include_once "classes/Banco.php";
+include_once "pages/mostra-alerta.php";
 
-if (!empty($_POST)) {
 
+if (isset($_POST) && !empty($_POST)){
+
+  try{
+    // Cadastrar usuário novo 
+    $altera_usuario = "update usuario set usuario = ?, email = ? where id = ?";
+    $query = Banco::instanciar()->prepare($altera_usuario);
+    $query->bindValue(1, $_POST["usuario"]);
+    $query->bindValue(2, $_POST["email"]);
+    $query->bindValue(3, $_SESSION[usuario][id]);
+    $query->execute();
+
+
+    $encontra_usuario = "select * from usuario where id = ?";
+    $query = Banco::instanciar()->prepare($encontra_usuario);
+    $query->bindValue(1, $_SESSION[usuario][id]);
+    $query->execute();
+    $usuario = $query->fetch(Banco::FETCH_ASSOC);
+
+    $_SESSION["usuario"] = $usuario;
+    $_SESSION["success"] = "Seu nome de usuário foi atualizado com sucesso.";
+    header("location:configuracoes-conta");
+
+  } catch(PDOException $e) {
+    if($e->getCode() == "23000") {
+        $_SESSION['danger'] = "Nome de usuário já existe. <strong>Tente novamente</strong>.";
+    }
+    else{
+        $_SESSION['danger'] = "<strong>Algo deu errado</strong>. Tente novamente.";
+    }
+  } 
+
+
+  
+}
+
+elseif (isset($_FILES)) {
   $foto = $_FILES["foto"];
-
   // Se a foto estiver sido selecionada
   if (!empty($foto["name"])) {
-    
     // Largura máxima em pixels
     $largura = 250;
     // Altura máxima em pixels
@@ -42,22 +76,16 @@ if (!empty($_POST)) {
  
     // Se não houver nenhum erro
     if (count($error) == 0) {
-    
       // Pega extensão da imagem
       preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $foto["name"], $ext);
- 
           // Gera um nome único para a imagem
           $nome_imagem = md5(uniqid(time())) . "." . $ext[1];
- 
           // Caminho de onde ficará a imagem
           $caminho_imagem = "images/fotos/" . $nome_imagem;
- 
       // Faz o upload da imagem para seu respectivo caminho
       move_uploaded_file($foto["tmp_name"], $caminho_imagem);
-    
       // Insere os dados no banco
       try{
-
       $altera_usuario = "update usuario set slug_foto = ? where id = ?";
       $query = Banco::instanciar()->prepare($altera_usuario);
       $query->bindValue(1, $nome_imagem);
@@ -66,7 +94,6 @@ if (!empty($_POST)) {
       } catch(PDOException $e){
         echo $e;
       }
-
     }
 
     // Se houver mensagens de erro, exibe-as
@@ -75,38 +102,6 @@ if (!empty($_POST)) {
         echo $erro . "<br />";
       }
     }
-  
-  }
-
-
-
-
-  try{
-    // Cadastrar usuário novo
-    $altera_usuario = "update usuario set usuario = ?, email = ? where id = ?";
-    $query = Banco::instanciar()->prepare($altera_usuario);
-    $query->bindValue(1, $_POST["usuario"]);
-    $query->bindValue(2, $_POST["email"]);
-    $query->bindValue(3, $_SESSION[usuario][id]);
-    $query->execute();
-
-    try{
-      $encontra_usuario = "select * from usuario where id = ?";
-      $query = Banco::instanciar()->prepare($encontra_usuario);
-      $query->bindValue(1, $_SESSION[usuario][id]);
-      $query->execute();
-      $usuario = $query->fetch(Banco::FETCH_ASSOC);
-      $_SESSION["usuario"] = $usuario;
-      header( "location:configuracoes-conta");
-    } catch(PDOException $e) {
-      echo "Verifique as informações e tente novamente.";
-    }
-
-  } catch(PDOException $e) {
-    if($e->getCode() == "23000") {
-      $resultado = "Erro no cadastro. Usuário existente.";
-    }
-    else echo $e;
   }
 }
 
@@ -114,7 +109,13 @@ if (!empty($_POST)) {
 
 
 <div class="spad">
-  <div class="container">
+  <div class="container"> 
+
+    <?php 
+      mostraAlerta("success");
+      mostraAlerta("danger"); 
+    ?>
+
     <div class="row">
       <div class="col-md-8">
         <div class="box">

@@ -1,6 +1,8 @@
 <?php
-  session_start();
-  include_once "classes/Banco.php";
+session_start();
+include_once "classes/Banco.php";
+include_once "pages/mostra-alerta.php";
+
 
 if (!empty($_POST)) {
   try{
@@ -11,19 +13,27 @@ if (!empty($_POST)) {
     $query->execute();
     $usuario = $query->fetch(Banco::FETCH_ASSOC);
     if (!$usuario) {
-      echo "Usuário não encontrado. Verifique as informações e tente novamente";
+      $_SESSION["danger"] = "<strong>Usuário não encontrado</strong>. Verifique as informações e tente novamente";
     } elseif ($usuario["senha"] == $_POST["senha"]) {
       $_SESSION["usuario"] = $usuario;
       header( 'location:perfil/'.$_SESSION[usuario][usuario] );
-    } else echo "Senha não confere. Verifique as informações e tente novamente";
+    } else $_SESSION['danger'] = "<strong>Senha não confere</strong>. Tente novamente.";
+
   } catch(PDOException $e) {
-    echo "Usuário ou senha não confere. Verifique as informações e tente novamente.";
+    $_SESSION['danger'] = "Usuário ou senha não confere. Verifique as informações e tente novamente.";
   }
 }
 
 ?>
 
-<div id="login" class="login-page spad">
+<div class="container spad">
+  <?php 
+    mostraAlerta("success");
+    mostraAlerta("danger"); 
+  ?>
+
+<div id="login" class="login-page">
+
   <div class="form">
     <form method="post" class="login-form" action="<?=PATH?>login">
       <input type="text" name="login" placeholder="email ou usuário"/>
@@ -33,5 +43,5 @@ if (!empty($_POST)) {
     </form>
   </div>
 </div>
-
+</div>
 

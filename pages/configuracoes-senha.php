@@ -1,5 +1,6 @@
 <?php
 include_once "classes/Banco.php";
+include_once "pages/mostra-alerta.php";
 
 
 if (!empty($_POST)) {
@@ -15,9 +16,9 @@ if (!empty($_POST)) {
         header( "location:configuracoes-senha" );
       }
 
-    } else echo "Senha não confere. Verifique as informações e tente novamente";
+    } else $_SESSION['danger'] = "<strong>Senha não confere</strong>. Verifique as informações e tente novamente";
   } catch(PDOException $e) {
-    echo "Algo deu errado. Verifique as informações e tente novamente.";
+    $_SESSION['danger'] = "<strong>Algo deu errado</strong>. Tente novamente.";
   }
 }
 
@@ -26,6 +27,12 @@ if (!empty($_POST)) {
 
 <div class="spad">
   <div class="container">
+
+    <?php 
+      mostraAlerta("success");
+      mostraAlerta("danger"); 
+    ?>
+    
     <div class="row">
       <div class="col-md-8">
         <div class="box">

@@ -1,5 +1,7 @@
 <?php
 include_once "classes/Banco.php";
+include_once "pages/mostra-alerta.php";
+
 
 if (!empty($_POST)) {
   try{
@@ -8,7 +10,7 @@ if (!empty($_POST)) {
     $query = Banco::instanciar()->prepare($altera_usuario);
     $query->bindValue(1, $_POST["nome"]);
     $query->bindValue(2, utf8_decode($_POST["local"]));
-    $query->bindValue(3, $_POST["biografia"]);
+    $query->bindValue(3, utf8_decode($_POST["biografia"]));
     $query->bindValue(4, $_SESSION[usuario][id]);
     $query->execute();
 
@@ -21,14 +23,14 @@ if (!empty($_POST)) {
       $_SESSION["usuario"] = $usuario;
       header( "location:configuracoes-perfil");
     } catch(PDOException $e) {
-      echo "Verifique as informações e tente novamente.";
+      $_SESSION['danger'] = "<strong>Algo deu errado</strong>. Tente novamente.";
     }
 
+    $_SESSION["success"] = "Informações atualizadas com sucesso.";
+
+
   } catch(PDOException $e) {
-    if($e->getCode() == "23000") {
-      $resultado = "Erro no cadastro. Usuário existente.";
-    }
-    else echo $e;
+      $_SESSION['danger'] = "<strong>Algo deu errado</strong>. Tente novamente.";
   }
 }
 
@@ -36,6 +38,12 @@ if (!empty($_POST)) {
 
 <div class="spad">
   <div class="container">
+
+    <?php 
+      mostraAlerta("success");
+      mostraAlerta("danger"); 
+    ?>
+
     <div class="row">
       <div class="col-md-8">
         <div class="box">
@@ -44,7 +52,7 @@ if (!empty($_POST)) {
               <div class="form-group row">
                 <label for="input-nome" class="text-right col-sm-3 col-form-label">Nome</label>
                 <div class="col-sm-9">
-                  <input name="nome" type="text" class="form-control" id="input-nome" placeholder="Nome" value="<?php echo utf8_encode($_SESSION[usuario][nome]); ?>">
+                  <input name="nome" type="text" class="form-control" id="input-nome" placeholder="Nome" value="<?php echo utf8_encode($_SESSION[usuario][nome]); ?>" title="Por favor, preencha esse campo." x-moz-errormessage="Por favor, preencha esse campo." required>
                   
                 </div>
               </div>
