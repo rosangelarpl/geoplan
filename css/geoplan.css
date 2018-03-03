@@ -950,6 +950,11 @@ BOTOES
   padding: 8px 25px;
 }
 
+.site-btn.btn-4 {
+  width: 100%;
+  cursor: pointer;
+}
+
 
 .site-btn:hover,
 .site-btn:focus {
@@ -1567,14 +1572,143 @@ SOBRE
 **************************************************************/
 .footer-section {
   background: #220c3b;
-  text-align: center;
 }
 
 .footer-section h2 {
   color: #6a23b5;
   font-size: 14px;
-  padding: 18px 0;
 }
+
+.small-title {
+    font-size: 22px;
+    position: relative;
+    text-align: left;
+}
+
+footer {
+  background: #220c3b;
+  color: #6a23b5;
+}
+footer .small-title {
+  margin-bottom: 30px;
+  color: #fff;
+}
+footer p {
+  font-size: 14px;
+  text-align: left;
+  font-weight: 300;
+  line-height:1.5rem;
+  color: #6a23b5;
+  margin-bottom: 0;
+}
+
+footer ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+footer ul li {
+  line-height: 25px;
+}
+footer ul li a {
+  color: #999;
+}
+footer ul li.tweet {
+  margin-bottom: 15px;
+}
+footer ul li.tweet .fa-twitter {
+  padding: 5px;
+  color: #fff;
+  
+  border-radius: 100%;
+  width: 24px;
+  height: 24px;
+}
+footer ul li.tweet .tweet-date {
+  font-size: 12px;
+  font-style: italic;
+  color: #bdc3c7;
+}
+footer .plain-flicker-gallery {
+  margin-right: -5px;
+  margin-left: -5px;
+}
+footer .plain-flicker-gallery a {
+  display: inline-block;
+  width: 32%;
+  font-size: 0px;
+  padding: 5px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -0-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+footer .plain-flicker-gallery a:hover {
+  opacity: 0.7;
+}
+footer .plain-flicker-gallery a img {
+  width: 100%;
+}
+footer .contact-us .form-control {
+  color: #999;
+  font-size: 14px;
+  background: #1D1D1D;
+  border-radius: 0px;
+  border: 1px solid transparent;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -0-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+footer #copyright {
+  background: #1D1D1D;
+}
+footer #copyright .row {
+  padding: 15px 0;
+}
+footer #copyright .copyright-text,
+footer #copyright .nav-inline {
+  margin-top: 15px;
+}
+.social-footer a .fa {
+  font-size: 14px;
+  height: 35px;
+  line-height: 35px;
+  margin: 4px;
+  width: 35px;
+}
+
+
+/*===  Facts Element ===*/
+ .fact {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+.fact-width {
+  width: 100%;
+}
+
+ .fact .icon {
+  color: #2be6ab;
+  font-size: 80px;
+}
+
+ .fact .fact-text h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 72px;
+  color: #2be6ab;
+  font-weight: 600;
+  text-align: left;
+}
+
+ .fact .fact-text h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
 
 
 

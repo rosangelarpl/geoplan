@@ -38,9 +38,15 @@ if (isset($_POST) && !empty($_POST)){
   
 }
 
-elseif (isset($_FILES)) {
+echo var_dump($_FILES);
+echo var_dump($_FILES['userfile']['foto']);
+echo var_dump($_FILE['foto']['name']);
+
+
+if (isset($_FILES)) {
   $foto = $_FILES["foto"];
   // Se a foto estiver sido selecionada
+  echo $foto["name"];
   if (!empty($foto["name"])) {
     // Largura máxima em pixels
     $largura = 250;
@@ -81,7 +87,7 @@ elseif (isset($_FILES)) {
           // Gera um nome único para a imagem
           $nome_imagem = md5(uniqid(time())) . "." . $ext[1];
           // Caminho de onde ficará a imagem
-          $caminho_imagem = "images/fotos/" . $nome_imagem;
+          $caminho_imagem = "pages/fotos/" . $nome_imagem;
       // Faz o upload da imagem para seu respectivo caminho
       move_uploaded_file($foto["tmp_name"], $caminho_imagem);
       // Insere os dados no banco
@@ -139,7 +145,7 @@ elseif (isset($_FILES)) {
                 <div class="col-sm-3 text-right"><label class="col-form-label">Foto</label></div>
                 <div class="col-sm-9">
                   <div class="custom-file">
-                  <input name="foto" type="file" class="custom-file-input" id="customFileLang" l>
+                  <input name="foto" type="file" class="custom-file-input" id="customFileLang">
                   <label class="custom-file-label" for="customFileLang">Foto do perfil</label>
                   <small id="passwordHelpBlock" class="form-text text-muted">
                    Tamanho máximo = 1 MB
