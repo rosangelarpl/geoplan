@@ -39,7 +39,7 @@ $qtdFeitos = $query->fetchall(Banco::FETCH_ASSOC);
 $progresso = count($qtdFeitos)/count($qtdExercicios);
 $progresso = number_format($progresso,3);
 
-echo $progresso;
+//echo $progresso;
 
 $altera_progresso = "update progresso set progresso = ? where id_assunto = ? and id_usuario = ?";
 $query = Banco::instanciar()->prepare($altera_progresso);
@@ -65,10 +65,10 @@ endforeach;
   
 
 
-echo var_dump($exercicio);
-echo $exercicio[1]["pergunta"];
-echo $exercicio[1]["id_usuario"];
-echo $progresso[1]["progresso"];
+//echo var_dump($exercicio);
+//echo $exercicio[1]["pergunta"];
+//echo $exercicio[1]["id_usuario"];
+//echo $progresso[1]["progresso"];
 
 $resposta = $_POST["resposta"];
 $correta = $exercicio[1]["resposta"];

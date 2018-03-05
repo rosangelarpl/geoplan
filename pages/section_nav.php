@@ -12,7 +12,7 @@ foreach ($assuntos as $assunto) :
   }
 endforeach;
 
-echo '-------'.$id_assunto.'------------';
+//echo '-------'.$id_assunto.'------------';
 
 
 $encontra_exercicios = "select e.*,f.feito,a.assunto,f.id_usuario from exercicio as e join exercicios_feitos as f on e.id=f.id_exercicio join assunto as a on a.id=e.id_assunto where id_assunto = ? and feito != 1 and id_usuario = ? limit 2";
@@ -28,7 +28,7 @@ foreach ($exercicios as $var) :
   $i++;
 endforeach;
 
-echo var_dump($exercicio);
+//echo var_dump($exercicio);
   
 
 if(!empty($exercicio)){

@@ -1,4 +1,5 @@
 <?php
+include_once "pages/mostra-alerta.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -19,7 +20,7 @@ if(!empty($_POST)) {
 
   $mail = new PHPMailer();
   $mail->isSMTP();
-  $mail->SMTPDebug = 2; 
+  $mail->SMTPDebug = 0; 
   $mail->Host = 'smtp.gmail.com';
   $mail->Port = 465;
   $mail->SMTPSecure = 'ssl';
@@ -34,10 +35,11 @@ if(!empty($_POST)) {
   $mail->AltBody = "de: {$nome}\nemail: {$email}\nmensagem: {$mensagem}";
 
   if($mail->send()){
-    header("Location: contato.php?enviou=1");
+    $_SESSION["success"] = "Sua mensagem foi enviado com sucesso. Obrigado.";
+    header("Location:".PATH." contato");
 
   } else {
-    echo $mail->ErrorInfo;
+     $_SESSION['danger'] = "<strong>'.$mail->ErrorInfo.'</strong>. Tente novamente.";
   }
 }
 
@@ -47,6 +49,12 @@ if(!empty($_POST)) {
 <div class="contact-section spad">
   <div class="overlay"></div>
   <div class="container">
+
+    <?php 
+      mostraAlerta("success");
+      mostraAlerta("danger"); 
+    ?>
+
 
     <div class="row">
       <!-- contact form -->
@@ -60,7 +68,7 @@ if(!empty($_POST)) {
               <input type="text" name="email" placeholder="Seu email">
             </div>
             <div class="col-sm-12">
-              <input type="text" name="assunto" placeholder="Subject">
+              <input type="text" name="assunto" placeholder="Assunto">
               <textarea name="mensagem" placeholder="Messagem"></textarea>
               <button type="submit" class="site-btn">Enviar</button>
             </div>

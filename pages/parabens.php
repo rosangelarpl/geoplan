@@ -28,7 +28,7 @@ foreach ($assuntos as $assunto) :
   }
 endforeach;
 
-echo '-------'.$id_assunto.'------------';  
+//echo '-------'.$id_assunto.'------------';  
 
 $altera_progresso = "update progresso set progresso = ? where id_assunto = ? and id_usuario = ?";
 $query = Banco::instanciar()->prepare($altera_progresso);
@@ -37,7 +37,7 @@ $query->bindValue(2, $id_assunto);
 $query->bindValue(3, $_SESSION[usuario][id]);
 $query->execute(); 
   
-echo $progresso.'---'.count($qtdFeitos).'----'.count($qtdExercicios).'<br>';
+//echo $progresso.'---'.count($qtdFeitos).'----'.count($qtdExercicios).'<br>';
 
 
 } catch (PDOException $e) {
@@ -65,7 +65,7 @@ echo $progresso.'---'.count($qtdFeitos).'----'.count($qtdExercicios).'<br>';
 
 
       <div class="text-center mt-5 mb-4">
-        <a href="" class="site-btn btn-1 "><i class="fa fa-home"></i> Volte ao Início</a>
+        <a href="<?=PATH?>" class="site-btn btn-1 "><i class="fa fa-home"></i> Volte ao Início</a>
       </div> 
       </div>
     </div>

@@ -105,7 +105,7 @@ if (isset($_FILES)) {
     // Se houver mensagens de erro, exibe-as
     if (count($error) != 0) {
       foreach ($error as $erro) {
-        echo $erro . "<br />";
+         $_SESSION['danger'] = $erro . "<br />";
       }
     }
   }

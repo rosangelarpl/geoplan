@@ -52,12 +52,12 @@ $parametros = explode('/', $url);
             </li>
             <li class="navbar-item dropdown">
               <a class="nav-link dropdown-toggle
-              <?php if(($parametros[0]=='triangulo')||($parametros[0]=='circulo')||($parametros[0]=='losango')||($parametros[0]=='paralelogramo')||($parametros[0]=='retangulo')||($parametros[0]=='trapezio')){echo 'active';$section_title="As Figuras";}else{echo '';}?>" href="#" data-toggle="dropdown" id="navDrop">As Figuras</a>
+              <?php if(($parametros[0]=='triangulo')||($parametros[0]=='circulo')||($parametros[0]=='losango')||($parametros[0]=='paralelo')||($parametros[0]=='retangulo')||($parametros[0]=='trapezio')){echo 'active';$section_title="As Figuras";}else{echo '';}?>" href="#" data-toggle="dropdown" id="navDrop">As Figuras</a>
               <div class="dropdown-menu">
                 <a class="<?=($parametros[0]=='triangulo') ? 'active'.$section_subtitle="Triângulo".'' : ''?>" href="<?=PATH?>triangulo">Triângulo</a>
                 <a class="<?=($parametros[0]=='circulo') ? 'active'.$section_subtitle="Círculo".'' : ''?>" href="<?=PATH?>circulo">Círculo</a>
                 <a class="<?=($parametros[0]=='losango') ? 'active'.$section_subtitle="Losango".'' : ''?>" href="<?=PATH?>losango">Losango</a>
-                <a class="<?=($parametros[0]=='paralelogramo') ? 'active'.$section_subtitle="Paralelogramo".'' : ''?>" href="<?=PATH?>paralelo">Paralelogramo</a>
+                <a class="<?=($parametros[0]=='paralelo') ? 'active'.$section_subtitle="Paralelogramo".'' : ''?>" href="<?=PATH?>paralelo">Paralelogramo</a>
                 <a class="<?=($parametros[0]=='retangulo') ? 'active'.$section_subtitle="Retângulo".'' : ''?>" href="<?=PATH?>retangulo">Retângulo</a>
                 <a class="<?=($parametros[0]=='trapezio') ? 'active'.$section_subtitle="Trapézio".'' : ''?>" href="<?=PATH?>trapezio">Trapézio</a>
               </div>
@@ -68,6 +68,21 @@ $parametros = explode('/', $url);
             <li class="nav-item">
               <a class="nav-link <?php if($parametros[0]=='contato'){echo 'active';}else{echo '';}?>" href="<?=PATH?>contato">Contato</a>
             </li>
+
+            <?php if (!empty($_SESSION["usuario"]) && $_SESSION[usuario][id]==9990) { ?>
+            <li class="navbar-item dropdown">
+              <a class="nav-link dropdown-toggle
+              <?php if(($parametros[0]=='form-exercicio-objetivo')||($parametros[0]=='form-editar-exercicio-objetivo')){
+                      echo 'active';
+                    }else{
+                      echo '';
+                    }?>" href="#" data-toggle="dropdown" id="navDrop">Administrador</a>
+
+              <div class="dropdown-menu">
+                <a class="" href="<?=PATH?>form-exercicio-objetivo">Gerenciar exercícios</a>
+              </div>
+            </li>
+            <?php } ?>
           </ul>
 
           <ul id="user-nav" class="navbar-nav collapse navbar-collapse justify-content-end">

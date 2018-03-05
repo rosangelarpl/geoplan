@@ -20,7 +20,9 @@ include_once "section_nav.php";
         <p> A área de um polígono convexo é o espaço preenchido por sua superfície. Todas as vezes que obtivermos o cálculo de área de determinada região, sua unidade de medida estará elevada ao quadrado (km², cm², m² etc.).</p>
         <p>O trapézio é um quadrilátero, haja vista que possui quatro lados. A soma dos seus ângulos internos e externos é igual a 360°. Todo trapézio possui um par de lados paralelos. Observe a figura a seguir:</p>
         
-        <img src="images/trapezio.jpg" alt="" class="trapezio1">
+        <div class="text-center">
+          <img src="images/trapezio.jpg" alt="" class="trapezio1">  
+        </div>
         
         <p>Para calcularmos a área de um trapézio, devemos saber as medidas referentes à base maior (b), base menor (a) e altura (h). Veja:</p>
 

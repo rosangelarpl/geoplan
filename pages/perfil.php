@@ -1,7 +1,8 @@
 <?php
 
 include_once "classes/Banco.php";
-
+setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+date_default_timezone_set('America/Sao_Paulo');
 $encontra_usuario = "select * from usuario where usuario = ?";
 $query = Banco::instanciar()->prepare($encontra_usuario);
 $query->bindValue(1, $parametros[1]);
@@ -71,23 +72,23 @@ endforeach;
                   foreach($historicos as $historico) :
 
                     if($historico["acao"]=="comentario"){
-                      $encontra_acoes = "select * from comentario where id = ?";
+                      $encontra_acoes = "select c.*,a.assunto,a.titulo from comentario as c join assunto as a on c.pagina=a.assunto where c.id = ?";
                       $query = Banco::instanciar()->prepare($encontra_acoes);
                       $query->bindValue(1, $historico["id_acao"]);
                       $query->execute();
                       $acoes = $query->fetchall(Banco::FETCH_ASSOC);
 
-                      foreach ($acoes as $acao) :  ?>  <!-- LAÇO DE REPETIÇÃO -->
-
+                      foreach ($acoes as $acao) : ?>  <!-- LAÇO DE REPETIÇÃO -->
+                    
                       <article class="timeline-entry pt-3 pr-3">
                           <div class="timeline-entry-inner">
                            
                               <img  class="timeline-icon" src="<?=PATH?>images/fotos/<?=$usuario[1]["slug_foto"]?>" alt="">
                               
                               <div class="timeline-label">
-                                  <h2><a href="#">Bruno Wagner</a><span> comentou em </span><a href="<?=PATH.$acao['pagina']?>"><?=$acao['pagina']?></a></h2>
+                                  <h2><a href=""><?php echo utf8_encode($usuario[1]["nome"]); ?></a><span> comentou em </span><a href="<?=PATH.$acao['pagina']?>"><?=utf8_encode($acao['titulo'])?></a></h2>
                                   <p><?=$acao['texto']?></p>
-                                  <p><?=strftime('%d de %B de %Y', strtotime($acao["feito_em"]))?></p>
+                                  <p><?=utf8_encode(strftime('%d de %B de %Y', strtotime($acao["feito_em"])))?></p>
                               </div>
                           </div>
                       </article>
@@ -97,7 +98,7 @@ endforeach;
                         
                       endforeach;
                     } elseif($historico["acao"]=="salvar_pagina"){
-                      $encontra_acoes = "select * from salva_pagina where id = ?";
+                      $encontra_acoes = "select sp.*,a.titulo,a.assunto from salva_pagina as sp join assunto as a on sp.pagina=a.assunto where sp.id = ?";
                       $query = Banco::instanciar()->prepare($encontra_acoes);
                       $query->bindValue(1, $historico["id_acao"]);
                       $query->execute();
@@ -111,8 +112,8 @@ endforeach;
                               <img  class="timeline-icon" src="<?=PATH?>images/fotos/<?=$usuario[1]["slug_foto"]?>" alt="">
                               
                               <div class="timeline-label">
-                                  <h2><a href="#">Bruno Wagner</a><span> salvou a página </span><a href="<?=PATH.$acao['pagina']?>"><?=$acao['pagina']?></a></h2>
-                                  <p><?=strftime('%d de %B de %Y', strtotime($acao["salva_em"]))?></p>
+                                  <h2><a href=""><?php echo utf8_encode($usuario[1]["nome"]); ?></a><span> salvou a página </span><a href="<?=PATH.$acao['pagina']?>"><?=utf8_encode($acao['titulo'])?></a></h2>
+                                  <p><?=utf8_encode(strftime('%d de %B de %Y', strtotime($acao["salva_em"])))?></p>
                                   
                               </div>
                           </div>
@@ -128,6 +129,19 @@ endforeach;
                   if(!empty($historicos)){ 
 
                   ?>
+                  <article class="timeline-entry pt-3 pr-3">
+                      <div class="timeline-entry-inner">
+                       
+                          <img  class="timeline-icon" src="<?=PATH?>images/fotos/<?=$usuario[1]["slug_foto"]?>" alt="">
+                          
+                          <div class="timeline-label">
+                              <h2><a href=""><?php echo utf8_encode($usuario[1]["nome"]); ?></a><span> se cadastrou no </span><a href="<?=PATH?>">GeoPlan</a></h2>
+                        
+                              <p><?=utf8_encode(strftime('%d de %B de %Y', strtotime($usuario[1]["criado_em"])))?></p>
+                          </div>
+                      </div>
+                  </article>
+
                   <article class="timeline-entry begin">
                       <div class="timeline-entry-inner">
                           <div class="timeline-icon" style="-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);">
@@ -189,7 +203,7 @@ endforeach;
 
           <ul class="nav flex-column mt-4">
             <?php
-            $encontra_paginas = "select * from salva_pagina where id_usuario = ?";
+            $encontra_paginas = "select sp.*,a.titulo,a.assunto from salva_pagina as sp join assunto as a on sp.pagina=a.assunto where id_usuario = ?";
             $query = Banco::instanciar()->prepare($encontra_paginas);
             $query->bindValue(1, $usuario[1]["id"]);
             $query->execute();
@@ -199,7 +213,7 @@ endforeach;
 
             <li class="nav-item">
               <a class="nav-link" href="<?=PATH?><?=$pagina['pagina']?>">
-                <?=$pagina['pagina']?>
+                <?= utf8_encode($pagina['titulo']) ?>
                 <span style="font-size: 12px; color:#ccc"> Salva em <?=date('d/m/Y', strtotime($pagina["salva_em"]))?></span>
               </a>
             </li>
@@ -214,69 +228,3 @@ endforeach;
   </div>
 </div>
 
-
-
-
-
-<h2 class="h2perfil"> Seu Perfil</h2>
-<h3>Dados Pessoais:</h3>
-  <div class="divperfil">
-    <img class="iconperfil" src="images/user.png" alt="">
-      <form class="perfil">
-        <div class="form-group row">
-          <div class="col-sm-12">
-            Nome: <input style="border:0;" type="text" class="form-control" placeholder="<?php echo $_SESSION[usuario][nome]; ?>" id="nomeperfil">
-          </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-sm-12">
-            Email: <input style="border:0;" type="email" class="form-control"placeholder="<?php echo $_SESSION[usuario][email]; ?>" id="emailperfil">
-          </div>
-        </div>
-
-      </form>
-  </div>
-
-   <hr class="hrperfil"/>
-  <section class="secaoperfil">
-   <h3>Páginas Salvas:</h3>
-   <div class="sectionsalva">
-     <?php
-     $encontra_paginas = "select * from salva_pagina where id_usuario = ?";
-     $query = Banco::instanciar()->prepare($encontra_paginas);
-     $query->bindValue(1, $usuario[1]["id"]);
-     $query->execute();
-     $paginas = $query->fetchall(Banco::FETCH_ASSOC);
-     foreach ($paginas as $pagina) {
-      echo '<p><a href="'. $pagina["pagina"] .'">Página: '. $pagina["pagina"] .'</a> - Salva em '. date('d/m/Y', strtotime($pagina["salva_em"])). '</p>';
-     }
-     ?>
-   </div>
-   <hr class="hrperfil"/>
-   <h3>Seus Comentários:</h3>
-   <div class="sectioncomentario"> <!-- LISTANDO COMENTARIOS DO USUÁRIO -->
-      <?php 
-      $encontra_comentarios = "select * from comentario where id_usuario = ? ORDER BY id ASC";
-      $query = Banco::instanciar()->prepare($encontra_comentarios);
-      $query->bindValue(1, $usuario[1]["id"]);
-      $query->execute();
-      $comentarios = $query->fetchall(Banco::FETCH_ASSOC);
-      setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
-      date_default_timezone_set('America/Sao_Paulo');
-
-
-      foreach($comentarios as $comentario) : ?>  <!-- LAÇO DE REPETIÇÃO -->
-
-        <p>
-          <!-- LINK PARA A PAGINA DO COMENTARIO -->
-          Feito na página <a href="<?=$comentario['pagina']?>"><?=$comentario['pagina']?></a> em 
-          <!-- DATA DO COMENTARIO -->
-          <?=strftime('%d de %B de %Y', strtotime($comentario["feito_em"]))?>:
-          <br>
-          <!-- $comentario['texto'] É A VARIÁVEL QUE CONTEM O COMENTÁRIO -->
-          <?=$comentario['texto']?>
-        </p>
-
-      <?php endforeach  ?> <!-- FIM DO LAÇO -->
-   </div>
- </section>

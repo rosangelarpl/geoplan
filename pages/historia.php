@@ -1,30 +1,32 @@
 <?php
-
-$pag = "paralelogramo";
-include_once "salvar_pagina.php";
-
+$section_title = 'A Geometria Plana';
+$section_subtitle = 'História';
+include_once "section_header.php";
 ?>
 
-  <div class="container">
-    <div class=" col-12">
-      <h2>A história da Geometria na matemática</h2>
-      <p>Os  primeiros  conhecimentos  geométricos  que  o  homem  teve,  a  respeito  da
-geometria  partiram  das  necessidade
-s  em  compreender  melhor  o  meio  onde  vivia.
-Motivo este que talvez justifique a origem da sua palavra, pois o termo “geometria”
-deriva do grego geo = terra + metria = medida que significa medição de terra.</p>
-      <img src="images/tales.jpg" alt="" class="historia1">
+<!-- Article section -->
+<div class="spad">
+  <div class="container box">
 
-      <p>De acordo com Eves (1997), as primeiras consideraçõ
-es feitas a respeito da
-geometria   são   muito   antigas   tendo   como   origem   a   simples   observação   e   a
-capacidade de reconhecer figuras, comparar formas e tamanhos. Um dos primeiros
-conceitos geométricos a serem desenvolvidos foi
-a
-noção de distância. </p>
-      <p>Ainda,  segu
-ndo  Eves  (1997),  foi  das  necessidades  da  sociedade,  quando  o
-homem teve que delimitar terras, que teve origem uma geometria caracterizada pelo
+    <?php include_once "salvar_pagina.php"; ?>
+
+    
+    <div class="section-title dark">
+      <h2>A história da Geometria na matemática</h2>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-12">
+        <p>Os  primeiros  conhecimentos  geométricos  que  o  homem  teve,  a  respeito  da geometria  partiram  das  necessidades  em  compreender  melhor  o  meio  onde  vivia. Motivo este que talvez justifique a origem da sua palavra, pois o termo “geometria” deriva do grego geo = terra + metria = medida que significa medição de terra.</p>
+        
+        <div class="text-center mt-4 mb-4">
+          <img src="images/tales.jpg" alt="">
+         </div>
+        
+        <p>De acordo com Eves (1997), as primeiras considerações feitas a respeito da geometria são muito antigas tendo   como   origem a simples observação e a capacidade de reconhecer figuras, comparar formas e tamanhos. Um dos primeiros
+conceitos geométricos a serem desenvolvidos foi a noção de distância. </p>
+      <p>Ainda,  segundo  Eves  (1997),  foi  das  necessidades  da  sociedade,  quando  o
+        homem teve que delimitar terras, que teve origem uma geometria caracterizada pelo
 traçado  de  desenho  de  formas,  fórmulas,  cálculo  de  medidas  de  comprimento  de
 área,  volume,  etc.  Foi  nessa  época  q
 ue  se  desenvolveu  a  noção  de  figuras
@@ -55,7 +57,15 @@ medida  e  cordas  entrelaçadas  que  usavam  para  marcar  ângulos,  e  deter
 as de lotes de terrenos, dividindo
 -
 os em retângulos e triângulos).</p>
+      
 
+      </div>
     </div>
 
   </div>
+</div>
+<!-- article section end -->
+
+
+<?php
+  include_once "comentario.php";

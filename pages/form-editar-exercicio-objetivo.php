@@ -4,7 +4,7 @@ include_once "pages/mostra-alerta.php";
 
 if (!empty($_SESSION["usuario"]) && $_SESSION[usuario][id]==9990) {
 
-  if (!empty($_POST["opcao1"])) {
+  if (!empty($_POST["editar_exercicio"])) {
     try{
       // Cadastrar novo exercício
       $insere_exercicio = "insert into exercicio (tipo, id_assunto, pergunta, slug_img, opcao1, opcao2, opcao3, opcao4, resposta) values (?,?,?,?,?,?,?,?,?)";
@@ -41,7 +41,7 @@ if (!empty($_SESSION["usuario"]) && $_SESSION[usuario][id]==9990) {
   }
 
 
-  if(!empty($_POST["remover_exercicio"])){
+  if(!empty($_POST["editar_exercicio"])){
     try {
       $remove_exercicio = "delete from exercicio where id = ?";
       $query = Banco::instanciar()->prepare($remove_exercicio);
@@ -218,16 +218,7 @@ if (!empty($_SESSION["usuario"]) && $_SESSION[usuario][id]==9990) {
                             <?=$exercicio["pergunta"]?>
                           </a>
                         </td>
-
-                        <!--
                         <td>
-                          <form action="form-editar-exercicio-objetivo" method="post">
-                            <input type="hidden" name="editar_exercicio" value="<?=//$exercicio["id"]?>">
-                            <button href="" class="float-right btn btn-link"><i class="fas fa-edit"></i></button>
-                          </form>
-                        </td>
-                        <td>
-                        -->
                           <form action="form-exercicio-objetivo" method="post">
                             <input type="hidden" name="remover_exercicio" value="<?=$exercicio["id"]?>">
                             <button href="" class="float-right btn btn-link"><i class="fas fa-trash-alt"></i></button>

@@ -1,4 +1,12 @@
+<?php
+require_once "classes/Banco.php";
+$encontra_usuario = "select id from usuario";
+$query = Banco::instanciar()->prepare($encontra_usuario);
+$query->execute();
+$usuarios = $query->fetchall(Banco::FETCH_ASSOC);
 
+
+?>
 
 <!-- Footer Section -->
     <footer class="footer-section pt-5 pb-5">
@@ -7,7 +15,7 @@
         <!-- Row Starts -->
         <div class="row section">
           <!-- Footer Widget Starts -->
-          <div class="footer-widget col-md-3 col-xs-12 wow fadeIn">
+          <div class="footer-widget col-md-3 col-xs-12">
             <h3 class="small-title">
               SOBRE NÓS
             </h3>
@@ -18,7 +26,7 @@
           </div><!-- Footer Widget Ends -->
           
           <!-- Footer Widget Starts -->
-           <div class="footer-widget col-md-6 col-xs-12 wow fadeIn">
+           <div class="footer-widget col-md-6 col-xs-12">
             <h3 class="small-title">
               CÓDIGO ABERTO
             </h3>
@@ -54,23 +62,23 @@
           </div> Footer Widget Ends -->
 
           <!-- Footer Widget Starts -->
-          <div class="footer-widget col-md-3 col-xs-12 wow fadeIn" data-wow-delay=".8s">
+          <div class="footer-widget col-md-3 col-xs-12">
             <h3 class="small-title">
-              FAÇA PARTE DA COMUNIDADE
+              <?php if (empty($_SESSION["usuario"])){?>FAÇA PARTE DA <?php }?>COMUNIDADE
             </h3>
             <p>
 				O GeoPlan já possui
             </p> 
             <div class="fact fact-width">
 				<div class="fact-text mr-3">
-					<h2>130</h2>
+					<h2><?=count($usuarios)?></h2>
 					<p>membros</p>
 				</div>
 				<div class="icon">
 					<i class="flaticon-025-imagination"></i>
 				</div>
 			</div>
-			<a href="<?=PATH?>cadastro" class="mt-4 site-btn btn-4">CADASTRAR</a>
+			<?php if (empty($_SESSION["usuario"])){?><a href="<?=PATH?>cadastro" class="mt-4 site-btn btn-4">CADASTRAR</a><?php }?>
           </div><!-- Footer Widget Ends -->
         </div><!-- Row Ends -->
       </div><!-- Container Ends -->
@@ -116,6 +124,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/jquery.backstretch.min.js"></script>
-
+<script src="js/funcoes.js"></script>
 </body>
 </html>

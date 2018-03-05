@@ -27,7 +27,7 @@ if (!empty($_SESSION["usuario"])) {
 
 // VERIFICA SE TA LOGADO E PEGA OS COMENTARIOS DA PAGINA
 if (!empty($_SESSION["usuario"])) { 
-$encontra_comentarios = "select c.*,u.nome from comentario as c join usuario as u on u.id=c.id_usuario where pagina = '$parametros[0]' ORDER BY id ASC";
+$encontra_comentarios = "select c.*,u.nome,u.slug_foto,u.usuario from comentario as c join usuario as u on u.id=c.id_usuario where pagina = '$parametros[0]' ORDER BY id ASC";
 $query = Banco::instanciar()->prepare($encontra_comentarios);
 $query->execute();
 $comentarios = $query->fetchall(Banco::FETCH_ASSOC);
@@ -49,12 +49,15 @@ date_default_timezone_set('America/Sao_Paulo');
 
             <?php foreach($comentarios as $comentario) : ?>
 
+
+
+
             <li>
               <div class="avatar">
-                <img src="images/fotos/<?php echo $_SESSION[usuario][slug_foto];?>" alt="">
+                <img src="images/fotos/<?=$comentario['slug_foto'];?>" alt="">
               </div>
               <div class="commetn-text">
-                <h3><?=$comentario['nome'];?> |  <?=strftime('%d de %B de %Y', strtotime($comentario["feito_em"]))?> </h3>
+                <h3><a href="<?=PATH?>perfil/<?=$comentario['usuario']?>"><?=$comentario['nome'];?></a> |  <?=strftime('%d de %B de %Y', strtotime($comentario["feito_em"]))?> </h3>
                 <p><?=$comentario['texto'];?></p>
               </div>
             </li>
