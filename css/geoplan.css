@@ -512,7 +512,7 @@ PAGINA INCIAL - INDEX
   left: 0;
   top: 0;
   z-index: 0;
-  background-image: url("../images/overlay.png");
+  background-image: url("../images/overlay5.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -1460,6 +1460,8 @@ SOBRE
 
 .member img {
   margin-bottom: 60px;
+  width: 360px;
+  height: 448px;
 }
 
 .member h2 {

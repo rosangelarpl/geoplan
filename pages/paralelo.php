@@ -1,4 +1,6 @@
 <?php
+$section_title = 'As Figuras';
+$section_subtitle = 'Paralelogramo';
 include_once "section_header.php";
 include_once "section_nav.php";
 ?>
@@ -26,25 +28,23 @@ include_once "section_nav.php";
             <br/>b: base
             <br/>h: altura</p>
 
-        <form class="calcular">
-          <p class="instrucoes">DIGITE OS VALORES PEDIDOS PARA ENCONTRAR A ÁREA</p>
-          <div class="form-group row">
-            <div class="col-sm-12">
-              Base: <input type="text" class="form-control" placeholder="tamanho da base" id="base">
+        <h2 class="post-title text-center pt-5">calcular Área do Paralelogramo</h2>
+
+          <div id="login" class="login-page">
+            <div class="form">
+              <form class="login-form">
+                <input type="text" placeholder="Tamanho da base" id="base">
+                <input type="text" placeholder="Tamanho da altura" id="altura">
+                <button type="button" value="Calcular" class="site-btn btn-2 mb-3" onclick="calcularAreaParalelogramo();return true"/>Calcular</button>
+                <input type="text"  id="area" name="area" placeholder="Resultado">
+              </form>
             </div>
           </div>
-          <div class="form-group row">
-            <div class="col-sm-12">
-              Altura: <input type="text" class="form-control"placeholder="tamanho da altura" id="altura">
-            </div>
-          </div>
-              <button type="button" value="Calcular" class="btn btn-primary" onclick="calcularAreaParalelogramo();return true"/>Calcular</button>
-          <div class="form-group row">
-            <div class="col-sm-12">
-              Área:<input type="text" class="form-control" id="area" name="area">
-            </div>
-          </div>
-        </form>
+
+
+
+
+
       
 
       </div>

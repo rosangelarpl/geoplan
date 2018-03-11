@@ -1,4 +1,6 @@
 <?php
+$section_title = 'As Figuras';
+$section_subtitle = 'Trapézio';
 include_once "section_header.php";
 include_once "section_nav.php";
 ?>
@@ -26,32 +28,20 @@ include_once "section_nav.php";
         
         <p>Para calcularmos a área de um trapézio, devemos saber as medidas referentes à base maior (b), base menor (a) e altura (h). Veja:</p>
 
-        <h2 class="post-title pt-5">Fórmula da Área do Trapézio</h2>
+        <h2 class="post-title text-center pt-5">calcular Área do Trapézio</h2>
 
-        <form class="calcular">
-          <p class="instrucoes">DIGITE OS VALORES PEDIDOS PARA ENCONTRAR A ÁREA</p>
-          <div class="form-group row">
-            <div class="col-sm-12">
-              Lado Maior: <input type="text" class="form-control" placeholder="lado maior" id="ladomaior">
-            </div>
+        <div id="login" class="login-page">
+          <div class="form">
+            <form class="login-form">        
+                <input type="text" placeholder="Lado maior" id="ladomaior">
+                <input type="text"  placeholder="Lado menor" id="ladomenor"> 
+                <input type="text"  placeholder="Altura" id="altura">
+                <button type="button" value="Calcular" class="site-btn btn-2 mb-3" onclick="calcularAreaTrapezio();return true"/>Calcular</button>
+                <input type="text" id="area" name="area" placeholder="Resultado">
+            </form>
           </div>
-          <div class="form-group row">
-            <div class="col-sm-12">
-              Lado Menor: <input type="text" class="form-control" placeholder="lado menor" id="ladomenor">
-            </div>
-          </div>
-          <div class="form-group row">
-            <div class="col-sm-12">
-            Altura:<input type="text" class="form-control" placeholder="Altura" id="altura">
-            </div>
-          </div>
-              <button type="button" value="Calcular" class="btn btn-primary" onclick="calcularAreaTrapezio();return true"/>Calcular</button>
-          <div class="form-group row">
-            <div class="col-sm-12">
-              Área:<input type="text" class="form-control" id="area" name="area">
-            </div>
-          </div>
-        </form>
+        </div>
+                
 
 
       </div>

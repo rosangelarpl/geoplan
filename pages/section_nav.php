@@ -37,6 +37,8 @@ if(!empty($exercicio)){
   $proxExercicio = 'concluido';
 }
 
+if (!empty($_SESSION["usuario"])) {
+
 ?>
 
 <nav id="section-nav" class="navbar navbar-expand-lg">
@@ -51,3 +53,7 @@ if(!empty($exercicio)){
     </ul>
   </div>
 </nav>
+
+<?php 
+
+}

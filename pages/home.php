@@ -16,7 +16,7 @@ $pag = "index";
       <img src="images/slide.jpg" class="fluid-img" alt="">
     </div>
     <div class="carousel-item">
-      <img src="images/slide1.png" class="fluid-img" alt="">
+      <img src="images/slide1.jpg" class="fluid-img" alt="">
     </div>
     <div class="carousel-item">
       <img src="images/slide2.png" class="fluid-img" alt="">

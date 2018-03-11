@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Tempo de geração: 27/02/2018 às 20:48
--- Versão do servidor: 5.7.21-0ubuntu0.16.04.1
--- Versão do PHP: 7.0.22-0ubuntu0.16.04.1
+-- Host: 127.0.0.1:3306
+-- Generation Time: 11-Mar-2018 às 21:06
+-- Versão do servidor: 5.7.19
+-- PHP Version: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,23 +19,25 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `geoplan`
+-- Database: `geoplan`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `assunto`
+-- Estrutura da tabela `assunto`
 --
 
-CREATE TABLE `assunto` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `assunto`;
+CREATE TABLE IF NOT EXISTS `assunto` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `assunto` varchar(255) NOT NULL,
-  `titulo` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `titulo` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
--- Fazendo dump de dados para tabela `assunto`
+-- Extraindo dados da tabela `assunto`
 --
 
 INSERT INTO `assunto` (`id`, `assunto`, `titulo`) VALUES
@@ -42,43 +46,48 @@ INSERT INTO `assunto` (`id`, `assunto`, `titulo`) VALUES
 (3, 'losango', 'Losango'),
 (5, 'retangulo', 'Retângulo'),
 (6, 'trapezio', 'Trapézio'),
-(7, 'paralelo', 'Paralelogramo');
+(7, 'paralelo', 'Paralelogramo'),
+(8, 'definicao', 'Definição'),
+(9, 'historia', 'História'),
+(10, 'perimetro', 'Perímetro e Área');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `comentario`
+-- Estrutura da tabela `comentario`
 --
 
-CREATE TABLE `comentario` (
-  `id` int(10) NOT NULL,
+DROP TABLE IF EXISTS `comentario`;
+CREATE TABLE IF NOT EXISTS `comentario` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `id_usuario` int(10) NOT NULL,
   `texto` text NOT NULL,
   `pagina` varchar(48) NOT NULL,
-  `feito_em` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `feito_em` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
 --
--- Fazendo dump de dados para tabela `comentario`
+-- Extraindo dados da tabela `comentario`
 --
 
 INSERT INTO `comentario` (`id`, `id_usuario`, `texto`, `pagina`, `feito_em`) VALUES
-(26, 6, 'jhl', 'paralelogramo', '2018-02-23 17:42:19'),
-(27, 9, 'dfghjk', 'triangulo', '2018-02-23 18:51:38'),
-(28, 9, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequat ante ac congue. ', 'triangulo', '2018-02-23 19:00:38'),
-(29, 9, 'vzbdfvdvsdsvs', 'triangulo', '2018-02-23 19:01:16'),
-(30, 9, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequat ante ac congue. ', 'triangulo', '2018-02-23 19:03:25'),
-(31, 9990, 'oi', 'triangulo', '2018-02-24 14:26:49'),
-(32, 9992, 'oi', 'circulo', '2018-02-26 14:34:27'),
-(33, 6, 'oi', 'paralelo', '2018-02-27 23:27:03');
+(26, 6, 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante.', 'paralelogramo', '2018-03-09 18:47:27'),
+(27, 9, 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante.', 'triangulo', '2018-03-09 18:47:27'),
+(31, 9990, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. ', 'triangulo', '2018-03-09 18:47:27'),
+(32, 9992, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. ', 'circulo', '2018-03-09 18:47:27'),
+(33, 6, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. ', 'paralelo', '2018-03-09 18:47:27'),
+(34, 7, 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.', 'triangulo', '2018-03-09 18:45:55'),
+(37, 7, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor.', 'retangulo', '2018-03-09 18:55:11');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `contato`
+-- Estrutura da tabela `contato`
 --
 
-CREATE TABLE `contato` (
+DROP TABLE IF EXISTS `contato`;
+CREATE TABLE IF NOT EXISTS `contato` (
   `id` int(10) UNSIGNED ZEROFILL NOT NULL,
   `email` varchar(25) NOT NULL,
   `texto` text NOT NULL,
@@ -88,11 +97,12 @@ CREATE TABLE `contato` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `exercicio`
+-- Estrutura da tabela `exercicio`
 --
 
-CREATE TABLE `exercicio` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `exercicio`;
+CREATE TABLE IF NOT EXISTS `exercicio` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `pergunta` text NOT NULL,
   `opcao1` varchar(255) NOT NULL,
   `opcao2` varchar(255) NOT NULL,
@@ -101,11 +111,12 @@ CREATE TABLE `exercicio` (
   `resposta` varchar(255) NOT NULL,
   `tipo` varchar(255) NOT NULL,
   `slug_img` varchar(255) NOT NULL,
-  `id_assunto` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_assunto` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 
 --
--- Fazendo dump de dados para tabela `exercicio`
+-- Extraindo dados da tabela `exercicio`
 --
 
 INSERT INTO `exercicio` (`id`, `pergunta`, `opcao1`, `opcao2`, `opcao3`, `opcao4`, `resposta`, `tipo`, `slug_img`, `id_assunto`) VALUES
@@ -132,25 +143,27 @@ INSERT INTO `exercicio` (`id`, `pergunta`, `opcao1`, `opcao2`, `opcao3`, `opcao4
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `exercicios_feitos`
+-- Estrutura da tabela `exercicios_feitos`
 --
 
-CREATE TABLE `exercicios_feitos` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `exercicios_feitos`;
+CREATE TABLE IF NOT EXISTS `exercicios_feitos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `feito` tinyint(4) NOT NULL DEFAULT '0',
   `id_exercicio` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_usuario` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=322 DEFAULT CHARSET=utf8;
 
 --
--- Fazendo dump de dados para tabela `exercicios_feitos`
+-- Extraindo dados da tabela `exercicios_feitos`
 --
 
 INSERT INTO `exercicios_feitos` (`id`, `feito`, `id_exercicio`, `id_usuario`) VALUES
 (142, 0, 19, 1),
 (143, 0, 19, 3),
-(144, 0, 19, 6),
-(145, 0, 19, 7),
+(144, 1, 19, 6),
+(145, 1, 19, 7),
 (146, 0, 19, 9),
 (147, 1, 19, 9990),
 (148, 0, 19, 9992),
@@ -158,8 +171,8 @@ INSERT INTO `exercicios_feitos` (`id`, `feito`, `id_exercicio`, `id_usuario`) VA
 (150, 0, 19, 9994),
 (151, 0, 20, 1),
 (152, 0, 20, 3),
-(153, 0, 20, 6),
-(154, 0, 20, 7),
+(153, 1, 20, 6),
+(154, 1, 20, 7),
 (155, 0, 20, 9),
 (156, 1, 20, 9990),
 (157, 0, 20, 9992),
@@ -167,8 +180,8 @@ INSERT INTO `exercicios_feitos` (`id`, `feito`, `id_exercicio`, `id_usuario`) VA
 (159, 0, 20, 9994),
 (160, 0, 21, 1),
 (161, 0, 21, 3),
-(162, 0, 21, 6),
-(163, 0, 21, 7),
+(162, 1, 21, 6),
+(163, 1, 21, 7),
 (164, 0, 21, 9),
 (165, 1, 21, 9990),
 (166, 0, 21, 9992),
@@ -177,7 +190,7 @@ INSERT INTO `exercicios_feitos` (`id`, `feito`, `id_exercicio`, `id_usuario`) VA
 (169, 0, 22, 1),
 (170, 0, 22, 3),
 (171, 0, 22, 6),
-(172, 0, 22, 7),
+(172, 1, 22, 7),
 (173, 0, 22, 9),
 (174, 1, 22, 9990),
 (175, 0, 22, 9992),
@@ -222,7 +235,7 @@ INSERT INTO `exercicios_feitos` (`id`, `feito`, `id_exercicio`, `id_usuario`) VA
 (214, 0, 27, 1),
 (215, 0, 27, 3),
 (216, 0, 27, 6),
-(217, 0, 27, 7),
+(217, 1, 27, 7),
 (218, 0, 27, 9),
 (219, 0, 27, 9990),
 (220, 0, 27, 9992),
@@ -231,7 +244,7 @@ INSERT INTO `exercicios_feitos` (`id`, `feito`, `id_exercicio`, `id_usuario`) VA
 (223, 0, 28, 1),
 (224, 0, 28, 3),
 (225, 0, 28, 6),
-(226, 0, 28, 7),
+(226, 1, 28, 7),
 (227, 0, 28, 9),
 (228, 0, 28, 9990),
 (229, 0, 28, 9992),
@@ -240,7 +253,7 @@ INSERT INTO `exercicios_feitos` (`id`, `feito`, `id_exercicio`, `id_usuario`) VA
 (232, 0, 29, 1),
 (233, 0, 29, 3),
 (234, 0, 29, 6),
-(235, 0, 29, 7),
+(235, 1, 29, 7),
 (236, 0, 29, 9),
 (237, 0, 29, 9990),
 (238, 0, 29, 9992),
@@ -267,7 +280,7 @@ INSERT INTO `exercicios_feitos` (`id`, `feito`, `id_exercicio`, `id_usuario`) VA
 (259, 0, 32, 1),
 (260, 0, 32, 3),
 (261, 0, 32, 6),
-(262, 0, 32, 7),
+(262, 1, 32, 7),
 (263, 0, 32, 9),
 (264, 0, 32, 9990),
 (265, 0, 32, 9992),
@@ -294,7 +307,7 @@ INSERT INTO `exercicios_feitos` (`id`, `feito`, `id_exercicio`, `id_usuario`) VA
 (286, 0, 35, 1),
 (287, 0, 35, 3),
 (288, 0, 35, 6),
-(289, 0, 35, 7),
+(289, 1, 35, 7),
 (290, 0, 35, 9),
 (291, 0, 35, 9990),
 (292, 0, 35, 9992),
@@ -303,7 +316,7 @@ INSERT INTO `exercicios_feitos` (`id`, `feito`, `id_exercicio`, `id_usuario`) VA
 (295, 0, 36, 1),
 (296, 0, 36, 3),
 (297, 1, 36, 6),
-(298, 0, 36, 7),
+(298, 1, 36, 7),
 (299, 0, 36, 9),
 (300, 0, 36, 9990),
 (301, 0, 36, 9992),
@@ -322,19 +335,21 @@ INSERT INTO `exercicios_feitos` (`id`, `feito`, `id_exercicio`, `id_usuario`) VA
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `historico`
+-- Estrutura da tabela `historico`
 --
 
-CREATE TABLE `historico` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `historico`;
+CREATE TABLE IF NOT EXISTS `historico` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_usuario` int(11) NOT NULL,
   `datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `acao` varchar(128) NOT NULL,
-  `id_acao` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `id_acao` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
 --
--- Fazendo dump de dados para tabela `historico`
+-- Extraindo dados da tabela `historico`
 --
 
 INSERT INTO `historico` (`id`, `id_usuario`, `datetime`, `acao`, `id_acao`) VALUES
@@ -357,23 +372,35 @@ INSERT INTO `historico` (`id`, `id_usuario`, `datetime`, `acao`, `id_acao`) VALU
 (25, 9994, '2018-02-26 16:06:12', 'salvar_pagina', 62),
 (26, 6, '2018-02-27 23:00:59', 'salvar_pagina', 63),
 (27, 6, '2018-02-27 23:26:30', 'salvar_pagina', 64),
-(28, 6, '2018-02-27 23:27:03', 'comentario', 33);
+(28, 6, '2018-02-27 23:27:03', 'comentario', 33),
+(29, 6, '2018-03-04 16:34:21', 'salvar_pagina', 65),
+(30, 9990, '2018-03-04 23:26:57', 'salvar_pagina', 66),
+(31, 7, '2018-03-09 18:45:55', 'comentario', 34),
+(32, 7, '2018-03-09 18:47:31', 'comentario', 35),
+(33, 7, '2018-03-09 18:48:16', 'comentario', 36),
+(34, 7, '2018-03-09 18:52:07', 'salvar_pagina', 67),
+(35, 7, '2018-03-09 18:52:10', 'salvar_pagina', 68),
+(36, 7, '2018-03-09 18:52:24', 'salvar_pagina', 69),
+(37, 7, '2018-03-09 18:55:12', 'comentario', 37);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `perfil`
+-- Estrutura da tabela `perfil`
 --
 
-CREATE TABLE `perfil` (
-  `id` int(11) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `perfil`;
+CREATE TABLE IF NOT EXISTS `perfil` (
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_usuario` int(11) UNSIGNED NOT NULL,
   `perfil` varchar(20) NOT NULL,
-  `criado_em` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `criado_em` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `id_usuario` (`id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 --
--- Fazendo dump de dados para tabela `perfil`
+-- Extraindo dados da tabela `perfil`
 --
 
 INSERT INTO `perfil` (`id`, `id_usuario`, `perfil`, `criado_em`) VALUES
@@ -390,18 +417,20 @@ INSERT INTO `perfil` (`id`, `id_usuario`, `perfil`, `criado_em`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `progresso`
+-- Estrutura da tabela `progresso`
 --
 
-CREATE TABLE `progresso` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `progresso`;
+CREATE TABLE IF NOT EXISTS `progresso` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `progresso` float NOT NULL DEFAULT '0',
   `id_usuario` int(11) NOT NULL,
-  `id_assunto` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_assunto` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8;
 
 --
--- Fazendo dump de dados para tabela `progresso`
+-- Extraindo dados da tabela `progresso`
 --
 
 INSERT INTO `progresso` (`id`, `progresso`, `id_usuario`, `id_assunto`) VALUES
@@ -423,18 +452,18 @@ INSERT INTO `progresso` (`id`, `progresso`, `id_usuario`, `id_assunto`) VALUES
 (18, 0, 3, 7),
 (19, 0, 3, 5),
 (20, 0, 3, 6),
-(21, 0, 6, 1),
+(21, 0.375, 6, 1),
 (22, 0, 6, 2),
-(23, 0.667, 6, 3),
+(23, 0, 6, 3),
 (24, 0.5, 6, 7),
 (25, 0, 6, 5),
 (26, 0, 6, 6),
-(27, 0, 7, 1),
-(28, 0, 7, 2),
-(29, 0, 7, 3),
-(30, 0, 7, 7),
+(27, 0.5, 7, 1),
+(28, 0.6, 7, 2),
+(29, 1, 7, 3),
+(30, 0.5, 7, 7),
 (31, 0, 7, 5),
-(32, 0, 7, 6),
+(32, 1, 7, 6),
 (33, 0, 9, 1),
 (34, 0, 9, 2),
 (35, 0, 9, 3),
@@ -469,18 +498,21 @@ INSERT INTO `progresso` (`id`, `progresso`, `id_usuario`, `id_assunto`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `salva_pagina`
+-- Estrutura da tabela `salva_pagina`
 --
 
-CREATE TABLE `salva_pagina` (
-  `id` int(11) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `salva_pagina`;
+CREATE TABLE IF NOT EXISTS `salva_pagina` (
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_usuario` int(11) UNSIGNED NOT NULL,
   `pagina` varchar(48) NOT NULL,
-  `salva_em` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `salva_em` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `id_usuario` (`id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8;
 
 --
--- Fazendo dump de dados para tabela `salva_pagina`
+-- Extraindo dados da tabela `salva_pagina`
 --
 
 INSERT INTO `salva_pagina` (`id`, `id_usuario`, `pagina`, `salva_em`) VALUES
@@ -490,160 +522,60 @@ INSERT INTO `salva_pagina` (`id`, `id_usuario`, `pagina`, `salva_em`) VALUES
 (60, 9994, 'triangulo', '2018-02-26 16:06:05'),
 (61, 9994, 'circulo', '2018-02-26 16:06:09'),
 (62, 9994, 'paralelogramo', '2018-02-26 16:06:12'),
-(64, 6, 'paralelo', '2018-02-27 23:26:30');
+(64, 6, 'paralelo', '2018-02-27 23:26:30'),
+(65, 6, 'circulo', '2018-03-04 16:34:21'),
+(66, 9990, 'perimetro', '2018-03-04 23:26:57'),
+(67, 7, 'triangulo', '2018-03-09 18:52:07'),
+(68, 7, 'paralelo', '2018-03-09 18:52:10'),
+(69, 7, 'retangulo', '2018-03-09 18:52:24');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `usuario`
+-- Estrutura da tabela `usuario`
 --
 
-CREATE TABLE `usuario` (
-  `id` int(11) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `usuario`;
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `email` varchar(128) NOT NULL,
   `usuario` varchar(128) DEFAULT NULL,
   `nome` varchar(128) NOT NULL,
   `senha` varchar(128) NOT NULL,
   `biografia` varchar(140) DEFAULT NULL,
   `slug_foto` varchar(128) DEFAULT 'default.jpg',
-  `local` varchar(128) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `local` varchar(128) DEFAULT NULL,
+  `criado_em` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_email` (`email`),
+  UNIQUE KEY `usuario` (`usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=9995 DEFAULT CHARSET=utf8;
 
 --
--- Fazendo dump de dados para tabela `usuario`
+-- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `email`, `usuario`, `nome`, `senha`, `biografia`, `slug_foto`, `local`) VALUES
-(1, 'eli.embits@gmail.com', 'eli.embits', 'Elionai Moura Cordeiro', '123456', 'Biografia', 'default.jpg', 'Ceará-Mirim'),
-(3, 'rosangelarafaela61@gmail.com', 'rosangelarafaela61', 'RosÃ¢ngela Rafaela', '123456', 'Biografia', 'default.jpg', 'Ceará-Mirim'),
-(6, 'admin@admin.com', 'admin', 'Bruno', '123456', 'Biografia', 'default.jpg', 'Ceará-Mirim'),
-(7, 'brunowagner@gmail.com', 'brunowagner', 'Bruno', '123456', 'Biografia', 'default.jpg', 'Ceará-Mirim'),
-(9, 'bwbr@gmail.com', 'bwbr', 'Bruno', 'asdf', 'Biografia', 'default.jpg', NULL),
-(9990, 'bruno.wagner.b.r@hotmail.com', 'bwbrunowagner', 'Bruno Wagner', '123', 'Biografia', 'default.jpg', 'Ceará-Mirim'),
-(9992, 'bwbr2@gmail.com', 'bwbruno', 'Bruno', '123456', NULL, 'default.jpg', NULL),
-(9993, 'admin@admin2.com', 'bwbrunowagnerbw', 'Bruno', '123', NULL, 'default.jpg', NULL),
-(9994, 'admin@admin3.com', 'bwbrunowa', 'Bruno', '123', 'Documentation and examples for opt-in styling of tables (given their prevalent use in JavaScript plugins) with Bootstrap.', 'default.jpg', 'Ceará-Mirim');
+INSERT INTO `usuario` (`id`, `email`, `usuario`, `nome`, `senha`, `biografia`, `slug_foto`, `local`, `criado_em`) VALUES
+(1, 'eli.embits@gmail.com', 'eli.embits', 'Elionai Moura Cordeiro', '123456', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'default.jpg', 'Ceará-Mirim', '2018-03-04 23:32:30'),
+(3, 'rosangelarafaela61@gmail.com', 'rosangelarafaela61', 'Rosângela Rafaela', '123456', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'default.jpg', 'Ceará-Mirim', '2018-03-04 23:32:30'),
+(6, 'admin@admin.com', 'admin', 'Administrador', 'admin', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'default.jpg', 'Ceará-Mirim', '2018-03-04 23:32:30'),
+(7, 'julie@gmail.com', 'julie', 'Julie Alma', '123456', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'avatar1.jpg', 'Ceará-Mirim', '2018-03-04 23:32:30'),
+(9, 'louise@gmail.com', 'louise', 'Louise Armero', '123456', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'avatar2.jpg', 'Ceará-Mirim', '2018-03-04 23:32:30'),
+(9990, 'maycon@hotmail.com', 'maycon', 'Maycon Lorence', '123465', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'avatar3.jpg', 'Ceará-Mirim', '2018-03-04 23:32:30'),
+(9992, 'bwbr2@gmail.com', 'bwbruno', 'Bruno', '123456', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'default.jpg', NULL, '2018-03-04 23:32:30'),
+(9993, 'loren@gmail.com', 'loren', 'Lore Williams', '123456', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'avatar4.jpg', 'Ceará-Mirim', '2018-03-04 23:32:30'),
+(9994, 'carol@gmail.com', 'carol', 'Carol Moreira', '123456', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'avatar5.jpg', 'Ceará-Mirim', '2018-03-04 23:32:30');
 
 --
--- Índices de tabelas apagadas
---
-
---
--- Índices de tabela `assunto`
---
-ALTER TABLE `assunto`
-  ADD PRIMARY KEY (`id`);
-
---
--- Índices de tabela `comentario`
---
-ALTER TABLE `comentario`
-  ADD PRIMARY KEY (`id`);
-
---
--- Índices de tabela `exercicio`
---
-ALTER TABLE `exercicio`
-  ADD PRIMARY KEY (`id`);
-
---
--- Índices de tabela `exercicios_feitos`
---
-ALTER TABLE `exercicios_feitos`
-  ADD PRIMARY KEY (`id`);
-
---
--- Índices de tabela `historico`
---
-ALTER TABLE `historico`
-  ADD PRIMARY KEY (`id`);
-
---
--- Índices de tabela `perfil`
---
-ALTER TABLE `perfil`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_usuario` (`id_usuario`);
-
---
--- Índices de tabela `progresso`
---
-ALTER TABLE `progresso`
-  ADD PRIMARY KEY (`id`);
-
---
--- Índices de tabela `salva_pagina`
---
-ALTER TABLE `salva_pagina`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_usuario` (`id_usuario`);
-
---
--- Índices de tabela `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `user_email` (`email`),
-  ADD UNIQUE KEY `usuario` (`usuario`);
-
---
--- AUTO_INCREMENT de tabelas apagadas
+-- Constraints for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `assunto`
---
-ALTER TABLE `assunto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT de tabela `comentario`
---
-ALTER TABLE `comentario`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
---
--- AUTO_INCREMENT de tabela `exercicio`
---
-ALTER TABLE `exercicio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
---
--- AUTO_INCREMENT de tabela `exercicios_feitos`
---
-ALTER TABLE `exercicios_feitos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=322;
---
--- AUTO_INCREMENT de tabela `historico`
---
-ALTER TABLE `historico`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
---
--- AUTO_INCREMENT de tabela `perfil`
---
-ALTER TABLE `perfil`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
---
--- AUTO_INCREMENT de tabela `progresso`
---
-ALTER TABLE `progresso`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
---
--- AUTO_INCREMENT de tabela `salva_pagina`
---
-ALTER TABLE `salva_pagina`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
---
--- AUTO_INCREMENT de tabela `usuario`
---
-ALTER TABLE `usuario`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9995;
---
--- Restrições para dumps de tabelas
---
-
---
--- Restrições para tabelas `perfil`
+-- Limitadores para a tabela `perfil`
 --
 ALTER TABLE `perfil`
   ADD CONSTRAINT `id_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON DELETE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

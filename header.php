@@ -54,12 +54,12 @@ $parametros = explode('/', $url);
               <a class="nav-link dropdown-toggle
               <?php if(($parametros[0]=='triangulo')||($parametros[0]=='circulo')||($parametros[0]=='losango')||($parametros[0]=='paralelo')||($parametros[0]=='retangulo')||($parametros[0]=='trapezio')){echo 'active';$section_title="As Figuras";}else{echo '';}?>" href="#" data-toggle="dropdown" id="navDrop">As Figuras</a>
               <div class="dropdown-menu">
-                <a class="<?=($parametros[0]=='triangulo') ? 'active'.$section_subtitle="Triângulo".'' : ''?>" href="<?=PATH?>triangulo">Triângulo</a>
-                <a class="<?=($parametros[0]=='circulo') ? 'active'.$section_subtitle="Círculo".'' : ''?>" href="<?=PATH?>circulo">Círculo</a>
-                <a class="<?=($parametros[0]=='losango') ? 'active'.$section_subtitle="Losango".'' : ''?>" href="<?=PATH?>losango">Losango</a>
-                <a class="<?=($parametros[0]=='paralelo') ? 'active'.$section_subtitle="Paralelogramo".'' : ''?>" href="<?=PATH?>paralelo">Paralelogramo</a>
-                <a class="<?=($parametros[0]=='retangulo') ? 'active'.$section_subtitle="Retângulo".'' : ''?>" href="<?=PATH?>retangulo">Retângulo</a>
-                <a class="<?=($parametros[0]=='trapezio') ? 'active'.$section_subtitle="Trapézio".'' : ''?>" href="<?=PATH?>trapezio">Trapézio</a>
+                <a class="" href="<?=PATH?>triangulo">Triângulo</a>
+                <a class="" href="<?=PATH?>circulo">Círculo</a>
+                <a class="" href="<?=PATH?>losango">Losango</a>
+                <a class="" href="<?=PATH?>paralelo">Paralelogramo</a>
+                <a class="" href="<?=PATH?>retangulo">Retângulo</a>
+                <a class="" href="<?=PATH?>trapezio">Trapézio</a>
               </div>
             </li>
             <li class="nav-item">
@@ -69,7 +69,7 @@ $parametros = explode('/', $url);
               <a class="nav-link <?php if($parametros[0]=='contato'){echo 'active';}else{echo '';}?>" href="<?=PATH?>contato">Contato</a>
             </li>
 
-            <?php if (!empty($_SESSION["usuario"]) && $_SESSION[usuario][id]==9990) { ?>
+            <?php if (!empty($_SESSION["usuario"]) && $_SESSION[usuario][id]==6) { ?>
             <li class="navbar-item dropdown">
               <a class="nav-link dropdown-toggle
               <?php if(($parametros[0]=='form-exercicio-objetivo')||($parametros[0]=='form-editar-exercicio-objetivo')){

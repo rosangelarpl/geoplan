@@ -38,9 +38,9 @@ if (isset($_POST) && !empty($_POST)){
   
 }
 
-echo var_dump($_FILES);
-echo var_dump($_FILES['userfile']['foto']);
-echo var_dump($_FILE['foto']['name']);
+// echo var_dump($_FILES);
+// echo var_dump($_FILES['userfile']['foto']);
+// echo var_dump($_FILE['foto']['name']);
 
 
 if (isset($_FILES)) {

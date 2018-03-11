@@ -1,4 +1,6 @@
 <?php
+$section_title = 'As Figuras';
+$section_subtitle = 'Triângulo';
 include_once "section_header.php";
 include_once "section_nav.php";
 ?>
@@ -58,25 +60,20 @@ include_once "section_nav.php";
             <li>O menor lado de um triângulo opõe-se ao seu menor ângulo.</li>
           </ul>
 
-          <form class="calcular">
-            <p class="instrucoes">DIGITE OS VALORES PEDIDOS PARA ENCONTRAR A ÁREA</p>
-            <div class="form-group row">
-              <div class="col-sm-12">
-              Base: <input type="text" class="form-control" placeholder="tamanho da base" id="base">
-              </div>
+          <h2 class="post-title text-center pt-5">calcular Área do Triângulo</h2>
+
+          <div id="login" class="login-page">
+            <div class="form">
+              <form class="login-form">
+              <input type="text" placeholder="Tamanho da base" id="base">
+              <input type="text" placeholder="Tamanho da altura" id="altura">
+              <button type="button" value="Calcular" class="site-btn btn-2 mb-3" onclick="calcularAreaTriangulo();return true"/>Calcular</button>
+              <input type="text" id="area" name="area" placeholder="Resultado">
+              </form>
             </div>
-            <div class="form-group row">
-              <div class="col-sm-12">
-              Altura:<input type="text" class="form-control" placeholder="tamanho da altura" id="altura">
-              </div>
-            </div>
-                <button type="button" value="Calcular" class="btn btn-primary" onclick="calcularAreaTriangulo();return true"/>Calcular</button>
-            <div class="form-group row">
-              <div class="col-sm-12">
-                Área:<input type="text" class="form-control" id="area" name="area">
-              </div>
-            </div>
-          </form>
+          </div>
+
+
 
         </div>
       </div>

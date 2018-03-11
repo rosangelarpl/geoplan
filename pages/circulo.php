@@ -1,4 +1,6 @@
 <?php
+$section_title = 'As Figuras';
+$section_subtitle = 'Círculo';
 include_once "section_header.php";
 include_once "section_nav.php";
 ?>
@@ -40,21 +42,19 @@ include_once "section_nav.php";
         <p class="formula">A = π.r^2</p>
         <p>Uma vez dito isso, é mais correto afirmar que o cálculo de área é feito apenas no círculo ou que a área a ser calculada é delimitada por uma circunferência. Contudo, é comum encontrar exercícios e problemas cujas propostas de cálculo são para área da circunferência.</p>
 
-        <form class="calcular">
-          <p class="instrucoes">DIGITE OS VALORES PEDIDOS PARA ENCONTRAR A ÁREA</p>
-          <div class="form-group row">
-            <div class="col-sm-12">
-              Raio: <input type="text" class="form-control" placeholder="raio" id="raio"/>
-            </div>
-          </div>
-          <div class="form-group row">
-            <div class="col-sm-12">
-              Área:<input type="text" class="form-control" id="area" name="area">
-            </div>
-          </div>
-          <button type="button" value="Calcular" class="btn btn-primary" onclick="calcularAreaCirculo();return true"/>Calcular</button>
+         <h2 class="post-title text-center pt-5">calcular Área do Círculo</h2>
 
-        </form>
+          <div id="login" class="login-page">
+            <div class="form">
+              <form class="login-form">
+                <input type="text" placeholder="Raio" id="raio"/>
+                <button type="button" value="Calcular" class="site-btn btn-2 mb-3" onclick="calcularAreaCirculo();return true"/>Calcular</button>
+                <input type="text" id="area" name="area" placeholder="Resultado">
+              </form>
+            </div>
+          </div>
+
+
 
       </div>
     </div>

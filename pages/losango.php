@@ -1,4 +1,6 @@
 <?php
+$section_title = 'As Figuras';
+$section_subtitle = 'Losango';
 include_once "section_header.php";
 include_once "section_nav.php";
 ?>
@@ -33,25 +35,21 @@ include_once "section_nav.php";
 
         <img src="images/losango2.jpg" alt="" class="losango1">
 
-        <form class="calcular">
-            <p class="instrucoes">DIGITE OS VALORES PEDIDOS PARA ENCONTRAR A ÁREA</p>
-            <div class="form-group row">
-              <div class="col-sm-12">
-                Dagonal Maior: <input type="text" class="form-control" placeholder="diagonal maior" id="diagonalmaior">
-              </div>
+        <h2 class="post-title text-center pt-5">calcular Área do Losango</h2>
+
+          <div id="login" class="login-page">
+            <div class="form">
+              <form class="login-form">
+                <input type="text" placeholder="Diagonal maior" id="diagonalmaior">
+                <input type="text" placeholder="Tamanho da altura" id="diagonalmenor">
+                <button type="button" value="Calcular" class="site-btn btn-2 mb-3" onclick="calcularAreaLosango();return true"/>Calcular</button>
+                <input type="text" id="area" name="area" placeholder="Resultado">
+              </form>
             </div>
-            <div class="form-group row">
-              <div class="col-sm-12">
-                Diagonal Menor: <input type="text" class="form-control"placeholder="tamanho da altura" id="diagonalmenor">
-              </div>
-            </div>
-                <button type="button" value="Calcular" class="btn btn-primary" onclick="calcularAreaLosango();return true"/>Calcular</button>
-            <div class="form-group row">
-              <div class="col-sm-12">
-                Área:<input type="text" class="form-control" id="area" name="area">
-              </div>
-            </div>
-          </form>
+          </div>
+
+
+
 
 
 

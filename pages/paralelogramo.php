@@ -1,4 +1,6 @@
 <?php
+$section_title = 'As Figuras';
+$section_subtitle = 'Paralelogramo';
 include_once "section_header.php";
 include_once "section_nav.php";
 ?>

@@ -57,7 +57,7 @@ date_default_timezone_set('America/Sao_Paulo');
                 <img src="images/fotos/<?=$comentario['slug_foto'];?>" alt="">
               </div>
               <div class="commetn-text">
-                <h3><a href="<?=PATH?>perfil/<?=$comentario['usuario']?>"><?=$comentario['nome'];?></a> |  <?=strftime('%d de %B de %Y', strtotime($comentario["feito_em"]))?> </h3>
+                <h3><a href="<?=PATH?>perfil/<?=$comentario['usuario']?>"><?=$comentario['nome'];?></a> |  <?= utf8_encode(strftime('%d de %B de %Y', strtotime($comentario["feito_em"]))) ?> </h3>
                 <p><?=$comentario['texto'];?></p>
               </div>
             </li>
